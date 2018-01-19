@@ -1,0 +1,47 @@
+body, header, form {
+background: #0096f5;
+  border: 0;
+  color: #fff;
+}
+
+header {
+  padding-top: 10px;
+  height: 50px;
+}
+
+header a[role="button"] {
+background: #0064a3;
+      letter-spacing: .05em;
+}
+
+.container {
+  padding-top: 0px;
+  
+}
+
+button.primary, [type="button"].primary, [type="submit"].primary, [type="reset"].primary, .button.primary, [role="button"].primary {
+    background: #f05a22;
+    color: #fafafa;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  font-weight: 600;
+}
+
+h2, h3, h4, h5 {
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 44px;
+}
+
+h4 {
+  background: #007dcc;
+    padding: 10px 20px;
+    display: inline-block;
+    width: auto;
+}
+
+h5 {
+  font-size: 18px;
+}
