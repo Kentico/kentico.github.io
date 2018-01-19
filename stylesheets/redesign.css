@@ -25,6 +25,8 @@ button.primary, [type="button"].primary, [type="submit"].primary, [type="reset"]
     text-transform: uppercase;
     letter-spacing: .05em;
   font-weight: 600;
+  border-color: #db531f;
+border-bottom: 4px solid #db531f;
 }
 
 h2, h3, h4, h5 {
