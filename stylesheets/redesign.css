@@ -29,6 +29,10 @@ button.primary, [type="button"].primary, [type="submit"].primary, [type="reset"]
 border-bottom: 4px solid #db531f;
 }
 
+button.primary:hover, [type="button"].primary:hover, [type="submit"].primary:hover, [type="reset"].primary:hover, .button.primary:hover, [role="button"].primary:hover {
+  background: #db531f;
+}
+
 h2, h3, h4, h5 {
   color: #ffffff;
 }
