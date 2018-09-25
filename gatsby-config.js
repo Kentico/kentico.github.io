@@ -17,5 +17,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    'gatsby-plugin-eslint' // https://www.gatsbyjs.org/packages/gatsby-plugin-eslint/
   ],
 }
