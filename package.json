@@ -1,0 +1,36 @@
+{
+  "name": "kentico-github-io",
+  "description": "Official landing page for developer community in Kentico",
+  "version": "0.0.1",
+  "author": "Ondřej Chrastina <developerscommunity@kentico.com>",
+  "dependencies": {
+    "gatsby": "^2.0.0",
+    "gatsby-plugin-manifest": "^2.0.2",
+    "gatsby-plugin-offline": "^2.0.5",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-helmet": "^5.2.0"
+  },
+  "keywords": [
+    "gatsby",
+    "community",
+    "developer",
+    "kentico",
+    "kenticocloud",
+    "headless",
+    "cms"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kentico/kentico.github.io"
+  }
+}
