@@ -24,8 +24,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build && cpx -v \".github/**/*\" public/.github && cpx CODE_OF_CONDUCT.md public && cpx CONTRIBUTING.md public && cpx README.md public && cpx LICENSE public",
-    "develop": "gatsby develop",
-    "deploy": "gh-pages -d public -b master"
+    "develop": "gatsby develop"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
@@ -34,8 +33,7 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-react": "^7.11.1",
-    "gatsby-plugin-eslint": "^2.0.1",
-    "gh-pages": "^2.0.0"
+    "gatsby-plugin-eslint": "^2.0.1"
   },
   "repository": {
     "type": "git",
