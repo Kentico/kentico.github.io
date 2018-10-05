@@ -12,7 +12,7 @@ const Header = () => (
     <div style={{
       position: 'relative',
       top: '0',
-      left: '20px'
+      left: '2em'
     }}>
       <Link
         to="/"

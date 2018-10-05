@@ -17,6 +17,15 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-eslint' // https://www.gatsbyjs.org/packages/gatsby-plugin-eslint/
+    'gatsby-plugin-eslint', // https://www.gatsbyjs.org/packages/gatsby-plugin-eslint/
+    {
+      resolve: 'gatsby-source-kentico-cloud',
+      options: {
+        kcProjectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',
+        kcLanguageCodenames: [
+          "default"
+        ]
+      }
+    }
   ],
 }
