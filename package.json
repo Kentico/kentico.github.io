@@ -1,12 +1,13 @@
 {
   "name": "kentico-github-io",
   "description": "Official landing page for developer community in Kentico",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Ondřej Chrastina <developerscommunity@kentico.com>",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "ajv": "^6.5.4",
-    "gatsby": "^2.0.0",
-    "gatsby-plugin-manifest": "^2.0.2",
+    "gatsby": "^2.0.18",
+    "gatsby-plugin-manifest": "^2.0.4",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-source-kentico-cloud": "^1.0.1",
