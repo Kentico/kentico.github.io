@@ -1,17 +1,19 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Header from './header';
+import ResponsiveMenu from 'react-responsive-navbar';
 
-import UnderConstruction from '../images/under-construction.gif'
+import HeadingSection from './headingSection';
+import Section from './section';
+import Footer from './footer';
 
 const LandingPage = () => (
   <StaticQuery
     query={graphql`
-    query GetLanguagePageData{
-      allKenticoCloudItemSectionsPage{
+    query GetLanguagePageData {
+      allKenticoCloudItemSectionsPage {
         edges {
           node {
-            title{
+            title {
               text
             }
             subtitle {
@@ -23,22 +25,68 @@ const LandingPage = () => (
             cta__url {
               text
             }
-            personas{
-              name{
+            logo {
+              assets {
+                url
+              }
+            }
+            background_image {
+              assets {
+                url
+              }
+            }
+            personas {
+              name {
                 text
               }
             }
-            sections{
+            sections {
+              system {
+                id
+                type
+              }
               section_info__title {
                 text
               }
               section_info__subtitle {
                 text
               }
-              system {
-                name
-                type
-                id
+              section_info__background_image {
+                assets {
+                  url
+                }
+              }
+              icons {
+                title {
+                  text
+                }
+                subtitle {
+                  text
+                }
+                icon {
+                  assets {
+                    url
+                  }
+                }
+              }
+              url_link {
+                text
+              }
+              url_text {
+                text
+              }
+              icon {
+                assets {
+                  url
+                }
+              }
+              main_text {
+                value
+              }
+            }
+            backgrounds {
+              assets {
+                url
               }
             }
             footer_left_column {
@@ -61,43 +109,51 @@ const LandingPage = () => (
     render={(data) => {
       const node = data.allKenticoCloudItemSectionsPage.edges[0].node;
       const sections = node.sections.map((section, index) => (
-        <div
-          key={section.system.id}
-          style={{
-            background: index % 2 ? '#3D5182' : '#5B7BC1',
-            padding: '3em 0',
-            textAlign: 'center'
-          }}>
-          <h1>{section.section_info__title.text}</h1>
-          <h2>{section.section_info__subtitle.text}</h2>
-        </div>
+        <Section key={index} data={section} />
       ));
+
+      const hamburgerButton = <div style={{
+        background: `url(${node.backgrounds.assets[1].url}) center center no-repeat`,
+        position: 'absolute',
+        width: '55px', 
+        height: '55px', 
+        padding: '15px',
+        right: '0', 
+        top: '0',
+        zIndex: '500'}}>
+        </div>;
+
       return (
         <>
-          <Header />
-          <div
-            style={{
-              padding: '1em',
-              textAlign: 'center'
-            }}>
-            <h1>{node.title.text}</h1>
-            <h2>{node.subtitle.text}</h2>
-            <p>The site is under construction :-)</p>
-            <img src={UnderConstruction} alf="Under construction" />
-            <p> This state is temporary, we promise! your Developer Community Team</p>
-            <p><strong>#ICODETHEREFOREIAM</strong></p>
-          </div>
+          <ResponsiveMenu
+            menuOpenButton={hamburgerButton}
+            menuCloseButton={hamburgerButton}
+            largeMenuClassName="large-nav"
+            smallMenuClassName="small-nav"
+            changeMenuOn="750px"
+            menu={
+              <ul id="nav">
+                <li><a href="#value-propositions">Value Propositions</a></li>
+                <li><a href="#hacktoberfest">Hacktoberfest</a></li>
+                <li><a href="#our-projects">Our Projects & Contributors</a></li>
+              </ul>
+            }
+          />
+          <HeadingSection
+            title={node.title.text}
+            subtitle={node.subtitle.text}
+            ctaText={node.cta__text.text}
+            ctaUrl={node.cta__url.text}
+            logo={node.logo.assets[0]}
+            backgroundImage={node.background_image.assets[0]} />
           {sections}
-          <div
-            style={{
-              padding: '1em',
-              textAlign: 'center',
-            }}>
-            <div style={{ width: '30%', display: 'inline-block' }} dangerouslySetInnerHTML={{ __html: node.footer_left_column.value }}></div>
-            <div style={{ width: '30%', display: 'inline-block' }} dangerouslySetInnerHTML={{ __html: node.footer_center_column.value }}></div>
-            <div style={{ width: '30%', display: 'inline-block' }} dangerouslySetInnerHTML={{ __html: node.footer_right_column.value }}></div>
-            <div style={{ textAlign: 'center' }}>{node.footer_bottom_text.text}</div>
-          </div>
+          <Footer data={{
+            footer_left_column: node.footer_left_column,
+            footer_center_column: node.footer_center_column,
+            footer_right_column: node.footer_right_column,
+            footer_bottom_text: node.footer_bottom_text,
+            backgrounds: node.backgrounds.assets
+          }} />
         </>
       )
     }}
