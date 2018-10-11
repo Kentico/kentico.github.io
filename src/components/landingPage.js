@@ -142,7 +142,12 @@ class LandingPage extends Component {
           const node = data.allKenticoCloudItemSectionsPage.edges[0].node;
           const currentPersona = this.state.currentPersona;
           const sections = node.sections.map((section, index) => (
-            <Section key={index} data={section} personas={node.personas} currentPersona={currentPersona} changePersona={this.changePersona} />
+            <Section 
+              key={index} 
+              data={section} 
+              personas={node.personas} 
+              currentPersona={currentPersona} 
+              changePersona={this.changePersona} />
           ));
 
           const hamburgerButton = <div style={{
