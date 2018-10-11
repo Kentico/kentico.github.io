@@ -8,11 +8,11 @@ import ProjectsAndContributorsSection from './projectsAndContributorsSection';
 const Section = (props) => {  
   switch (props.data.system.type) {
     case 'icons_section':
-      return <IconsSection data={props.data}/>;
+      return <IconsSection {...props}/>;
     case 'banner_section':
-      return <BannerSection data={props.data}/>;
+      return <BannerSection {...props}/>;
     case 'projects_and_contributors_section':
-      return <ProjectsAndContributorsSection data={props.data}/>;      
+      return <ProjectsAndContributorsSection {...props}/>;      
     default:
       return <div>Unknown section!</div>;
   }
