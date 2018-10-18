@@ -2,7 +2,7 @@
 import GitHub from 'github-api';
 
 const gitHub = new GitHub({
-  token: "81d882c5b1c80b03cdccb7c16e535d49df289402"
+  token: "" // Generate some 
 });
 
 const getKenticoPublicRepos = async () => {
