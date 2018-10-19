@@ -2,7 +2,7 @@
 import GitHub from 'github-api';
 
 const gitHub = new GitHub({
-  token: "" // Generate some 
+  token: "c327ee78977f8bf838acc72b0416946d6d410056"
 });
 
 const getKenticoPublicRepos = async () => {
@@ -84,8 +84,9 @@ const getKenticoCloudTopThreeStaredRepos = async () => { // maximum is 1000
 }
 
 const getKenticoTopThreeContributors = async () => {
-  const kenticoMemberLogins = await getKenticoMemberLogins();
-  console.log(kenticoMemberLogins);
+  const ignoreList = ['desana', 'ondrejsevcik'];
+  const kenticoMemberLogins = (await getKenticoMemberLogins())
+    .concat(ignoreList);
   const publicRepos = await getKenticoPublicRepos();
   const contributors = {};
   const contributorsPromises = publicRepos
@@ -93,22 +94,43 @@ const getKenticoTopThreeContributors = async () => {
       .getRepo(repo.owner.login, repo.name)
       .getContributors());
 
-  const contributorsPerProject = await Promise.all(contributorsPromises); // disable
+  const contributorsPerProject = await Promise.all(contributorsPromises);
 
   contributorsPerProject.forEach(projectContributors => {
     for (const contributor of projectContributors.data) {
       if (kenticoMemberLogins.includes(contributor.login)) {
         continue;
       }
+
       if (contributors[contributor.login]) {
-        contributors[contributor.login] += contributor.contributions;
+        contributors[contributor.login].totalContributions += contributor.contributions;
       }
       else {
-        contributors[contributor.login] = contributor.contributions;
+        contributors[contributor.login] = {
+          totalContributions: contributor.contributions,
+          contributorInfo: {
+            ...contributor
+          }
+        }
       }
     }
   });
-  return contributors;
+
+  return Object.values(contributors)
+    .sort((a, b) => b.totalContributions - a.totalContributions)
+    .slice(0, 3);
+}
+
+const getKenticoOpenedGroomedIssues = async (platform) => {
+  let options;
+  let search = gitHub.search({
+    q: `org:Kentico type:issue is:public label:groomed state:open no:assignee language:${platform}`,
+    sort: 'updated',
+    order: 'desc'
+  });
+
+  const topIssues = await search.forIssues(options);
+  return topIssues.data.slice(0, 3);
 }
 
 export {
@@ -116,5 +138,6 @@ export {
   getKenticoMergedPullRequestCount,
   getKenticoContributorsCount,
   getKenticoCloudTopThreeStaredRepos,
-  getKenticoTopThreeContributors
+  getKenticoTopThreeContributors,
+  getKenticoOpenedGroomedIssues
 }
