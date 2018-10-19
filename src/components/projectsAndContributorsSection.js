@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import makeCancelable from 'makecancelable';
+import Loader from 'react-loaders'
+
+import {
+  getKenticoOpenSourceProjectsCount,
+  getKenticoMergedPullRequestCount,
+  getKenticoContributorsCount
+} from '../utils/gitHubDataLoader';
 
 
 class ProjectsAndContributorsSection extends Component {
@@ -18,18 +26,56 @@ class ProjectsAndContributorsSection extends Component {
       differentContributors: {
         loading: true,
         count: 0
-      }
+      },
     }
   }
 
+  componentDidMount() {
+
+    this.openSourceCountSubscription =
+      makeCancelable(getKenticoOpenSourceProjectsCount()
+        .then(count => this.setState({
+          opensourProjects: {
+            loading: false,
+            count: count
+          }
+        })));
+
+
+    this.mergedPullRequestsSubscription =
+      getKenticoMergedPullRequestCount()
+        .then(count => this.setState({
+          mergerdPullRequest: {
+            loading: false,
+            count: count
+          }
+        }));
+
+    this.contributorsCountSubscription =
+      getKenticoContributorsCount()
+        .then(count => this.setState({
+          differentContributors: {
+            loading: false,
+            count: count
+          }
+        }));
+  }
+
+  componentWillUnmount() {
+    this.openSourceCountSubscription.cancelFetch();
+    this.mergedPullRequestsSubscription.cancelFetch();
+    this.contributorsCountSubscription.cancelFetch();
+  }
+
   getCountLabel = (iconCodename) => {
+    const loader = <Loader type="ball-scale-ripple-multiple" active={true} style={{ transform: 'scale(0.5)' }} />;
     switch (iconCodename) {
       case 'number_of_opensource_projects':
-        return this.state.opensourProjects.loading ? 'N/A' : this.state.opensourProjects.count;
+        return this.state.opensourProjects.loading ? loader : this.state.opensourProjects.count;
       case 'merged_pull_requests':
-        return this.state.mergerdPullRequest.loading ? 'N/A' : this.state.mergerdPullRequest.count;
+        return this.state.mergerdPullRequest.loading ? loader : this.state.mergerdPullRequest.count;
       case 'different_contributors':
-        return this.state.differentContributors.loading ? 'N/A' : this.state.differentContributors.count;
+        return this.state.differentContributors.loading ? loader : this.state.differentContributors.count;
       default:
         return 'N/A';
     }

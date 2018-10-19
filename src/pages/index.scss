@@ -8,7 +8,6 @@ $color-text: #fff;
 $color-orange: #F15A23;
 $color-grey: #697D7E;
 $color-black: #000000;
-
 @mixin background() {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ecab35+0,d03a1f+100 */
   background: rgb(236, 171, 53);
@@ -173,6 +172,20 @@ a:hover {
   text-decoration: underline;
 }
 
+$primary-color: white;
+@import 'loaders.css/src/animations/ball-scale-ripple-multiple.scss';
+.loader-hidden {
+  display: none;
+}
+
+.loader-active {
+  display: inline-block;
+  width: 27px;
+  div {
+    display: inline-block;
+  }
+}
+
 .row-flex {
   width: calc(100% - 50px);
   max-width: 1170px;
@@ -232,7 +245,7 @@ a:hover {
   @include navigationSetup();
   right: 30px;
   top: 30px;
-  visibility: visible;  
+  visibility: visible;
 }
 
 .small-nav #nav {
@@ -291,7 +304,7 @@ section.first {
     @include button(#FFFFFF);
     margin: auto;
     margin-bottom: 150px;
-    &:hover{
+    &:hover {
       color: $color-black;
     }
   }
