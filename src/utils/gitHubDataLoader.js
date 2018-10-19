@@ -16,12 +16,6 @@ const getKenticoOpenSourceProjectsCount = async () => {
   return publicRepos.length;
 }
 
-const getLimits = async () => {
-  const rateLimit = gitHub.getRateLimit();
-  const result = await rateLimit.getRateLimit();
-  return result.data;
-}
-
 const getKenticoMemberLogins = async () => {
   let options = {
     per_page: '100',
