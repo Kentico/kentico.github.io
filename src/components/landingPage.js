@@ -12,10 +12,9 @@ class LandingPage extends Component {
     this.state = {
       currentPersona: 'developer'
     }
-    this.changePersona = this.changePersona.bind(this);
   }
 
-  changePersona(newPersona) {
+  changePersona = (newPersona) => {
     this.setState({
       currentPersona: newPersona
     });
@@ -142,11 +141,11 @@ class LandingPage extends Component {
           const node = data.allKenticoCloudItemSectionsPage.edges[0].node;
           const currentPersona = this.state.currentPersona;
           const sections = node.sections.map((section, index) => (
-            <Section 
-              key={index} 
-              data={section} 
-              personas={node.personas} 
-              currentPersona={currentPersona} 
+            <Section
+              key={index}
+              data={section}
+              personas={node.personas}
+              currentPersona={currentPersona}
               changePersona={this.changePersona} />
           ));
 
