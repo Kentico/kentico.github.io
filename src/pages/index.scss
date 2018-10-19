@@ -180,7 +180,6 @@ $primary-color: white;
 
 .loader-active {
   display: inline-block;
-  width: 27px;
   div {
     display: inline-block;
   }
@@ -620,6 +619,12 @@ section.sixth {
   }
   p {
     padding: 0px 0 0 95px;
+  }
+  a.icon-widget {
+    color: #FFFFFF;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 

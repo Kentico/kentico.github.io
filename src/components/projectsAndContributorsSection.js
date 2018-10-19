@@ -6,7 +6,9 @@ import Loader from 'react-loaders'
 import {
   getKenticoOpenSourceProjectsCount,
   getKenticoMergedPullRequestCount,
-  getKenticoContributorsCount
+  getKenticoContributorsCount,
+  getKenticoCloudTopThreeStaredRepos,
+  getKenticoTopThreeContributors
 } from '../utils/gitHubDataLoader';
 
 
@@ -27,6 +29,14 @@ class ProjectsAndContributorsSection extends Component {
         loading: true,
         count: 0
       },
+      repositories: {
+        loading: true,
+        data: undefined
+      },
+      contributors: {
+        loading: true,
+        data: undefined
+      }
     }
   }
 
@@ -43,32 +53,61 @@ class ProjectsAndContributorsSection extends Component {
 
 
     this.mergedPullRequestsSubscription =
-      getKenticoMergedPullRequestCount()
+      makeCancelable(getKenticoMergedPullRequestCount()
         .then(count => this.setState({
           mergerdPullRequest: {
             loading: false,
             count: count
           }
-        }));
+        })));
 
     this.contributorsCountSubscription =
-      getKenticoContributorsCount()
+      makeCancelable(getKenticoContributorsCount()
         .then(count => this.setState({
           differentContributors: {
             loading: false,
             count: count
           }
-        }));
+        })));
+
+    this.topThreeReposSubscription =
+      makeCancelable(getKenticoCloudTopThreeStaredRepos()
+        .then(repos => this.setState({
+          repositories: {
+            loading: false,
+            data: repos
+          }
+        })));
+
+    this.contributorsSubscription =
+      makeCancelable(getKenticoTopThreeContributors()
+        .then(contributors => this.setState({
+          contributors: {
+            loading: false,
+            data: contributors
+          }
+        })));
   }
 
   componentWillUnmount() {
     this.openSourceCountSubscription.cancelFetch();
     this.mergedPullRequestsSubscription.cancelFetch();
     this.contributorsCountSubscription.cancelFetch();
+    this.topThreeReposSubscription.cancelFetch();
+    this.contributorsSubscription.cancelFetch();
   }
 
   getCountLabel = (iconCodename) => {
-    const loader = <Loader type="ball-scale-ripple-multiple" active={true} style={{ transform: 'scale(0.5)' }} />;
+    const loader =
+      <Loader
+        type="ball-scale-ripple-multiple"
+        active={true}
+        style={{
+          transform: 'scale(0.5)',
+          width: '27px',
+          height: '27px'
+        }} />;
+
     switch (iconCodename) {
       case 'number_of_opensource_projects':
         return this.state.opensourProjects.loading ? loader : this.state.opensourProjects.count;
@@ -81,6 +120,48 @@ class ProjectsAndContributorsSection extends Component {
     }
   }
 
+  getIconUrlForPlatform = (language) => (
+    this.props.platforms
+      .filter(platform =>
+        platform.system.codename === language)[0].icon.assets[0].url
+  )
+
+  getIconNameForPlatform = (language) => (
+    this.props.platforms
+      .filter(platform =>
+        platform.system.codename === language)[0].icon.assets[0].name
+  )
+
+  getPlatformIcon = (language) => {
+    let platformCodename = 'default';
+    switch (language) {
+      case 'C#': {
+        platformCodename = 'csharp';
+        break;
+      }
+      case 'Java': {
+        platformCodename = 'java_25fb270';
+        break;
+      }
+      case 'Javascript':
+      case 'CSS': {
+        platformCodename = 'javascript';
+        break;
+      }
+      case 'PHP': {
+        platformCodename = 'php_426b4b3';
+        break;
+      }
+      case 'HTML': {
+        platformCodename = 'html';
+        break;
+      }
+    }
+
+    return <img src={this.getIconUrlForPlatform(platformCodename)} alt={this.getIconNameForPlatform(platformCodename)} />;
+  }
+
+
   render() {
     const icons = this.props.data.icons.map((icon, index) => {
       const countLabel = this.getCountLabel(icon.system.codename);
@@ -91,6 +172,39 @@ class ProjectsAndContributorsSection extends Component {
         </div>
       )
     });
+
+    const repositories = this.state.repositories.loading ?
+      <Loader type="ball-scale-ripple-multiple" active={true} style={{ transform: 'scale(0.5)', width: '27px', height: '324px' }} /> :
+      this.state.repositories.data.map(repo => {
+        const icon = this.getPlatformIcon(repo.language);
+        return (
+          <div key={repo.id} className="person">
+            <a href={repo.html_url} className="icon-widget">
+              {icon}
+              <p>
+                <strong>{repo.name}</strong>
+                {repo.stargazers_count} stars<br />
+                {repo.watchers_count} watchers
+              </p>
+              <div className="clear"></div>
+            </a>
+          </div>)
+      });
+      
+      const contributors = this.state.contributors.loading ?
+      <Loader type="ball-scale-ripple-multiple" active={true} style={{ transform: 'scale(0.5)', width: '27px', height: '324px' }} /> :
+      this.state.contributors.data.map(contributor => (
+        <div key={contributor.contributorInfo.login} className="person">
+          <a className="icon-widget" href={contributor.contributorInfo.html_url}>
+            <img src={contributor.contributorInfo.avatar_url} alt={`avatar of ${contributor.contributorInfo.login}`} />
+            <p>
+              <strong>{contributor.contributorInfo.login}</strong><br />
+              {contributor.totalContributions} contributions
+            </p>
+            <div className="clear"></div>
+          </a>
+        </div>));
+
 
     return (
       <section
@@ -106,7 +220,15 @@ class ProjectsAndContributorsSection extends Component {
         <div className="row-flex stats">
           {icons}
         </div>
-      </section>
+        <div className="row-flex">
+          <div className="box-50">
+            {repositories}
+          </div>
+          <div className="box-50">
+            {contributors}
+          </div>
+        </div>
+      </section >
     );
   }
 }
@@ -118,8 +240,9 @@ ProjectsAndContributorsSection.propTypes = {
     section_info__title: PropTypes.object,
     section_info__subtitle: PropTypes.object,
     section_info__background_image: PropTypes.object,
-    icons: PropTypes.array
+    icons: PropTypes.array,
   }),
+  platforms: PropTypes.array,
 };
 
 export default ProjectsAndContributorsSection;

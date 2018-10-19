@@ -120,6 +120,17 @@ class LandingPage extends Component {
                     url
                   }
                 }
+                platforms {
+                  system {
+                    codename
+                  }
+                  icon {
+                    assets {
+                      name
+                      url
+                    }
+                  }
+                }
                 footer_left_column {
                   value
                 }
@@ -145,6 +156,7 @@ class LandingPage extends Component {
               key={index}
               data={section}
               personas={node.personas}
+              platforms={node.platforms}
               currentPersona={currentPersona}
               changePersona={this.changePersona} />
           ));
