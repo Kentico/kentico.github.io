@@ -2,7 +2,7 @@
 import GitHub from 'github-api';
 
 const gitHub = new GitHub({
-  token: "c327ee78977f8bf838acc72b0416946d6d410056"
+  token: process.env.GITHUB_PERSONAL_KEY
 });
 
 const getKenticoPublicRepos = async () => {
@@ -15,7 +15,6 @@ const getKenticoOpenSourceProjectsCount = async () => {
   const publicRepos = await getKenticoPublicRepos();
   return publicRepos.length;
 }
-
 
 const getLimits = async () => {
   const rateLimit = gitHub.getRateLimit();
