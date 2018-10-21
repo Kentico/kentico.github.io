@@ -114,6 +114,25 @@ class LandingPage extends Component {
                   main_text {
                     value
                   }
+                  platform_selector {
+                    name {
+                      value
+                    }
+                    codename {
+                      value
+                    }
+                  }
+                  steps_label {
+                    value
+                  }
+                  steps {
+                    text {
+                      value
+                    }
+                  }
+                  issues_label {
+                    value
+                  }
                 }
                 backgrounds {
                   assets {

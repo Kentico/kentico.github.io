@@ -178,13 +178,6 @@ $primary-color: white;
   display: none;
 }
 
-.loader-active {
-  display: inline-block;
-  div {
-    display: inline-block;
-  }
-}
-
 .row-flex {
   width: calc(100% - 50px);
   max-width: 1170px;
@@ -376,6 +369,10 @@ section.third {
     font-weight: bold;
     text-align: center;
     padding: 0 0 30px 0;
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
+    }
   }
   .buttons {
     padding: 80px 0 50px 0;
@@ -435,12 +432,25 @@ section.third {
     ul {
       li {
         font-weight: bold;
-        padding: 20px 0;
-        span {
-          font-weight: 300;
-          padding: 5px 5px 5px 50px;
+        padding: 10px 0;
+        min-height: 77px;
+        a {
+          color: #FFFFFF;
+          text-decoration: none;
+        }
+        img {
+          width: 77px;
+          height: 77px;
+          border-radius: 50%;
+          float: left;
+          border: 3px #fff solid;
+          margin-right: 1em;
         }
       }
+    }
+    .loader-active > div{
+        width: 0;
+        margin: 2em auto;
     }
   }
   .steps {
@@ -571,6 +581,12 @@ section.fifth {
       font-weight: bold;
     }
   }
+  .loader-active {
+    display: inline-block;
+    div {
+      display: inline-block;
+    }
+  }
 }
 
 section.sixth {
@@ -660,6 +676,7 @@ section.sixth {
       padding-top: 55px;
     }
   }
+
   section.second {
     .content {
       .row-flex {

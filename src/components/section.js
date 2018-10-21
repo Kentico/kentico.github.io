@@ -4,15 +4,18 @@ import PropTypes from 'prop-types';
 import IconsSection from './iconsSection';
 import BannerSection from './bannerSection';
 import ProjectsAndContributorsSection from './projectsAndContributorsSection';
+import GithubIssuesListSection from './githubIssuesListSection';
 
-const Section = (props) => {  
+const Section = (props) => {
   switch (props.data.system.type) {
     case 'icons_section':
-      return <IconsSection {...props}/>;
+      return <IconsSection {...props} />;
     case 'banner_section':
-      return <BannerSection {...props}/>;
+      return <BannerSection {...props} />;
     case 'projects_and_contributors_section':
-      return <ProjectsAndContributorsSection {...props}/>;      
+      return <ProjectsAndContributorsSection {...props} />;
+    case 'task_list_section':
+      return <GithubIssuesListSection {...props} />;
     default:
       return <div>Unknown section!</div>;
   }
