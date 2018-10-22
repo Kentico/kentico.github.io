@@ -19,7 +19,22 @@ module.exports = {
         icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        runtimeCaching: [{
+          // To match cross-origin requests, use a RegExp that matches
+          // the start of the origin:
+          urlPattern: /^https:\/\/api\.github\.com\//,
+          handler: 'staleWhileRevalidate',
+          options: {
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        }]
+      }
+    },
     'gatsby-plugin-eslint', // https://www.gatsbyjs.org/packages/gatsby-plugin-eslint/
     {
       resolve: 'gatsby-source-kentico-cloud',
