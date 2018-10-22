@@ -1,7 +1,7 @@
 {
   "name": "kentico-github-io",
   "description": "Official landing page for developer community in Kentico",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Ondřej Chrastina <developerscommunity@kentico.com>",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
@@ -41,6 +41,7 @@
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "cpx": "^1.5.0",
+    "cross-env": "^5.2.0",
     "eslint": "^4.9.0",
     "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.14.0",
