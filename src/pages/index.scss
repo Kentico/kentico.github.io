@@ -449,7 +449,7 @@ section.third {
       }
     }
     .loader-active > div{
-        width: 0;
+        width: 100%;
         margin: 2em auto;
     }
   }
@@ -547,6 +547,7 @@ section.fourth {
 }
 
 section.fifth {
+  padding: 0px 0 280px 0; 
   h2 {
     padding: 110px 0 5px 0;
     font-size: 60px;
@@ -608,6 +609,9 @@ section.sixth {
     strong {
       font-weight: bold;
     }
+  }
+  .mobile-long-name p{
+    font-size: 16px;
   }
   .copyright {
     padding: 150px 0 0 0;

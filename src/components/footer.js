@@ -13,7 +13,7 @@ const Footer = (props) => {
         </div>
         <div className="box-33" dangerouslySetInnerHTML={{ __html: props.data.footer_center_column.value }}>
         </div>
-        <div className="box-33" dangerouslySetInnerHTML={{ __html: props.data.footer_right_column.value }}>
+        <div className="box-33 mobile-long-name" dangerouslySetInnerHTML={{ __html: props.data.footer_right_column.value }}>
         </div>
       </div>
       <div className="row-flex">
