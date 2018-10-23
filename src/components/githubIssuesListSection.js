@@ -59,8 +59,9 @@ class GithubIssuesListSection extends Component {
       active={true}
       style={{
         transform: 'scale(1)',
-        width: '535px',
-        height: '300px'
+        width: '50%',
+        height: '300px',
+        float: 'right'
       }} />;
     let issuesLoaded = false;
     let issues;
@@ -80,9 +81,24 @@ class GithubIssuesListSection extends Component {
       }
       issuesLoaded = true;
     }
+
+    const platformSelector = (<select value={this.state.platformSelection} onChange={this.platformChanged}>
+      <option value="all" disabled="" hidden="">All</option>
+      {platforms}
+    </select>);
+
+    const issueWrapper = <div className="box-50 issues">
+      <h3>
+        <a href={`https://github.com/Kentico?q=org:Kentico+type:issue+is:public+label:groomed+state:open+no:assignee+language:${this.state.platformSelection}&sort=updated&order=desc`}>
+          {this.props.data.issues_label.value}
+        </a>
+      </h3>
+      {issuesLoaded ? <ul>{issues}</ul> : issuesLoader}
+    </div>
+
     return (
       <section className="third" id="task-list" style={{
-        background: `#582D40 url(${this.props.data.section_info__background_image.assets[0].url}) top center no-repeat`
+        background: `#1C263F url(${this.props.data.section_info__background_image.assets[0].url}) bottom center no-repeat`
       }}>
         <div className="row-flex">
           <h2>
@@ -91,10 +107,7 @@ class GithubIssuesListSection extends Component {
         </div>
         <div className="row-flex">
           <div className="box-100 buttons">
-            <select value={this.state.platformSelection} onChange={this.platformChanged}>
-              <option value="all" disabled="" hidden="">All</option>
-              {platforms}
-            </select>
+            {this.props.currentPersona === 'developer' && platformSelector}
           </div>
         </div>
         <div className="row-flex">
@@ -104,14 +117,7 @@ class GithubIssuesListSection extends Component {
             </h3>
             {steps}
           </div>
-          <div className="box-50 issues">
-            <h3>
-              <a href={`https://github.com/Kentico?q=org:Kentico+type:issue+is:public+label:groomed+state:open+no:assignee+language:${this.state.platformSelection}&sort=updated&order=desc`}>
-                {this.props.data.issues_label.value}
-              </a>
-            </h3>
-            {issuesLoaded ? <ul>{issues}</ul> : issuesLoader}
-          </div>
+          {this.props.currentPersona === 'developer' && issueWrapper}
         </div>
       </section >
     );
@@ -126,8 +132,9 @@ GithubIssuesListSection.propTypes = {
     platform_selector: PropTypes.array,
     steps_label: PropTypes.object,
     steps: PropTypes.array,
-    issues_label: PropTypes.object
+    issues_label: PropTypes.object,
   }),
+  currentPersona: PropTypes.string.isRequired
 };
 
 export default GithubIssuesListSection;
