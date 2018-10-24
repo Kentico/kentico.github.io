@@ -434,6 +434,10 @@ section.third {
         font-weight: bold;
         padding: 10px 0;
         min-height: 77px;
+        p {
+          font-weight: initial;
+          font-size: initial;
+        }
         a {
           color: #FFFFFF;
           text-decoration: none;

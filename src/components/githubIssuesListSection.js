@@ -76,6 +76,7 @@ class GithubIssuesListSection extends Component {
             <a href={issue.html_url}>
               <img src={issue.user.avatar_url} />
               <span>{issue.title}</span>
+              <p>{issue.repository_url.match(/https:\/\/api\.github\.com\/repos\/(.*)/)[1]}</p>
             </a>
           </li >);
       }
