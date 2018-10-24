@@ -1,5 +1,6 @@
 /* eslint-disable */
 import GitHub from 'github-api';
+import atob from 'atob';
 
 const gitHub = new GitHub({
   token: atob("N2E2NzJiOGExOTFlZWYwMmE0NmEyOTU2ZjJkM2U4ZDMyM2ViZDZmYQ==")
