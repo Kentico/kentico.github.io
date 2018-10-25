@@ -90,7 +90,7 @@ class GithubIssuesListSection extends Component {
 
     const issueWrapper = <div className="box-50 issues">
       <h3>
-        <a href={`https://github.com/Kentico?q=org:Kentico+type:issue+is:public+label:groomed+state:open+no:assignee+language:${this.state.platformSelection}&sort=updated&order=desc`}>
+        <a href={`https://github.com/issues?q=org%3AKentico+is%3Aissue+is%3Aopen+user%3AKentico+label%3Agroomed+language%3A${this.state.platformSelection}`}>        
           {this.props.data.issues_label.value}
         </a>
       </h3>
