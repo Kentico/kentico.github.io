@@ -372,6 +372,10 @@ section.third {
     a {
       color: #FFFFFF;
       text-decoration: none;
+      &:hover {
+        color: $color-orange;
+        text-decoration: none;
+      }
     }
   }
   .buttons {
@@ -441,6 +445,10 @@ section.third {
         a {
           color: #FFFFFF;
           text-decoration: none;
+          &:hover {
+            color: $color-orange;
+            text-decoration: none;
+          }
         }
         img {
           width: 77px;
@@ -537,12 +545,20 @@ section.fourth {
     font-size: 24px;
     line-height: 32px;
     margin-top: 55px;
+    &:hover {
+      color: $color-orange;
+      text-decoration: none;
+    }
     strong {
       font-weight: bold;
     }
     a {
-      text-decoration: underline;
+      text-decoration: none;
       color: #FFFFFF;
+      &:hover {
+        color: $color-orange;
+        text-decoration: none;
+      }
     }
   }
   .hidden {
@@ -584,6 +600,14 @@ section.fifth {
     }
     strong {
       font-weight: bold;
+    }
+  }
+  a{
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: $color-orange;
+      text-decoration: none;
     }
   }
   .loader-active {

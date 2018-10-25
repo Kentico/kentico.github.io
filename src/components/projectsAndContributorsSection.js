@@ -17,11 +17,11 @@ class ProjectsAndContributorsSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      opensourProjects: {
+      opensourceProjects: {
         loading: true,
         count: 0
       },
-      mergerdPullRequest: {
+      mergedPullRequests: {
         loading: true,
         count: 0
       },
@@ -45,7 +45,7 @@ class ProjectsAndContributorsSection extends Component {
     this.openSourceCountSubscription =
       makeCancelable(getKenticoOpenSourceProjectsCount()
         .then(count => this.setState({
-          opensourProjects: {
+          opensourceProjects: {
             loading: false,
             count: count
           }
@@ -55,7 +55,7 @@ class ProjectsAndContributorsSection extends Component {
     this.mergedPullRequestsSubscription =
       makeCancelable(getKenticoMergedPullRequestCount()
         .then(count => this.setState({
-          mergerdPullRequest: {
+          mergedPullRequests: {
             loading: false,
             count: count
           }
@@ -110,9 +110,9 @@ class ProjectsAndContributorsSection extends Component {
 
     switch (iconCodename) {
       case 'number_of_opensource_projects':
-        return this.state.opensourProjects.loading ? loader : this.state.opensourProjects.count;
+        return this.state.opensourceProjects.loading ? loader : this.state.opensourceProjects.count;
       case 'merged_pull_requests':
-        return this.state.mergerdPullRequest.loading ? loader : this.state.mergerdPullRequest.count;
+        return this.state.mergedPullRequests.loading ? loader : this.state.mergedPullRequests.count;
       case 'different_contributors':
         return this.state.differentContributors.loading ? loader : this.state.differentContributors.count;
       default:
@@ -161,14 +161,27 @@ class ProjectsAndContributorsSection extends Component {
     return <img src={this.getIconUrlForPlatform(platformCodename)} alt={this.getIconNameForPlatform(platformCodename)} />;
   }
 
+  getIconUrl = (iconCodename) => {
+    switch (iconCodename) {
+      case 'number_of_opensource_projects':
+      case 'different_contributors':
+        return "https://github.com/Kentico?utf8=%E2%9C%93&q=&type=public&language=";
+      case 'merged_pull_requests':
+        return "https://github.com/pulls?q=org%3AKentico+is%3Apr+is%3Amerged+sort%3Acreated-desc";
+      default:
+        return '#';
+    }
+  }
 
   render() {
     const icons = this.props.data.icons.map((icon, index) => {
       const countLabel = this.getCountLabel(icon.system.codename);
       return (
         <div className="box-33" key={index}>
-          <img src={icon.icon.assets[0].url} alt="" />
-          <strong>{countLabel}</strong> {icon.title.text}
+          <a href={this.getIconUrl(icon.system.codename)}>
+            <img src={icon.icon.assets[0].url} alt="" />
+            <strong>{countLabel}</strong> {icon.title.text}
+          </a>
         </div>
       )
     });
@@ -190,15 +203,15 @@ class ProjectsAndContributorsSection extends Component {
             </a>
           </div>)
       });
-      
-      const contributors = this.state.contributors.loading ?
+
+    const contributors = this.state.contributors.loading ?
       <Loader type="ball-scale-ripple-multiple" active={true} style={{ transform: 'scale(0.5)', width: '27px', height: '324px' }} /> :
       this.state.contributors.data.map(contributor => (
         <div key={contributor.contributorInfo.login} className="person">
           <a className="icon-widget" href={contributor.contributorInfo.html_url}>
             <img src={contributor.contributorInfo.avatar_url} alt={`avatar of ${contributor.contributorInfo.login}`} />
             <p>
-              <strong>{contributor.contributorInfo.login}</strong><br />
+              <strong>{contributor.contributorInfo.login}</strong>
               {contributor.totalContributions} contributions
             </p>
             <div className="clear"></div>
