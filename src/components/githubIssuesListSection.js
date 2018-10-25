@@ -96,6 +96,10 @@ class GithubIssuesListSection extends Component {
       </h3>
       {issuesLoaded ? <ul>{issues}</ul> : issuesLoader}
     </div>
+    
+    if (this.props.currentPersona !== 'developer') {
+      return null;
+    }
 
     return (
       <section className="third" id="task-list" style={{
@@ -108,7 +112,7 @@ class GithubIssuesListSection extends Component {
         </div>
         <div className="row-flex">
           <div className="box-100 buttons">
-            {this.props.currentPersona === 'developer' && platformSelector}
+            {platformSelector}
           </div>
         </div>
         <div className="row-flex">
