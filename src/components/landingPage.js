@@ -28,6 +28,14 @@ class LandingPage extends Component {
           allKenticoCloudItemSectionsPage {
             edges {
               node {
+                top_menu {
+                  text {
+                    text
+                  }
+                  url {
+                    text
+                  }
+                }
                 title {
                   text
                 }
@@ -114,6 +122,9 @@ class LandingPage extends Component {
                   main_text {
                     value
                   }
+                  side_text {
+                    value
+                  }
                   platform_selector {
                     name {
                       value
@@ -128,6 +139,11 @@ class LandingPage extends Component {
                   steps {
                     text {
                       value
+                    }
+                    persona {
+                      system {
+                        codename
+                      }
                     }
                   }
                   issues_label {
@@ -191,6 +207,10 @@ class LandingPage extends Component {
             zIndex: '500'
           }}>
           </div>;
+
+          const menuItems = node.top_menu.map((menuItem, index) =>
+            <li key={index}><a href={menuItem.url.text}>{menuItem.text.text}</a></li>);
+
           return (
             <>
               <ResponsiveMenu
@@ -201,9 +221,7 @@ class LandingPage extends Component {
                 changeMenuOn="750px"
                 menu={
                   <ul id="nav">
-                    <li><a href="#value-propositions">Value Propositions</a></li>
-                    <li><a href="#hacktoberfest">Hacktoberfest</a></li>
-                    <li><a href="#our-projects">Our Projects & Contributors</a></li>
+                    {menuItems}
                   </ul>
                 }
               />

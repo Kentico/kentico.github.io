@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import Loader from 'react-loaders';
 import makeCancelable from 'makecancelable';
 
+import SVG from 'react-inlinesvg';
+import linkIcon from '../images/link.svg';
+
 import {
   getKenticoOpenedGroomedIssues
 } from '../utils/gitHubDataLoader';
@@ -46,8 +49,10 @@ class GithubIssuesListSection extends Component {
   render() {
     const platforms = this.props.data.platform_selector.map(platform =>
       <option key={platform.codename.value} value={platform.codename.value}>{platform.name.value}</option>);
-
-    const steps = this.props.data.steps.map((step, index) =>
+    
+    const steps = this.props.data.steps
+      .filter(step => step.persona[0].system.codename === this.props.currentPersona)
+      .map((step, index) =>
       <div key={index}>
         <span>{("0" + (index + 1)).slice(-2)}/</span>
         <p>{step.text.value}</p>
@@ -83,23 +88,22 @@ class GithubIssuesListSection extends Component {
       issuesLoaded = true;
     }
 
-    const platformSelector = (<select value={this.state.platformSelection} onChange={this.platformChanged}>
+    const platformSelector = this.props.currentPersona === 'developer' && (<select value={this.state.platformSelection} onChange={this.platformChanged}>
       <option value="all" disabled="" hidden="">All</option>
       {platforms}
     </select>);
 
     const issueWrapper = <div className="box-50 issues">
       <h3>
-        <a href={`https://github.com/issues?q=org%3AKentico+is%3Aissue+is%3Aopen+user%3AKentico+label%3Agroomed+language%3A${this.state.platformSelection}`}>        
+        <a href={`https://github.com/issues?q=org%3AKentico+is%3Aissue+is%3Aopen+user%3AKentico+label%3Agroomed+language%3A${this.state.platformSelection}`}>
           {this.props.data.issues_label.value}
+          <SVG src={linkIcon} >
+            <img src={linkIcon} alt="link icon" />
+          </SVG>
         </a>
       </h3>
       {issuesLoaded ? <ul>{issues}</ul> : issuesLoader}
-    </div>
-    
-    if (this.props.currentPersona !== 'developer') {
-      return null;
-    }
+    </div >
 
     return (
       <section className="third" id="task-list" style={{

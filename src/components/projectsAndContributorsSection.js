@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import makeCancelable from 'makecancelable';
 import Loader from 'react-loaders'
+import SVG from 'react-inlinesvg';
+import linkIcon from '../images/link.svg';
 
 import {
   getKenticoOpenSourceProjectsCount,
@@ -179,8 +181,22 @@ class ProjectsAndContributorsSection extends Component {
       return (
         <div className="box-33" key={index}>
           <a href={this.getIconUrl(icon.system.codename)}>
-            <img src={icon.icon.assets[0].url} alt="" />
-            <strong>{countLabel}</strong> {icon.title.text}
+            <SVG
+              src={icon.icon.assets[0].url}
+              preloader={<Loader
+                type="ball-scale-ripple-multiple"
+                active={true}
+                style={{
+                  transform: 'scale(0.5)',
+                  width: '40px',
+                  height: '27px'
+                }} />}>
+              <img src={icon.icon.assets[0].url} alt="" />
+            </SVG>
+            <strong>{countLabel}</strong>&nbsp;{icon.title.text}
+            <SVG src={linkIcon} className="link-icon">
+              <img src={linkIcon} alt="link icon" />
+            </SVG>
           </a>
         </div>
       )

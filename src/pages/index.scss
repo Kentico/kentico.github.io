@@ -375,6 +375,15 @@ section.third {
       &:hover {
         color: $color-orange;
         text-decoration: none;
+        svg {
+          fill: $color-orange;
+        }
+      }
+      svg {
+        height: 20px;
+        width: 20px;
+        padding-left: 10px;
+        fill: $primary-color;
       }
     }
   }
@@ -460,9 +469,9 @@ section.third {
         }
       }
     }
-    .loader-active > div{
-        width: 100%;
-        margin: 2em auto;
+    .loader-active>div {
+      width: 100%;
+      margin: 2em auto;
     }
   }
   .steps {
@@ -526,6 +535,14 @@ section.fourth {
       background: #343E61;
     }
   }
+  a {
+    color: #FFFFFF;
+    text-decoration: none;
+    &:hover {
+      color: $color-orange;
+      text-decoration: none;
+    }
+  }
   .partners {
     text-align: center;
     padding: 100px 0 0px 0;
@@ -539,6 +556,14 @@ section.fourth {
     font-size: 16px;
     line-height: 22px;
     font-weight: 300;
+    a {
+      color: $primary-color;
+      font-weight: bold;
+      &:hover{
+        color: $color-orange;
+        text-decoration: none;
+      }
+    }
   }
   .brno {
     padding: 10px 0 10px 60px;
@@ -567,7 +592,7 @@ section.fourth {
 }
 
 section.fifth {
-  padding: 0px 0 280px 0; 
+  padding: 0px 0 280px 0;
   h2 {
     padding: 110px 0 5px 0;
     font-size: 60px;
@@ -591,23 +616,34 @@ section.fifth {
     line-height: 40px;
     font-weight: 300;
     padding: 0 0 90px 0;
-    img {
+    img,
+    svg {
       height: 40px;
       display: inline-block;
       position: relative;
       top: 9px;
       padding: 0 5px 0 0;
     }
+    .link-icon svg {
+      width:15px;
+      height: 15px;
+      padding-left: 5px;
+      fill: $primary-color;
+      padding-bottom: 10px;
+    }
     strong {
       font-weight: bold;
     }
   }
-  a{
-    color: white;
+  a {
+    color: $primary-color;
     text-decoration: none;
     &:hover {
       color: $color-orange;
       text-decoration: none;
+      .link-icon svg {
+        fill: $color-orange;
+      }
     }
   }
   .loader-active {
@@ -638,7 +674,7 @@ section.sixth {
       font-weight: bold;
     }
   }
-  .mobile-long-name p{
+  .mobile-long-name p {
     font-size: 16px;
   }
   .copyright {
@@ -708,7 +744,6 @@ section.sixth {
       padding-top: 55px;
     }
   }
-
   section.second {
     .content {
       .row-flex {
