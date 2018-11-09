@@ -416,9 +416,9 @@ section.third {
     position: relative;
     z-index: 100;
     @include button(#fff);
-    background: #343E61;
     width: 150px;
-    text-align: left;
+    text-align: center;
+    margin-top: 1em;
     span {
       font-weight: 300;
     }
@@ -429,6 +429,7 @@ section.third {
     }
     &:hover {
       @include background();
+      color: $color-black;
       div {
         display: block;
         @include background();
@@ -492,6 +493,15 @@ section.third {
       }
       p {
         padding: 0 0 0 80px;
+        a {
+          color: #FFFFFF;
+          text-decoration: none;
+          font-weight: bold;
+          &:hover {
+            color: $color-orange;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

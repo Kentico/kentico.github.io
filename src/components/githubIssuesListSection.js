@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loader from 'react-loaders';
 import makeCancelable from 'makecancelable';
+import { Parser as ReactParser } from 'html-to-react';
+
 
 import SVG from 'react-inlinesvg';
 import linkIcon from '../images/link.svg';
@@ -53,11 +55,12 @@ class GithubIssuesListSection extends Component {
     const steps = this.props.data.steps
       .filter(step => step.persona[0].system.codename === this.props.currentPersona)
       .map((step, index) =>
-      <div key={index}>
-        <span>{("0" + (index + 1)).slice(-2)}/</span>
-        <p>{step.text.value}</p>
-      </div>
-    )
+        <div key={index}>
+          <span>{("0" + (index + 1)).slice(-2)}/</span>
+          {/* <p dangerouslySetInnerHTML={{ __html: step.text.value }}></p> */}
+          <p>{new ReactParser().parse(step.text.value)}</p>
+        </div>
+      )
 
     const issuesLoader = <Loader
       type="ball-scale-ripple-multiple"
@@ -93,6 +96,11 @@ class GithubIssuesListSection extends Component {
       {platforms}
     </select>);
 
+    const selectedPlatforms = this.props.data.platform_selector.filter(platform => platform.codename.value === this.state.platformSelection);
+    const selectedPlatformLink = selectedPlatforms.length > 0 &&
+      selectedPlatforms[0].detail_url.text &&
+      <a className="btn" href={selectedPlatforms[0].detail_url.text} target="_blank" rel="noopener noreferrer">Public backlog</a>;
+
     const issueWrapper = <div className="box-50 issues">
       <h3>
         <a href={`https://github.com/issues?q=org%3AKentico+is%3Aissue+is%3Aopen+user%3AKentico+label%3Agroomed+language%3A${this.state.platformSelection}`}>
@@ -102,7 +110,7 @@ class GithubIssuesListSection extends Component {
           </SVG>
         </a>
       </h3>
-      {issuesLoaded ? <ul>{issues}</ul> : issuesLoader}
+      {issuesLoaded ? <div><ul>{issues}</ul>{selectedPlatformLink}</div> : issuesLoader}
     </div >
 
     return (

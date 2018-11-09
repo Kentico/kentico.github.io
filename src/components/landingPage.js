@@ -132,6 +132,9 @@ class LandingPage extends Component {
                     codename {
                       value
                     }
+                    detail_url {
+                      text
+                    }
                   }
                   steps_label {
                     value
