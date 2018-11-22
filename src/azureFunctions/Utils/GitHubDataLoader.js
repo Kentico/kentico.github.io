@@ -69,7 +69,7 @@ class GitHubDataLoader {
   async getKenticoCloudTopThreeStaredRepos() { // maximum is 1000
     let options;
     let search = this.gitHub.search({
-      q: 'org:Kentico is:public fork:true topic:kentico-cloud',
+      q: 'org:Kentico is:public topic:kentico-cloud',
       sort: 'stars',
       order: 'desc'
     });
@@ -92,7 +92,7 @@ class GitHubDataLoader {
     // eslint-disable-next-line no-undef
     const contributorsPerProject = await Promise.all(contributorsPromises);
 
-    contributorsPerProject.forEach(projectContributors => {
+    for (const projectContributors of contributorsPerProject) {
       for (const contributor of projectContributors.data) {
         if (kenticoMemberLogins.includes(contributor.login)) {
           continue;
@@ -110,7 +110,7 @@ class GitHubDataLoader {
           }
         }
       }
-    });
+    }
 
     return Object.values(contributors)
       .sort((a, b) => b.totalContributions - a.totalContributions)
@@ -126,19 +126,25 @@ class GitHubDataLoader {
     });
 
     const topIssues = await search.forIssues(options);
-    return topIssues.data.slice(0, 3);
+    return topIssues.data.slice(0, 3).map(issue => ({ 
+      id: issue.id, 
+      html_url: issue.html_url, 
+      user: issue.user, 
+      title: issue.title,
+      repository_url: issue.repository_url 
+    }));
   }
 
   async getKenticoOpenedIssuesByPlatform() {
     const platforms = await axios("https://deliver.kenticocloud.com/1bb2313f-2550-0025-06d9-f3e5065607c0/items?system.type=label&elements.label_group[contains]=platform")
-    .then(result => (result.data.items.map(platform => platform.elements.codename.value)));
+      .then(result => (result.data.items.map(platform => platform.elements.codename.value)));
 
     let data = {
       all: await this.getKenticoOpenedGroomedIssues()
     };
 
     for (const platform of platforms) {
-      data[platform] = this.getKenticoOpenedGroomedIssues(platform);
+      data[platform] = await this.getKenticoOpenedGroomedIssues(platform);
     }
 
     return data;
