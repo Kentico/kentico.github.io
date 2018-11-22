@@ -1,33 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loader from 'react-loaders';
-import makeCancelable from 'makecancelable';
 import { Parser as ReactParser } from 'html-to-react';
-
-
 import SVG from 'react-inlinesvg';
-import linkIcon from '../images/link.svg';
 
-import {
-  getKenticoOpenedGroomedIssues
-} from '../utils/gitHubDataLoader';
+import linkIcon from '../images/link.svg';
+import { getAllGithubData } from '../utils/gitHubDataLoader';
 
 class GithubIssuesListSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
       platformSelection: 'all',
-      issues: undefined
+      issues: [],
+      issuesLoaded: false
     }
   }
 
   componentDidMount() {
-    this.issuesSubscription = [];
-    this.issuesSubscription.push(
-      makeCancelable(getKenticoOpenedGroomedIssues()
-        .then(issues => this.setState({
-          issues
-        }))));
+    getAllGithubData(this.dataLoaded);
   }
 
   componentWillUnmount() {
@@ -35,30 +26,29 @@ class GithubIssuesListSection extends Component {
       subscription.cancelFetch());
   }
 
+  dataLoaded = (error, result) => {
+    if (!error) {
+      this.setState({
+        issues: JSON.parse(result.entries.filter(item => item.RowKey['_'] === "openedGroomedIssuesByPlatform")[0].value['_']),
+        issuesLoaded: true
+      });
+    }
+  }
 
   platformChanged = (event) => {
     this.setState({ platformSelection: event.target.value });
-    this.setState({
-      issues: undefined
-    });
-    this.issuesSubscription.push(
-      makeCancelable(getKenticoOpenedGroomedIssues(event.target.value)
-        .then(issues => this.setState({
-          issues
-        }))));
   }
 
   render() {
     const platforms = this.props.data.platform_selector.map(platform =>
       <option key={platform.codename.value} value={platform.codename.value}>{platform.name.value}</option>);
-    
+
     const steps = this.props.data.steps
       .filter(step => step.persona[0].system.codename === this.props.currentPersona)
       .map((step, index) =>
         <div key={index}>
           <span>{("0" + (index + 1)).slice(-2)}/</span>
-          {/* <p dangerouslySetInnerHTML={{ __html: step.text.value }}></p> */}
-          <p>{new ReactParser().parse(step.text.value)}</p>
+          <>{new ReactParser().parse(step.text.value)}</>
         </div>
       )
 
@@ -71,15 +61,15 @@ class GithubIssuesListSection extends Component {
         height: '300px',
         float: 'right'
       }} />;
-    let issuesLoaded = false;
     let issues;
 
-    if (this.state.issues) {
-      if (this.state.issues.length == 0) {
+    if (this.state.issuesLoaded) {
+      const currentIssues = this.state.issues[this.state.platformSelection];
+      if (currentIssues.length == 0) {
         issues = <li>No issues</li>
       }
       else {
-        issues = this.state.issues.map(issue =>
+        issues = currentIssues.map(issue =>
           <li key={issue.id}>
             <a href={issue.html_url}>
               <img src={issue.user.avatar_url} />
@@ -88,7 +78,6 @@ class GithubIssuesListSection extends Component {
             </a>
           </li >);
       }
-      issuesLoaded = true;
     }
 
     const platformSelector = this.props.currentPersona === 'developer' && (<select value={this.state.platformSelection} onChange={this.platformChanged}>
@@ -110,7 +99,7 @@ class GithubIssuesListSection extends Component {
           </SVG>
         </a>
       </h3>
-      {issuesLoaded ? <div><ul>{issues}</ul>{selectedPlatformLink}</div> : issuesLoader}
+      {this.state.issuesLoaded ? <div><ul>{issues}</ul>{selectedPlatformLink}</div> : issuesLoader}
     </div >
 
     return (
