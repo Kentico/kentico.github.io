@@ -26,21 +26,21 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-f604423f3e99040761d0.js"
+    "url": "webpack-runtime-79136f9858cb0af8f72f.js"
   },
   {
-    "url": "app-9462da3c7aedfc6da9e0.js"
+    "url": "app-30757eb8c05cdfef822c.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-daa6a38c24810a50bf8e.js"
   },
   {
     "url": "index.html",
-    "revision": "0bbca1613088434829d01770b4bdadb0"
+    "revision": "0982096ecea9b08f4a4b2a9936d08519"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "a572561ec4f91f67020dc1e1a988888c"
+    "revision": "94d0b3d68a7ac60a250c05e3b3b12f6f"
   },
   {
     "url": "component---src-pages-index-js.63abbf0d467343a779ce.css"
@@ -49,7 +49,7 @@ self.__precacheManifest = [
     "url": "component---src-pages-index-js-bb694893c66e62aee8c7.js"
   },
   {
-    "url": "5-4a0ac2baf2bbeea2886a.js"
+    "url": "5-cc143e07c03c50e35f4b.js"
   },
   {
     "url": "static/d/173/path---index-6a9-NZuapzHg3X9TaN1iIixfv1W23E.json",
@@ -79,7 +79,7 @@ workbox.routing.registerNavigationRoute("/offline-plugin-app-shell-fallback/inde
   blacklist: [/\?(.+&)?no-cache=1$/],
 });
 
-workbox.routing.registerRoute(/^https:\/\/api\.github\.com\//, workbox.strategies.staleWhileRevalidate({ plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
+workbox.routing.registerRoute(/^https:\/\/communitypagegithubdata.table.core.windows.net\/githubStatus\//, workbox.strategies.staleWhileRevalidate({ "cacheName":"gihub-data", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]}), new workbox.expiration.Plugin({"maxEntries":10,"maxAgeSeconds":3600,"purgeOnQuotaError":false})] }), 'GET');
 "use strict";
 
 /* global workbox */
