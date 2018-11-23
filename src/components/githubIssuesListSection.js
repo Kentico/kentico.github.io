@@ -33,6 +33,12 @@ class GithubIssuesListSection extends Component {
         issuesLoaded: true
       });
     }
+    else {
+      this.setState({
+        issues: [],
+        issuesLoaded: true
+      });
+    }
   }
 
   platformChanged = (event) => {
@@ -65,7 +71,7 @@ class GithubIssuesListSection extends Component {
 
     if (this.state.issuesLoaded) {
       const currentIssues = this.state.issues[this.state.platformSelection];
-      if (currentIssues.length == 0) {
+      if (currentIssues.length === 0) {
         issues = <li>No issues</li>
       }
       else {

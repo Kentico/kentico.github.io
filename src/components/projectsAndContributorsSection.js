@@ -58,7 +58,31 @@ class ProjectsAndContributorsSection extends Component {
           loading: false,
           data: JSON.parse(result.entries.filter(item => item.RowKey['_'] === "topThreeContributors")[0].value['_'])
         }
-      })
+      });
+    }
+    else {
+      this.setState({
+        opensourceProjects: {
+          loading: false,
+          count: 'N/A'
+        },
+        mergedPullRequests: {
+          loading: false,
+          count: 'N/A'
+        },
+        differentContributors: {
+          loading: false,
+          count: 'N/A'
+        },
+        repositories: {
+          loading: false,
+          data: []
+        },
+        contributors: {
+          loading: false,
+          data: []
+        }
+      });
     }
   }
 
@@ -218,10 +242,10 @@ class ProjectsAndContributorsSection extends Component {
         </div>
         <div className="row-flex">
           <div className="box-50">
-            {repositories}
+            {repositories && repositories.length > 0 ? repositories : "N/A"}
           </div>
           <div className="box-50">
-            {contributors}
+            {contributors && contributors.length > 0 ? contributors : "N/A"}
           </div>
         </div>
       </section >
