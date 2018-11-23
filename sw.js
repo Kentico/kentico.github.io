@@ -83,7 +83,7 @@ workbox.routing.registerRoute(/^https:\/\/assets-us-01.kc-usercontent.com\//, wo
 workbox.routing.registerRoute(/^https:\/\/fonts\.googleapis\.com/, workbox.strategies.staleWhileRevalidate({ "cacheName":"google-fonts-stylesheets", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
 workbox.routing.registerRoute(/^https:\/\/fonts\.gstatic\.com/, workbox.strategies.cacheFirst({ "cacheName":"google-fonts-webfonts", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]}), new workbox.expiration.Plugin({"maxAgeSeconds":3600,"maxEntries":30,"purgeOnQuotaError":false})] }), 'GET');
 workbox.routing.registerRoute(/^https:\/\/kentico.github.io/, workbox.strategies.staleWhileRevalidate({ "cacheName":"local-assets", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
-workbox.routing.registerRoute(/^https:\/\/avatars[0-0]+.githubusercontent.com\//, workbox.strategies.staleWhileRevalidate({ "cacheName":"github-assets-webfonts", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]}), new workbox.expiration.Plugin({"maxAgeSeconds":3600,"maxEntries":30,"purgeOnQuotaError":false})] }), 'GET');
+workbox.routing.registerRoute(/^https:\/\/avatars[0-9]+.githubusercontent.com\//, workbox.strategies.staleWhileRevalidate({ "cacheName":"github-assets-webfonts", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]}), new workbox.expiration.Plugin({"maxAgeSeconds":3600,"maxEntries":30,"purgeOnQuotaError":false})] }), 'GET');
 "use strict";
 
 /* global workbox */
