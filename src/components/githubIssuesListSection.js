@@ -70,8 +70,8 @@ class GithubIssuesListSection extends Component {
     let issues;
 
     if (this.state.issuesLoaded) {
-      const currentIssues = this.state.issues[this.state.platformSelection];
-      if (currentIssues && currentIssues.length === 0) {
+      const currentIssues = this.state.issues[this.state.platformSelection] || [];
+      if (currentIssues.length === 0) {
         issues = <li>No issues</li>
       }
       else {

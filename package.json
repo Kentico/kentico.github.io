@@ -1,7 +1,7 @@
 {
   "name": "kentico-github-io",
   "description": "Official landing page for developer community in Kentico",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "author": "Ondřej Chrastina <developerscommunity@kentico.com>",
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
