@@ -22,17 +22,66 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-offline',
       options: {
-        runtimeCaching: [{
-          // To match cross-origin requests, use a RegExp that matches
-          // the start of the origin:
-          urlPattern: /^https:\/\/api\.github\.com\//,
-          handler: 'staleWhileRevalidate',
-          options: {
-            cacheableResponse: {
-              statuses: [0, 200]
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/assets-us-01.kc-usercontent.com\//,
+            handler: 'staleWhileRevalidate',
+            options: {
+              cacheableResponse: {
+                statuses: [0, 200]
+              },
+              cacheName: 'kc-assets-data'
+            }
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com/,
+            handler: 'staleWhileRevalidate',
+            options: {
+              cacheableResponse: {
+                statuses: [0, 200]
+              },
+              cacheName: 'google-fonts-stylesheets'
+            }
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com/,
+            handler: 'cacheFirst',
+            options: {
+              cacheableResponse: {
+                statuses: [0, 200]
+              },
+              cacheName: 'google-fonts-webfonts',
+              expiration: {
+                maxAgeSeconds: 60 * 60,
+                maxEntries: 30
+              }
+            }
+          },
+          {
+            urlPattern: /^https:\/\/kentico.github.io/,
+            handler: 'staleWhileRevalidate',
+            options: {
+              cacheableResponse: {
+                statuses: [0, 200]
+              },
+              cacheName: 'local-assets'
+            }
+          },
+          {
+            urlPattern: /^https:\/\/avatars[0-9]+.githubusercontent.com\//,
+            handler: 'staleWhileRevalidate',
+            options: {
+              cacheableResponse: {
+                statuses: [0, 200]
+              },
+              cacheName: 'github-assets-webfonts',
+              expiration: {
+                maxAgeSeconds: 60 * 60,
+                maxEntries: 30
+              }
             }
           }
-        }]
+        ]
       }
     },
     'gatsby-plugin-eslint', // https://www.gatsbyjs.org/packages/gatsby-plugin-eslint/

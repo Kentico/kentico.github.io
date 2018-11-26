@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import makeCancelable from 'makecancelable';
 import Loader from 'react-loaders'
 import SVG from 'react-inlinesvg';
 import linkIcon from '../images/link.svg';
 
-import {
-  getKenticoOpenSourceProjectsCount,
-  getKenticoMergedPullRequestCount,
-  getKenticoContributorsCount,
-  getKenticoCloudTopThreeStaredRepos,
-  getKenticoTopThreeContributors
-} from '../utils/gitHubDataLoader';
+import { getAllGithubData } from '../utils/gitHubDataLoader';
 
 
 class ProjectsAndContributorsSection extends Component {
@@ -42,61 +35,59 @@ class ProjectsAndContributorsSection extends Component {
     }
   }
 
-  componentDidMount() {
-
-    this.openSourceCountSubscription =
-      makeCancelable(getKenticoOpenSourceProjectsCount()
-        .then(count => this.setState({
-          opensourceProjects: {
-            loading: false,
-            count: count
-          }
-        })));
-
-
-    this.mergedPullRequestsSubscription =
-      makeCancelable(getKenticoMergedPullRequestCount()
-        .then(count => this.setState({
-          mergedPullRequests: {
-            loading: false,
-            count: count
-          }
-        })));
-
-    this.contributorsCountSubscription =
-      makeCancelable(getKenticoContributorsCount()
-        .then(count => this.setState({
-          differentContributors: {
-            loading: false,
-            count: count
-          }
-        })));
-
-    this.topThreeReposSubscription =
-      makeCancelable(getKenticoCloudTopThreeStaredRepos()
-        .then(repos => this.setState({
-          repositories: {
-            loading: false,
-            data: repos
-          }
-        })));
-
-    this.contributorsSubscription =
-      makeCancelable(getKenticoTopThreeContributors()
-        .then(contributors => this.setState({
-          contributors: {
-            loading: false,
-            data: contributors
-          }
-        })));
+  dataLoaded = (error, result) => {
+    if (!error) {
+      this.setState({
+        opensourceProjects: {
+          loading: false,
+          count: result.entries.filter(item => item.RowKey['_'] === "openSourceProjectCount")[0].value['_']
+        },
+        mergedPullRequests: {
+          loading: false,
+          count: result.entries.filter(item => item.RowKey['_'] === "mergePullRequestsCount")[0].value['_']
+        },
+        differentContributors: {
+          loading: false,
+          count: result.entries.filter(item => item.RowKey['_'] === "contributorsCount")[0].value['_']
+        },
+        repositories: {
+          loading: false,
+          data: JSON.parse(result.entries.filter(item => item.RowKey['_'] === "topThreeStarredRepos")[0].value['_'])
+        },
+        contributors: {
+          loading: false,
+          data: JSON.parse(result.entries.filter(item => item.RowKey['_'] === "topThreeContributors")[0].value['_'])
+        }
+      });
+    }
+    else {
+      this.setState({
+        opensourceProjects: {
+          loading: false,
+          count: 'N/A'
+        },
+        mergedPullRequests: {
+          loading: false,
+          count: 'N/A'
+        },
+        differentContributors: {
+          loading: false,
+          count: 'N/A'
+        },
+        repositories: {
+          loading: false,
+          data: []
+        },
+        contributors: {
+          loading: false,
+          data: []
+        }
+      });
+    }
   }
 
-  componentWillUnmount() {
-    this.openSourceCountSubscription.cancelFetch();
-    this.mergedPullRequestsSubscription.cancelFetch();
-    this.contributorsCountSubscription.cancelFetch();
-    this.topThreeReposSubscription.cancelFetch();
-    this.contributorsSubscription.cancelFetch();
+  componentDidMount() {
+    getAllGithubData(this.dataLoaded);
   }
 
   getCountLabel = (iconCodename) => {
@@ -213,7 +204,7 @@ class ProjectsAndContributorsSection extends Component {
               <p>
                 <strong>{repo.name}</strong>
                 {repo.stargazers_count} stars<br />
-                {repo.watchers_count} watchers
+                {repo.forks} forks
               </p>
               <div className="clear"></div>
             </a>
@@ -251,10 +242,10 @@ class ProjectsAndContributorsSection extends Component {
         </div>
         <div className="row-flex">
           <div className="box-50">
-            {repositories}
+            {repositories && repositories.length > 0 ? repositories : "N/A"}
           </div>
           <div className="box-50">
-            {contributors}
+            {contributors && contributors.length > 0 ? contributors : "N/A"}
           </div>
         </div>
       </section >

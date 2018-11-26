@@ -1,0 +1,28 @@
+{
+  "name": "azurefunctions",
+  "version": "0.1.1",
+  "description": "Package used for loading for data from github using Azure functions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kentico/kentico.github.io.git"
+  },
+  "keywords": [
+    "azure functions",
+    "github",
+    "data loading"
+  ],
+  "author": "Ondřej Chrastina <ondrej.chrastina@kentico.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kentico/kentico.github.io/issues"
+  },
+  "homepage": "https://github.com/Kentico/kentico.github.io#readme",
+  "dependencies": {
+    "azure-storage": "^2.10.2",
+    "github-api": "^3.0.0"
+  }
+}
