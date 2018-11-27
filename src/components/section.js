@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/get';
 
 import IconsSection from './iconsSection';
 import BannerSection from './bannerSection';
@@ -7,7 +8,7 @@ import ProjectsAndContributorsSection from './projectsAndContributorsSection';
 import GithubIssuesListSection from './githubIssuesListSection';
 
 const Section = (props) => {
-  switch (props.data.system.type) {
+  switch (get(props, 'data.system.type')) {
     case 'icons_section':
       return <IconsSection {...props} />;
     case 'banner_section':

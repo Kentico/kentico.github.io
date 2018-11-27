@@ -46,15 +46,16 @@ class GithubIssuesListSection extends Component {
   }
 
   render() {
-    const platforms = this.props.data.platform_selector.map(platform =>
-      <option key={platform.codename.value} value={platform.codename.value}>{platform.name.value}</option>);
+    const elements = this.props.data.elements;
+    const platforms = elements.platform_selector_nodes.map(platform =>
+      <option key={platform.elements.codename.value} value={platform.elements.codename.value}>{platform.elements.name.value}</option>);
 
-    const steps = this.props.data.steps
-      .filter(step => step.persona[0].system.codename === this.props.currentPersona)
+    const steps = elements.steps_nodes
+      .filter(step => step.elements.persona[0].system.codename === this.props.currentPersona)
       .map((step, index) =>
         <div key={index}>
           <span>{("0" + (index + 1)).slice(-2)}/</span>
-          <>{new ReactParser().parse(step.text.value)}</>
+          <>{new ReactParser().parse(step.elements.text.value)}</>
         </div>
       )
 
@@ -91,15 +92,15 @@ class GithubIssuesListSection extends Component {
       {platforms}
     </select>);
 
-    const selectedPlatforms = this.props.data.platform_selector.filter(platform => platform.codename.value === this.state.platformSelection);
+    const selectedPlatforms = elements.platform_selector_nodes.filter(({elements}) => elements.codename.value === this.state.platformSelection);
     const selectedPlatformLink = selectedPlatforms.length > 0 &&
-      selectedPlatforms[0].detail_url.text &&
-      <a className="btn" href={selectedPlatforms[0].detail_url.text} target="_blank" rel="noopener noreferrer">Public backlog</a>;
+      selectedPlatforms[0].elements.detail_url.text &&
+      <a className="btn" href={selectedPlatforms[0].elements.detail_url.text} target="_blank" rel="noopener noreferrer">Public backlog</a>;
 
     const issueWrapper = <div className="box-50 issues">
       <h3>
         <a href={`https://github.com/issues?q=org%3AKentico+is%3Aissue+is%3Aopen+user%3AKentico+label%3Agroomed+language%3A${this.state.platformSelection}`}>
-          {this.props.data.issues_label.value}
+          {elements.issues_label.value}
           <SVG src={linkIcon} >
             <img src={linkIcon} alt="link icon" />
           </SVG>
@@ -110,11 +111,11 @@ class GithubIssuesListSection extends Component {
 
     return (
       <section className="third" id="task-list" style={{
-        background: `#1C263F url(${this.props.data.section_info__background_image.assets[0].url}) bottom center no-repeat`
+        background: `#1C263F url(${elements.section_info__background_image.assets[0].url}) bottom center no-repeat`
       }}>
         <div className="row-flex">
           <h2>
-            {this.props.data.section_info__title.text}
+            {elements.section_info__title.text}
           </h2>
         </div>
         <div className="row-flex">
@@ -125,7 +126,7 @@ class GithubIssuesListSection extends Component {
         <div className="row-flex">
           <div className="box-50 steps">
             <h3>
-              {this.props.data.steps_label.value}
+              {elements.steps_label.value}
             </h3>
             {steps}
           </div>
@@ -138,13 +139,15 @@ class GithubIssuesListSection extends Component {
 
 GithubIssuesListSection.propTypes = {
   data: PropTypes.shape({
-    section_info__title: PropTypes.object,
-    section_info__subtitle: PropTypes.object,
-    section_info__background_image: PropTypes.object,
-    platform_selector: PropTypes.array,
-    steps_label: PropTypes.object,
-    steps: PropTypes.array,
-    issues_label: PropTypes.object,
+    elements: PropTypes.shape({
+      section_info__title: PropTypes.object,
+      section_info__subtitle: PropTypes.object,
+      section_info__background_image: PropTypes.object,
+      platform_selector_nodes: PropTypes.array,
+      steps_label: PropTypes.object,
+      steps_nodes: PropTypes.array,
+      issues_label: PropTypes.object,
+    })
   }),
   currentPersona: PropTypes.string.isRequired
 };
