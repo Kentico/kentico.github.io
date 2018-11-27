@@ -4,7 +4,7 @@
 
 Official landing page for Developer Community in Kentico. This site is using [GatsbyJS](https://next.gatsbyjs.org) static site generation.
 
-Data are stored in [Kentico Cloud](https://kenticocloud.com) and provided by [Gatsby source plugin](https://github.com/Kentico/gatsby-source-kentico-cloud).
+Data is stored in [Kentico Cloud](https://kenticocloud.com) and provided by [Gatsby source plugin](https://github.com/Kentico/gatsby-source-kentico-cloud).
 
 ## 🚀 Quick start
 
@@ -22,7 +22,7 @@ Data are stored in [Kentico Cloud](https://kenticocloud.com) and provided by [Ga
     ```sh
     npm run develop  
     ```
-    Currently it is required to run the command twice because of building the data schema.
+    Currently, it is required to run the command twice because of building the data schema.
 
 4.  **Open the source code and start editing!**
 
@@ -50,7 +50,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── package.json
     └── README.md
 
-  1.  **`/node_modules`**: The directory where all of the modules of code that your project depends on (npm packages) are automatically installed.  
+  1.  **`/node_modules`**: A directory where all of the modules of code that your project depends on (npm packages) are automatically installed.  
   
   2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser), like your site header, or a page template. “Src” is a convention for “source code”.
   
