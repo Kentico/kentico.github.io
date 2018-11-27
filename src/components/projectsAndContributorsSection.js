@@ -116,13 +116,13 @@ class ProjectsAndContributorsSection extends Component {
   getIconUrlForPlatform = (language) => (
     this.props.platforms
       .filter(platform =>
-        platform.system.codename === language)[0].icon.assets[0].url
+        platform.system.codename === language)[0].elements.icon.assets[0].url
   )
 
   getIconNameForPlatform = (language) => (
     this.props.platforms
       .filter(platform =>
-        platform.system.codename === language)[0].icon.assets[0].name
+        platform.system.codename === language)[0].elements.icon.assets[0].name
   )
 
   getPlatformIcon = (language) => {
@@ -167,13 +167,14 @@ class ProjectsAndContributorsSection extends Component {
   }
 
   render() {
-    const icons = this.props.data.icons.map((icon, index) => {
-      const countLabel = this.getCountLabel(icon.system.codename);
+    const elements = this.props.data.elements;
+    const icons = elements.icons_nodes.map(({system, elements}, index) => {
+      const countLabel = this.getCountLabel(system.codename);
       return (
         <div className="box-33" key={index}>
-          <a href={this.getIconUrl(icon.system.codename)}>
+          <a href={this.getIconUrl(system.codename)}>
             <SVG
-              src={icon.icon.assets[0].url}
+              src={elements.icon.assets[0].url}
               preloader={<Loader
                 type="ball-scale-ripple-multiple"
                 active={true}
@@ -182,9 +183,9 @@ class ProjectsAndContributorsSection extends Component {
                   width: '40px',
                   height: '27px'
                 }} />}>
-              <img src={icon.icon.assets[0].url} alt="" />
+              <img src={elements.icon.assets[0].url} alt="" />
             </SVG>
-            <strong>{countLabel}</strong>&nbsp;{icon.title.text}
+            <strong>{countLabel}</strong>&nbsp;{elements.title.text}
             <SVG src={linkIcon} className="link-icon">
               <img src={linkIcon} alt="link icon" />
             </SVG>
@@ -229,12 +230,12 @@ class ProjectsAndContributorsSection extends Component {
     return (
       <section
         className="fifth" id="our-projects" style={{
-          background: `#2C3753 url(${this.props.data.section_info__background_image.assets[0].url}) bottom center no-repeat`
+          background: `#2C3753 url(${elements.section_info__background_image.assets[0].url}) bottom center no-repeat`
         }}>
         <div className="row-flex">
           <div className="box-100">
-            <h2>{this.props.data.section_info__title.text}</h2>
-            <h3>{this.props.data.section_info__subtitle.text}</h3>
+            <h2>{elements.section_info__title.text}</h2>
+            <h3>{elements.section_info__subtitle.text}</h3>
           </div>
         </div>
         <div className="row-flex stats">
@@ -257,10 +258,12 @@ class ProjectsAndContributorsSection extends Component {
 
 ProjectsAndContributorsSection.propTypes = {
   data: PropTypes.shape({
-    section_info__title: PropTypes.object,
-    section_info__subtitle: PropTypes.object,
-    section_info__background_image: PropTypes.object,
-    icons: PropTypes.array,
+    elements: PropTypes.shape({
+      section_info__title: PropTypes.object,
+      section_info__subtitle: PropTypes.object,
+      section_info__background_image: PropTypes.object,
+      icons: PropTypes.array,
+    })
   }),
   platforms: PropTypes.array,
 };

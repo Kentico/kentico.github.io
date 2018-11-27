@@ -48,14 +48,16 @@ class BannerSection extends Component {
       {leaderBoardData}
     </div>
 
+    const elements = this.props.data.elements;
+
     const additionalContent = <div>
       <div className="row-flex">
         <div className="box-50 text">
-          <p dangerouslySetInnerHTML={{ __html: this.props.data.side_text.value }}></p>
+          <p dangerouslySetInnerHTML={{ __html: elements.side_text.value }}></p>
           <div className="brno"
-            dangerouslySetInnerHTML={{ __html: this.props.data.main_text.value }}
+            dangerouslySetInnerHTML={{ __html: elements.main_text.value }}
             style={{
-              background: `url(${this.props.data.icon.assets[4].url}) center left no-repeat`,
+              background: `url(${elements.icon.assets[4].url}) center left no-repeat`,
               backgroundSize: '50px'
             }}></div>
         </div>
@@ -66,22 +68,22 @@ class BannerSection extends Component {
 
     return (
       <section className="fourth" id="hacktoberfest" style={{
-        background: `#582D40 url(${this.props.data.section_info__background_image.assets[0].url}) top center no-repeat`
+        background: `#582D40 url(${elements.section_info__background_image.assets[0].url}) top center no-repeat`
       }}>
         <div className="row-flex">
           <div className="box-100">
-            <img src={this.props.data.icon.assets[3].url} alt="Hacktoberfest" className="hacktoberfest" />
-            <h2>{this.props.data.section_info__title.text}</h2>
-            <h3>{this.props.data.section_info__subtitle.text}</h3>
-            {this.state.collapsed && <span className="btn" onClick={() => this.setState({collapsed: false})}>more</span>}
+            <img src={elements.icon.assets[3].url} alt="Hacktoberfest" className="hacktoberfest" />
+            <h2>{elements.section_info__title.text}</h2>
+            <h3>{elements.section_info__subtitle.text}</h3>
+            {this.state.collapsed && <span className="btn" onClick={() => this.setState({ collapsed: false })}>more</span>}
           </div>
         </div>
         {!this.state.collapsed && additionalContent}
         <div className="row-flex">
           <div className="box-100 partners">
-            <img className="logo-do" src={this.props.data.icon.assets[0].url} alt="" />
-            <img className="logo-git" src={this.props.data.icon.assets[1].url} alt="" />
-            <img className="logo-tw" src={this.props.data.icon.assets[2].url} alt="" />
+            <img className="logo-do" src={elements.icon.assets[0].url} alt="" />
+            <img className="logo-git" src={elements.icon.assets[1].url} alt="" />
+            <img className="logo-tw" src={elements.icon.assets[2].url} alt="" />
           </div>
         </div>
       </section>
@@ -91,12 +93,14 @@ class BannerSection extends Component {
 
 BannerSection.propTypes = {
   data: PropTypes.shape({
-    section_info__title: PropTypes.object,
-    section_info__subtitle: PropTypes.object,
-    section_info__background_image: PropTypes.object,
-    icon: PropTypes.object,
-    main_text: PropTypes.object,
-    side_text: PropTypes.object
+    elements: PropTypes.shape({
+      section_info__title: PropTypes.object,
+      section_info__subtitle: PropTypes.object,
+      section_info__background_image: PropTypes.object,
+      icon: PropTypes.object,
+      main_text: PropTypes.object,
+      side_text: PropTypes.object
+    })
   }),
 };
 

@@ -88,8 +88,10 @@ module.exports = {
     {
       resolve: 'gatsby-source-kentico-cloud',
       options: {
-        kcProjectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',
-        kcLanguageCodenames: [
+        deliveryClientConfig: {
+          projectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',
+        },
+        languageCodenames: [
           "default"
         ]
       }
@@ -97,7 +99,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-69014260-4'
+        trackingId: 'UA-69014260-7'
       }
     }
   ],

@@ -28,179 +28,265 @@ class LandingPage extends Component {
           allKenticoCloudItemSectionsPage {
             edges {
               node {
-                top_menu {
-                  text {
+                elements {
+                  top_menu {
+                    elements {
+                      text {
+                        text
+                      }
+                      url {
+                        text
+                      }
+                    }
+                  }
+                  title {
                     text
                   }
-                  url {
+                  subtitle {
                     text
                   }
-                }
-                title {
-                  text
-                }
-                subtitle {
-                  text
-                }
-                cta__text {
-                  text
-                }
-                cta__url {
-                  text
-                }
-                logo {
-                  assets {
-                    url
-                  }
-                }
-                background_image {
-                  assets {
-                    url
-                  }
-                }
-                personas {
-                  system {
-                    codename
-                  }
-                  name {
+                  cta__text {
                     text
                   }
-                }
-                sections {
-                  system {
-                    id
-                    type
-                  }
-                  section_info__title {
+                  cta__url {
                     text
                   }
-                  section_info__subtitle {
-                    text
+                  logo {
+                    assets {
+                      url
+                    }
                   }
-                  section_info__persona {
+                  background_image {
+                    assets {
+                      url
+                    }
+                  }
+                  personas {
                     system {
                       codename
                     }
+                    elements {
+                      name {
+                        text
+                      }
+                    }
                   }
-                  section_info__background_image {
+                  sections {system{id}}
+                  sections_nodes {            
+                    ... on KenticoCloudItemBannerSection {
+                      system {
+                        id
+                        type
+                      }
+                      elements {
+                        section_info__title {
+                          text
+                        }
+                        section_info__subtitle {
+                          text
+                        }
+                        section_info__background_image {
+                          assets {
+                            url
+                          }
+                        }
+                        main_text {
+                          value
+                        }
+                        side_text {
+                          value
+                        }
+                        icon {
+                          assets {
+                            url
+                          }
+                        }
+                      }
+                    }
+                    ... on KenticoCloudItemProjectsAndContributorsSection {
+                      system {
+                        id
+                        type
+                      }
+                      elements {
+                        section_info__title {
+                          text
+                        }
+                        section_info__subtitle {
+                          text
+                        }
+                        section_info__background_image {
+                          assets {
+                            url
+                          }
+                        }
+                        icons_nodes {
+                          system {
+                            codename
+                          }
+                          elements {
+                            title {
+                              text
+                            }
+                            icon {
+                              assets {
+                                url
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    ... on KenticoCloudItemTaskListSection {
+                      system {
+                        id
+                        type
+                      }
+                      elements {
+                        section_info__title {
+                          text
+                        }
+                        section_info__background_image {
+                          assets {
+                            url
+                          }
+                        }
+                        steps_nodes {
+                          elements {
+                            persona {
+                              system {
+                                codename
+                              }
+                            }
+                            text {
+                              value
+                            }
+                          }
+                        }
+                        platform_selector_nodes {
+                          elements {
+                            name {
+                              value
+                            }
+                            codename {
+                              value
+                            }
+                            detail_url {
+                              text
+                            }
+                          }
+                        }
+                        issues_label {
+                          value
+                        }
+                        steps_label {
+                          value
+                        }
+                      }
+                    }
+                    ... on KenticoCloudItemIconsSection {
+                      system {
+                        id
+                        type
+                      }
+                      elements {
+                        section_info__title {
+                          text
+                        }
+                        section_info__subtitle {
+                          text
+                        }
+                        section_info__background_image {
+                          assets {
+                            url
+                          }
+                        }
+                        icons_nodes {
+                          ... on KenticoCloudItemIcon {
+                            system {
+                              codename
+                            }
+                            elements {
+                              persona {
+                                system {
+                                  codename
+                                }
+                              }
+                              title {
+                                text
+                              }
+                              subtitle {
+                                text
+                              }
+                              icon {
+                                assets {
+                                  url
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                  backgrounds {
                     assets {
                       url
                     }
                   }
-                  icons {
+                  platforms {
                     system {
                       codename
                     }
-                    title {
-                      text
-                    }
-                    subtitle {
-                      text
-                    }
-                    icon {
-                      assets {
-                        url
-                      }
-                    }
-                    persona {
-                      system {
-                        codename
+                    elements {
+                      icon {
+                        assets {
+                          name
+                          url
+                        }
                       }
                     }
                   }
-                  url_link {
+                  footer_left_column {
+                    value
+                  }
+                  footer_center_column {
+                    value
+                  }
+                  footer_right_column {
+                    value
+                  }
+                  footer_bottom_text {
                     text
                   }
-                  url_text {
-                    text
-                  }
-                  icon {
-                    assets {
-                      url
-                    }
-                  }
-                  main_text {
-                    value
-                  }
-                  side_text {
-                    value
-                  }
-                  platform_selector {
-                    name {
-                      value
-                    }
-                    codename {
-                      value
-                    }
-                    detail_url {
-                      text
-                    }
-                  }
-                  steps_label {
-                    value
-                  }
-                  steps {
-                    text {
-                      value
-                    }
-                    persona {
-                      system {
-                        codename
-                      }
-                    }
-                  }
-                  issues_label {
-                    value
-                  }
-                }
-                backgrounds {
-                  assets {
-                    url
-                  }
-                }
-                platforms {
-                  system {
-                    codename
-                  }
-                  icon {
-                    assets {
-                      name
-                      url
-                    }
-                  }
-                }
-                footer_left_column {
-                  value
-                }
-                footer_center_column {
-                  value
-                }
-                footer_right_column {
-                  value
-                }
-                footer_bottom_text {
-                  text
                 }
               }
             }
           }
-        }
-        `}
+        }        
+                `}
         render={(data) => {
           const node = data.allKenticoCloudItemSectionsPage.edges[0].node;
           const currentPersona = this.state.currentPersona;
-          const sections = node.sections.map((section, index) => (
+
+          // TODO remove and use node.elements.sections_nodes when https://github.com/Kentico/gatsby-source-kentico-cloud/issues/30 fixed
+          const orderingPattern = node.elements.sections.map(item => item.system.id);
+          const orderedSections = node.elements.sections_nodes.sort((a,b) => {
+            return orderingPattern.indexOf(a.system.id) - orderingPattern.indexOf(b.system.id);
+          });
+
+          const sections = orderedSections.map((section, index) => (
             <Section
               key={index}
               data={section}
-              personas={node.personas}
-              platforms={node.platforms}
+              personas={node.elements.personas}
+              platforms={node.elements.platforms}
               currentPersona={currentPersona}
               changePersona={this.changePersona} />
           ));
 
           const hamburgerButton = <div style={{
-            background: `url(${node.backgrounds.assets[1].url}) center center no-repeat`,
+            background: `url(${node.elements.backgrounds.assets[1].url}) center center no-repeat`,
             position: 'absolute',
             width: '55px',
             height: '55px',
@@ -211,8 +297,8 @@ class LandingPage extends Component {
           }}>
           </div>;
 
-          const menuItems = node.top_menu.map((menuItem, index) =>
-            <li key={index}><a href={menuItem.url.text}>{menuItem.text.text}</a></li>);
+          const menuItems = node.elements.top_menu.map((menuItem, index) =>
+            <li key={index}><a href={menuItem.elements.url.text}>{menuItem.elements.text.text}</a></li>);
 
           return (
             <>
@@ -229,19 +315,19 @@ class LandingPage extends Component {
                 }
               />
               <HeadingSection
-                title={node.title.text}
-                subtitle={node.subtitle.text}
-                ctaText={node.cta__text.text}
-                ctaUrl={node.cta__url.text}
-                logo={node.logo.assets[0]}
-                backgroundImage={node.background_image.assets[0]} />
+                title={node.elements.title.text}
+                subtitle={node.elements.subtitle.text}
+                ctaText={node.elements.cta__text.text}
+                ctaUrl={node.elements.cta__url.text}
+                logo={node.elements.logo.assets[0]}
+                backgroundImage={node.elements.background_image.assets[0]} />
               {sections}
               <Footer data={{
-                footer_left_column: node.footer_left_column,
-                footer_center_column: node.footer_center_column,
-                footer_right_column: node.footer_right_column,
-                footer_bottom_text: node.footer_bottom_text,
-                backgrounds: node.backgrounds.assets
+                footer_left_column: node.elements.footer_left_column,
+                footer_center_column: node.elements.footer_center_column,
+                footer_right_column: node.elements.footer_right_column,
+                footer_bottom_text: node.elements.footer_bottom_text,
+                backgrounds: node.elements.backgrounds.assets
               }} />
             </>
           )
