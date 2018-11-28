@@ -22,7 +22,6 @@ Data is stored in [Kentico Cloud](https://kenticocloud.com) and provided by [Gat
     ```sh
     npm run develop  
     ```
-    Currently, it is required to run the command twice because of building the data schema.
 
 4.  **Open the source code and start editing!**
 
