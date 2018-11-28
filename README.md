@@ -1,6 +1,9 @@
-<h1 align="center">
-  Kentico Developer Community site
-</h1>
+# Kentico Developer Community site
+
+[![Build Status](https://api.travis-ci.org/Kentico/kentico.github.io.svg?branch=source)](https://travis-ci.org/Kentico/kentico.github.io)
+[![Live](https://img.shields.io/badge/live-demo-brightgreen.svg)](http://kentico.github.io)
+[![Forums](https://img.shields.io/badge/chat-on%20forums-orange.svg)](https://forums.kenticocloud.com)
+
 
 Official landing page for Developer Community in Kentico. This site is using [GatsbyJS](https://next.gatsbyjs.org) static site generation.
 
