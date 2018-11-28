@@ -9,7 +9,11 @@ Official landing page for Developer Community in Kentico. This site is using [Ga
 
 Data is stored in [Kentico Cloud](https://kenticocloud.com) and provided by [Gatsby source plugin](https://github.com/Kentico/gatsby-source-kentico-cloud).
 
+Source code for the landing page is stored in [source branch](https://github.com/Kentico/kentico.github.io/tree/source) beacuse Organization pages bundle [has to be stored in master branch](https://help.github.com/articles/user-organization-and-project-pages/#user-and-organization-pages-sites).
+
+
 ## 🚀 Quick start
+
 
 1.  **Install the dependencies**
 
