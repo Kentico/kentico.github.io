@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Kentico/kentico.github.io#readme",
   "dependencies": {
     "azure-storage": "^2.10.2",
-    "github-api": "^3.0.0"
+    "github-api": "^3.0.0",
+    "request": "^2.88.0"
   }
 }
