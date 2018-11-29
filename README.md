@@ -1,7 +1,7 @@
 # Kentico Developer Community site
 
 [![Build Status](https://api.travis-ci.org/Kentico/kentico.github.io.svg?branch=source)](https://travis-ci.org/Kentico/kentico.github.io)
-[![Live](https://img.shields.io/badge/live-demo-brightgreen.svg)](http://kentico.github.io)
+[![Live](https://img.shields.io/badge/live-demo-brightgreen.svg)](https://kentico.github.io)
 [![Forums](https://img.shields.io/badge/chat-on%20forums-orange.svg)](https://forums.kenticocloud.com)
 
 
