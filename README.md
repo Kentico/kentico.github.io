@@ -35,7 +35,10 @@ Source code for the landing page is stored in [source branch](https://github.com
     Your site is now running at `http://localhost:8000`!
     
     *Note: You'll also see a second link: `http://localhost:8000___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://next.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
-    
+
+### Azure function development
+Azure function development requires the [environment set up](https://github.com/Kentico/kentico.github.io/wiki/Creating-Azure-Function-with-Javascript-in-Visual-Studio-Code-for-Dummies).
+
     
 ## 🧐 What's inside?
 
@@ -93,3 +96,5 @@ Looking for more guidance using Gatsby? Full documentation for Gatsby lives [on 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Kentico/kentico.github.io)
 
 * Note: this deploys only the front end of the application data. Data loaded from Github will be loaded from the production Azure table storage.
+
+Information about the actual deployment is [decribed in wiki](https://github.com/Kentico/kentico.github.io/wiki/How-does-the-automatic-deployment-works).
