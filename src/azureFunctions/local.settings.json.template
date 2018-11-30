@@ -3,7 +3,7 @@
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "node",
     "AzureWebJobsStorage": "",
-    "GITHUB_API_KEY" : ""
+    "GITHUB_API_KEY" : "",
     "KC_WEBHOOK_SECRET" : "",
     "TRAVIS_TOKEN" : ""
   }
