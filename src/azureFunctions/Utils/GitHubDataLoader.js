@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 const axios = require('axios');
 
 class GitHubDataLoader {
@@ -47,14 +46,12 @@ class GitHubDataLoader {
 
   async getKenticoContributorsCount() {
     const publicRepos = await this.getKenticoPublicRepos();
-    // eslint-disable-next-line no-undef
     const contributorsSet = new Set();
     const contributorsPromises = publicRepos
       .map(repo => this.gitHub
         .getRepo(repo.owner.login, repo.name)
         .getContributors());
 
-    // eslint-disable-next-line no-undef
     const contributorsPerProject = await Promise.all(contributorsPromises);
     contributorsPerProject.forEach(contributor => {
       contributor.data
@@ -89,7 +86,6 @@ class GitHubDataLoader {
         .getRepo(repo.owner.login, repo.name)
         .getContributors());
 
-    // eslint-disable-next-line no-undef
     const contributorsPerProject = await Promise.all(contributorsPromises);
 
     for (const projectContributors of contributorsPerProject) {
@@ -151,7 +147,6 @@ class GitHubDataLoader {
   }
 }
 
-// eslint-disable-next-line no-undef
 module.exports = {
   GitHubDataLoader
 };
