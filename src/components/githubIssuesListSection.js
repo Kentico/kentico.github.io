@@ -50,8 +50,13 @@ class GithubIssuesListSection extends Component {
     const platforms = elements.platform_selector_nodes.map(platform =>
       <option key={platform.elements.codename.value} value={platform.elements.codename.value}>{platform.elements.name.value}</option>);
 
+    // TODO remove and use node.elements.sections_nodes when https://github.com/Kentico/gatsby-source-kentico-cloud/issues/30 fixed
+    const stepsOrderingPattern = elements.steps.map(item => item.system.id);
     const steps = elements.steps_nodes
       .filter(step => step.elements.persona[0].system.codename === this.props.currentPersona)
+      .sort((a, b) => {
+        return stepsOrderingPattern.indexOf(a.system.id) - stepsOrderingPattern.indexOf(b.system.id)
+      })
       .map((step, index) =>
         <div key={index}>
           <span>{("0" + (index + 1)).slice(-2)}/</span>
@@ -92,7 +97,7 @@ class GithubIssuesListSection extends Component {
       {platforms}
     </select>);
 
-    const selectedPlatforms = elements.platform_selector_nodes.filter(({elements}) => elements.codename.value === this.state.platformSelection);
+    const selectedPlatforms = elements.platform_selector_nodes.filter(({ elements }) => elements.codename.value === this.state.platformSelection);
     const selectedPlatformLink = selectedPlatforms.length > 0 &&
       selectedPlatforms[0].elements.detail_url.text &&
       <a className="btn" href={selectedPlatforms[0].elements.detail_url.text} target="_blank" rel="noopener noreferrer">Public backlog</a>;
@@ -145,6 +150,7 @@ GithubIssuesListSection.propTypes = {
       section_info__background_image: PropTypes.object,
       platform_selector_nodes: PropTypes.array,
       steps_label: PropTypes.object,
+      steps: PropTypes.array,
       steps_nodes: PropTypes.array,
       issues_label: PropTypes.object,
     })
