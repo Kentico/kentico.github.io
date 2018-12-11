@@ -36,8 +36,8 @@ Source code for the landing page is stored in [source branch](https://github.com
     
     *Note: You'll also see a second link: `http://localhost:8000___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://next.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
 
-### Azure function development
-Azure function development requires the [environment set up](https://github.com/Kentico/kentico.github.io/wiki/Creating-Azure-Function-with-Javascript-in-Visual-Studio-Code-for-Dummies).
+### Other
+* Deploment set up and azure function development is described in [wiki](https://github.com/Kentico/kentico.github.io/wiki)
 
     
 ## 🧐 What's inside?
