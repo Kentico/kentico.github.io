@@ -3,8 +3,13 @@
   "rules": {
     "strict": 0
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ]
+  "overrides": [
+    {
+      "files": ["**/*.js"],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"]
 }
