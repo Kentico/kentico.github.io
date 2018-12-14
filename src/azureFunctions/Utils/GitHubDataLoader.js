@@ -18,19 +18,10 @@ class GitHubDataLoader {
   }
 
   async getKenticoMemberLogins() {
-    let options = {
-      per_page: '100',
-      page: '1'
-    };
-
     const kentico = this.gitHub.getOrganization('Kentico');
-    const members1 = await kentico.listMembers(options);
-    options.page = 2;
-    const members2 = await kentico.listMembers(options);
+    const members = await kentico._requestAllPages(`/orgs/${kentico.__name}/members`, undefined, undefined);
 
-    return members1.data.map(member => member.login).concat(
-      members2.data.map(member => member.login)
-    );
+    return members.data.map(member => member.login)
   }
 
   async getKenticoMergedPullRequestCount() {
@@ -47,13 +38,18 @@ class GitHubDataLoader {
 
   async getKenticoContributorsCount() {
     const publicRepos = await this.getKenticoPublicRepos();
-    // eslint-disable-next-line no-undef
-    const contributorsSet = new Set();
     const contributorsPromises = publicRepos
       .map(repo => this.gitHub
         .getRepo(repo.owner.login, repo.name)
         .getContributors());
 
+    const contributorsSet = await this.transformToContributorsSet(contributorsPromises);
+    return contributorsSet.size;
+  }
+
+  async transformToContributorsSet(contributorsPromises) {
+    // eslint-disable-next-line no-undef
+    const contributorsSet = new Set();
     // eslint-disable-next-line no-undef
     const contributorsPerProject = await Promise.all(contributorsPromises);
     contributorsPerProject.forEach(contributor => {
@@ -63,7 +59,7 @@ class GitHubDataLoader {
           contributorsSet.add(contributorLogin);
         });
     });
-    return contributorsSet.size;
+    return contributorsSet;
   }
 
   async getKenticoCloudTopThreeStaredRepos() { // maximum is 1000
@@ -126,12 +122,12 @@ class GitHubDataLoader {
     });
 
     const topIssues = await search.forIssues(options);
-    return topIssues.data.slice(0, 3).map(issue => ({ 
-      id: issue.id, 
-      html_url: issue.html_url, 
-      user: issue.user, 
+    return topIssues.data.slice(0, 3).map(issue => ({
+      id: issue.id,
+      html_url: issue.html_url,
+      user: issue.user,
       title: issue.title,
-      repository_url: issue.repository_url 
+      repository_url: issue.repository_url
     }));
   }
 

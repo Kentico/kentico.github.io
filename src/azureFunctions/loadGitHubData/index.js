@@ -10,7 +10,6 @@ const gitHub = new GitHub({
     token: process.env['GITHUB_API_KEY']
 });
 
-
 const appendRecord = async (batch, key, loadData) => {
     batch.insertOrReplaceEntity({
         PartitionKey: { '_': 'gitHubData' },
