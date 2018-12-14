@@ -151,7 +151,15 @@ class LandingPage extends Component {
                             url
                           }
                         }
+                        steps {
+                          system {
+                            id
+                          }
+                        }
                         steps_nodes {
+                          system {
+                            id
+                          }
                           elements {
                             persona {
                               system {
