@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 const axios = require('axios');
 
 class GitHubDataLoader {
@@ -42,7 +41,6 @@ class GitHubDataLoader {
       .map(repo => this.gitHub
         .getRepo(repo.owner.login, repo.name)
         .getContributors());
-
     const contributorsSet = await this.transformToContributorsSet(contributorsPromises);
     return contributorsSet.size;
   }
@@ -85,7 +83,6 @@ class GitHubDataLoader {
         .getRepo(repo.owner.login, repo.name)
         .getContributors());
 
-    // eslint-disable-next-line no-undef
     const contributorsPerProject = await Promise.all(contributorsPromises);
 
     for (const projectContributors of contributorsPerProject) {
@@ -147,7 +144,6 @@ class GitHubDataLoader {
   }
 }
 
-// eslint-disable-next-line no-undef
 module.exports = {
   GitHubDataLoader
 };
