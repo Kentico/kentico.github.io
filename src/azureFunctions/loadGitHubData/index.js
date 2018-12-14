@@ -1,15 +1,10 @@
-// eslint-disable-next-line no-undef
 const GitHub = require('github-api');
-// eslint-disable-next-line no-undef
 var azure = require('azure-storage');
-// eslint-disable-next-line no-undef
 const { GitHubDataLoader } = require('../Utils/GitHubDataLoader');
 
 const gitHub = new GitHub({
-    // eslint-disable-next-line no-undef
     token: process.env['GITHUB_API_KEY']
 });
-
 
 const appendRecord = async (batch, key, loadData) => {
     batch.insertOrReplaceEntity({
@@ -19,7 +14,6 @@ const appendRecord = async (batch, key, loadData) => {
     });
 }
 
-// eslint-disable-next-line no-undef
 module.exports = async (context, myTimer) => {
     var timeStamp = new Date().toISOString();
     
@@ -39,7 +33,6 @@ module.exports = async (context, myTimer) => {
     await appendRecord(batch, 'topThreeStarredRepos', dataLoader.getKenticoCloudTopThreeStaredRepos.bind(dataLoader));
     await appendRecord(batch, 'topThreeContributors', dataLoader.getKenticoTopThreeContributors.bind(dataLoader));
 
-    // eslint-disable-next-line no-undef
     const tableSvc = azure.createTableService(process.env.AzureWebJobsStorage);
     tableSvc.createTableIfNotExists('githubStatus', (error, result, response) => {
         if (!error) {
