@@ -6,7 +6,6 @@ const gitHub = new GitHub({
     token: process.env['GITHUB_API_KEY']
 });
 
-
 const appendRecord = async (batch, key, loadData) => {
     batch.insertOrReplaceEntity({
         PartitionKey: { '_': 'gitHubData' },
@@ -22,7 +21,7 @@ module.exports = async (context, myTimer) => {
         context.log('JavaScript is running late!');
     }
     
-    context.log('JavaScript timer trigger function ran!', timeStamp);
+    context.log('JavaScript timer triggers function ran!', timeStamp);
     
     const dataLoader = new GitHubDataLoader(gitHub);
     const batch = new azure.TableBatch();
