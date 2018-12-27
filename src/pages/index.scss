@@ -525,6 +525,7 @@ section.fourth {
           display: inline;
           padding: 5px;
           .share-icon {
+            img,
             svg {
               width: 40px;
               height: 40px;
@@ -557,6 +558,7 @@ section.fourth {
           display: inline;
           padding: 0px 30px;
           margin: auto;
+          img,
           svg {
             padding: 5px;
             width: 100px;
@@ -787,6 +789,7 @@ section.sixth {
             width: 100%;
             li {
               padding: 0px 10px;
+              img,
               svg {
                 padding: 5px;
                 width: 50px;
