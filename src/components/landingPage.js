@@ -96,9 +96,13 @@ class LandingPage extends Component {
                         side_text {
                           value
                         }
+                        additional_label_1 {
+                          text
+                        }
                         icon {
                           assets {
                             url
+                            name
                           }
                         }
                       }
@@ -229,6 +233,7 @@ class LandingPage extends Component {
                               icon {
                                 assets {
                                   url
+                                  name
                                 }
                               }
                             }

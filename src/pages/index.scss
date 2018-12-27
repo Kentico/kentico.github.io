@@ -509,40 +509,68 @@ section.third {
 
 section.fourth {
   padding: 90px 0 40px 0;
-  img.hacktoberfest {
-    max-width: 610px;
+  .content {
+    width: 670px;
     margin: auto;
-  }
-  h2 {
-    font-size: 60px;
-    line-height: 70px;
-    font-weight: bold;
-    text-align: center;
-    display: block;
-    width: 100%;
-    padding: 70px 0 5px 0;
-  }
-  h3 {
-    font-size: 46px;
-    line-height: 60px;
-    font-weight: 300;
-    text-align: center;
-    display: block;
-    width: 100%;
-    padding: 0 0 40px 0;
-  }
-  h4 {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: bold;
-    text-align: center;
-    padding: 0 0 30px 0;
-  }
-  .btn {
-    @include button(#fff);
-    margin: 0 auto 15px auto;
-    &:hover {
-      background: #343E61;
+    padding-top: 425px;
+    .shares {
+      width: 100%;
+      text-align: center;
+      padding-left: 270px;
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding-right: 50px;
+        li {
+          display: inline;
+          padding: 5px;
+          .share-icon {
+            svg {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+    .title {
+      padding-top: 110px;
+      margin: 0 20px;
+      h2 {
+        margin-left: 5px;
+        background-color: #00000066;
+        font-size: 40px;
+        line-height: 70px;
+        font-weight: bold;
+        text-align: center;
+        display: block;
+        width: 100%;
+        padding: 5px 0 5px 0;
+      }
+    }
+    .generators {
+      ul {
+        list-style-type: none;
+        margin: 0;
+        width: 100%;
+        li {
+          display: inline;
+          padding: 0px 30px;
+          margin: auto;
+          svg {
+            padding: 5px;
+            width: 100px;
+            height: 100px;
+          }
+        }
+      }
+    }
+    .text {
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #00000066;
+      font-size: 25px;
+      line-height: 30px;
     }
   }
   a {
@@ -560,44 +588,6 @@ section.fourth {
       height: 34px;
       padding: 0 15px;
     }
-  }
-  .text {
-    text-align: left;
-    font-size: 16px;
-    line-height: 22px;
-    font-weight: 300;
-    a {
-      color: $primary-color;
-      font-weight: bold;
-      &:hover{
-        color: $color-orange;
-        text-decoration: none;
-      }
-    }
-  }
-  .brno {
-    padding: 10px 0 10px 60px;
-    font-size: 24px;
-    line-height: 32px;
-    margin-top: 55px;
-    &:hover {
-      color: $color-orange;
-      text-decoration: none;
-    }
-    strong {
-      font-weight: bold;
-    }
-    a {
-      text-decoration: none;
-      color: #FFFFFF;
-      &:hover {
-        color: $color-orange;
-        text-decoration: none;
-      }
-    }
-  }
-  .hidden {
-    display: none;
   }
 }
 
@@ -635,7 +625,7 @@ section.fifth {
       padding: 0 5px 0 0;
     }
     .link-icon svg {
-      width:15px;
+      width: 15px;
       height: 15px;
       padding-left: 5px;
       fill: $primary-color;
@@ -772,6 +762,42 @@ section.sixth {
 
 @media screen and (max-width: 749px) {
   .web {}
+  section.fourth {
+    .content {
+      width: 80%;
+      .shares {
+        padding: initial;
+      }
+      .title {
+        padding-top: 110px;
+        margin: 0 20px;
+        h2 {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+      .text {
+        font-size: 15px;
+        line-height: 20px;
+      }
+      .row-flex {
+        width: 100%;
+        .generators {
+          ul {
+            width: 100%;
+            li {
+              padding: 0px 10px;
+              svg {
+                padding: 5px;
+                width: 50px;
+                height: 50px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 499px) {
