@@ -64,16 +64,17 @@ class BannerSection extends Component {
     </div>;
 
     const shareIcons = elements.icon.assets.slice(0, 3).map((icon, index) => {
+      let url = 'https://kentico.github.io'
       let link;
       switch (index) {
         case 0:
           link = `https://twitter.com/intent/tweet?text=${elements.additional_label_1.text}`
           break;
         case 1:
-          link =  `http://www.facebook.com/sharer/sharer.php?u=${window.location.origin}#staticNewYear&t=${elements.additional_label_1.text}`
+          link =  `http://www.facebook.com/sharer/sharer.php?u=${url}#staticNewYear&t=${elements.additional_label_1.text}`
           break;
         case 2:
-          link = `https://www.linkedin.com/shareArticle?mini=true&url=${window.location.origin}#staticNewYear&summary=${elements.additional_label_1.text}`
+          link = `https://www.linkedin.com/shareArticle?mini=true&url=${url}#staticNewYear&summary=${elements.additional_label_1.text}`
           break;
       }
 
