@@ -282,13 +282,7 @@ class LandingPage extends Component {
           const node = data.allKenticoCloudItemSectionsPage.edges[0].node;
           const currentPersona = this.state.currentPersona;
 
-          // TODO remove and use node.elements.sections_nodes when https://github.com/Kentico/gatsby-source-kentico-cloud/issues/30 fixed
-          const orderingPattern = node.elements.sections.map(item => item.system.id);
-          const orderedSections = node.elements.sections_nodes.sort((a,b) => {
-            return orderingPattern.indexOf(a.system.id) - orderingPattern.indexOf(b.system.id);
-          });
-
-          const sections = orderedSections.map((section, index) => (
+          const sections = node.elements.sections_nodes.map((section, index) => (
             <Section
               key={index}
               data={section}
