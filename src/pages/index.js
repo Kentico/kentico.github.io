@@ -6,7 +6,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import LandingPage from '../components/landingPage';
 
 import './index.scss';
-import ogImage from '../images/dc-og-image.png'
+import ogImage from '../images/dc-ogimage.png'
 
 const IndexPage = () => (
     <StaticQuery
