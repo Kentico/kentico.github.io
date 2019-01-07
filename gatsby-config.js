@@ -3,7 +3,7 @@ require('@babel/polyfill');
 module.exports = {
   siteMetadata: {
     title: 'Developer Community',
-    description: 'Official site for Kentico developer community. General guidepost for people who are interested in the open-source, especially around Kentico open-source projects.',
+    description: 'A gateway to the world of open-source at Kentico.',
     ogtitle: 'Kentico Developer Community Home',
     siteurl: 'https://kentico.github.io'
   },
