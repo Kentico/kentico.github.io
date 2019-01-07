@@ -3,6 +3,9 @@ require('@babel/polyfill');
 module.exports = {
   siteMetadata: {
     title: 'Developer Community',
+    description: 'A gateway to the world of open-source at Kentico.',
+    ogtitle: 'Kentico Developer Community Home',
+    siteurl: 'https://kentico.github.io'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
