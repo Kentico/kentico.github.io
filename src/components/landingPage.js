@@ -10,14 +10,31 @@ class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPersona: 'developer'
+      currentPersona: this.getInitialPersona()
     }
+  }
+
+  getInitialPersona = () => {
+    if (!location.hash) {
+      return 'developer';
+    }
+
+    switch (location.hash) {
+      case '#developer':
+        return 'developer';
+      case '#company':
+        return 'company';
+      case '#blogger':
+        return 'blogger';
+    }
+    return 'developer';
   }
 
   changePersona = (newPersona) => {
     this.setState({
       currentPersona: newPersona
     });
+    location.hash = `#${newPersona}`
   }
 
   render() {
