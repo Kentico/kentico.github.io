@@ -21,7 +21,7 @@ const HeadingSection = (props) => {
         <h1>{props.title}</h1>
         <p className="subtitle">{props.subtitle}</p>
 
-        <a href={props.ctaUrl} className="btn">{props.ctaText}</a>
+        {props.ctaUrl && props.ctaText && <a href={props.ctaUrl} className="btn">{props.ctaText}</a>}
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ class LandingPage extends Component {
   }
 
   getInitialPersona = () => {
-    if (!location.hash) {
+    if (typeof location === `undefined` || !location.hash) {
       return 'developer';
     }
 
@@ -34,7 +34,9 @@ class LandingPage extends Component {
     this.setState({
       currentPersona: newPersona
     });
-    location.hash = `#${newPersona}`
+    if (typeof location !== `undefined`) {
+      location.hash = `#${newPersona}`
+    }
   }
 
   render() {
