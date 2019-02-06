@@ -149,6 +149,10 @@ class ProjectsAndContributorsSection extends Component {
         platformCodename = 'html';
         break;
       }
+      case 'TypeScript': {
+        platformCodename = 'typescript_8ffd07f'
+        break;
+      }
     }
 
     return <img src={this.getIconUrlForPlatform(platformCodename)} alt={this.getIconNameForPlatform(platformCodename)} />;
