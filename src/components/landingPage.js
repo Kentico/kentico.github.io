@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import ResponsiveMenu from 'react-responsive-navbar';
+import queryString from 'query-string';
 
 import HeadingSection from './headingSection';
 import Section from './section';
@@ -10,7 +11,24 @@ class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPersona: 'developer'
+      currentPersona: this.getInitialPersona()
+    }
+  }
+
+  getInitialPersona = () => {
+    if (typeof location === `undefined` || !location.search) {
+      return 'developer';
+    }
+    const query = queryString.parse(location.search);
+    switch (query.persona) {
+      case 'developer':
+        return 'developer';
+      case 'company':
+        return 'company';
+      case 'blogger':
+        return 'blogger';
+      default:
+        return 'developer';
     }
   }
 
