@@ -72,151 +72,98 @@ class LandingPage extends Component {
                     }
                   }
                   sections {system{id}}
-                  sections_nodes {            
-                    ... on KenticoCloudItemBannerSection {
-                      system {
-                        id
-                        type
-                      }
-                      elements {
-                        section_info__title {
-                          text
+                  sections_nodes {
+                    ... on Node {
+                      ... on KenticoCloudItemBannerSection {
+                        system {
+                          id
+                          type
                         }
-                        section_info__subtitle {
-                          text
-                        }
-                        section_info__background_image {
-                          assets {
-                            url
+                        elements {
+                          section_info__title {
+                            text
                           }
-                        }
-                        main_text {
-                          value
-                        }
-                        side_text {
-                          value
-                        }
-                        additional_label_1 {
-                          text
-                        }
-                        icon {
-                          assets {
-                            url
-                            name
+                          section_info__subtitle {
+                            text
                           }
-                        }
-                      }
-                    }
-                    ... on KenticoCloudItemProjectsAndContributorsSection {
-                      system {
-                        id
-                        type
-                      }
-                      elements {
-                        section_info__title {
-                          text
-                        }
-                        section_info__subtitle {
-                          text
-                        }
-                        section_info__background_image {
-                          assets {
-                            url
-                          }
-                        }
-                        icons_nodes {
-                          system {
-                            codename
-                          }
-                          elements {
-                            title {
-                              text
+                          section_info__background_image {
+                            assets {
+                              url
                             }
-                            icon {
-                              assets {
-                                url
-                              }
+                          }
+                          main_text {
+                            value
+                          }
+                          side_text {
+                            value
+                          }
+                          additional_label_1 {
+                            text
+                          }
+                          icon {
+                            assets {
+                              url
+                              name
                             }
                           }
                         }
                       }
-                    }
-                    ... on KenticoCloudItemTaskListSection {
-                      system {
-                        id
-                        type
-                      }
-                      elements {
-                        section_info__title {
-                          text
+                      ... on KenticoCloudItemProjectsAndContributorsSection {
+                        system {
+                          id
+                          type
                         }
-                        section_info__background_image {
-                          assets {
-                            url
+                        elements {
+                          section_info__title {
+                            text
                           }
-                        }
-                        steps {
-                          system {
-                            id
+                          section_info__subtitle {
+                            text
                           }
-                        }
-                        steps_nodes {
-                          system {
-                            id
-                          }
-                          elements {
-                            persona {
-                              system {
-                                codename
-                              }
-                            }
-                            text {
-                              value
+                          section_info__background_image {
+                            assets {
+                              url
                             }
                           }
-                        }
-                        platform_selector_nodes {
-                          elements {
-                            name {
-                              value
-                            }
-                            codename {
-                              value
-                            }
-                            detail_url {
-                              text
-                            }
-                          }
-                        }
-                        issues_label {
-                          value
-                        }
-                        steps_label {
-                          value
-                        }
-                      }
-                    }
-                    ... on KenticoCloudItemIconsSection {
-                      system {
-                        id
-                        type
-                      }
-                      elements {
-                        section_info__title {
-                          text
-                        }
-                        section_info__subtitle {
-                          text
-                        }
-                        section_info__background_image {
-                          assets {
-                            url
-                          }
-                        }
-                        icons_nodes {
-                          ... on KenticoCloudItemIcon {
+                          icons_nodes {
                             system {
                               codename
+                            }
+                            elements {
+                              title {
+                                text
+                              }
+                              icon {
+                                assets {
+                                  url
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                      ... on KenticoCloudItemTaskListSection {
+                        system {
+                          id
+                          type
+                        }
+                        elements {
+                          section_info__title {
+                            text
+                          }
+                          section_info__background_image {
+                            assets {
+                              url
+                            }
+                          }
+                          steps {
+                            system {
+                              id
+                            }
+                          }
+                          steps_nodes {
+                            system {
+                              id
                             }
                             elements {
                               persona {
@@ -224,16 +171,71 @@ class LandingPage extends Component {
                                   codename
                                 }
                               }
-                              title {
+                              text {
+                                value
+                              }
+                            }
+                          }
+                          platform_selector_nodes {
+                            elements {
+                              name {
+                                value
+                              }
+                              codename {
+                                value
+                              }
+                              detail_url {
                                 text
                               }
-                              subtitle {
-                                text
+                            }
+                          }
+                          issues_label {
+                            value
+                          }
+                          steps_label {
+                            value
+                          }
+                        }
+                      }
+                      ... on KenticoCloudItemIconsSection {
+                        system {
+                          id
+                          type
+                        }
+                        elements {
+                          section_info__title {
+                            text
+                          }
+                          section_info__subtitle {
+                            text
+                          }
+                          section_info__background_image {
+                            assets {
+                              url
+                            }
+                          }
+                          icons_nodes {
+                            ... on KenticoCloudItemIcon {
+                              system {
+                                codename
                               }
-                              icon {
-                                assets {
-                                  url
-                                  name
+                              elements {
+                                persona {
+                                  system {
+                                    codename
+                                  }
+                                }
+                                title {
+                                  text
+                                }
+                                subtitle {
+                                  text
+                                }
+                                icon {
+                                  assets {
+                                    url
+                                    name
+                                  }
                                 }
                               }
                             }
