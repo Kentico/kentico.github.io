@@ -28,6 +28,7 @@ module.exports = async (context, myTimer) => {
     await appendRecord(batch, 'openSourceProjectCount', dataLoader.getKenticoOpenSourceProjectsCount.bind(dataLoader));
     await appendRecord(batch, 'openedGroomedIssues', dataLoader.getKenticoOpenedGroomedIssues.bind(dataLoader));
     await appendRecord(batch, 'openedGroomedIssuesByPlatform', dataLoader.getKenticoOpenedIssuesByPlatform.bind(dataLoader));
+    await appendRecord(batch, 'contentBacklogThreeTodoCards', dataLoader.getTopThreeKenticoContentBacklogTodoCards.bind(dataLoader));
     await appendRecord(batch, 'mergePullRequestsCount', dataLoader.getKenticoMergedPullRequestCount.bind(dataLoader));
     await appendRecord(batch, 'contributorsCount', dataLoader.getKenticoContributorsCount.bind(dataLoader));
     await appendRecord(batch, 'topThreeStarredRepos', dataLoader.getKenticoCloudTopThreeStaredRepos.bind(dataLoader));
