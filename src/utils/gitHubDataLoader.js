@@ -8,11 +8,6 @@ const getAllGithubData = (callback) => {
   tableService.queryEntities('githubStatus', query, null, callback);
 }
 
-const getKenticoOpenedGroomedIssues = async () => {
-  return [];
-};
-
 export {
-  getAllGithubData,
-  getKenticoOpenedGroomedIssues
-}
+  getAllGithubData
+};

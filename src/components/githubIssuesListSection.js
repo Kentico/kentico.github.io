@@ -13,6 +13,7 @@ class GithubIssuesListSection extends Component {
     this.state = {
       platformSelection: 'all',
       issues: [],
+      contentTasks: [],
       issuesLoaded: false
     }
   }
@@ -28,14 +29,25 @@ class GithubIssuesListSection extends Component {
 
   dataLoaded = (error, result) => {
     if (!error) {
+      const issues = result
+        .entries
+        .filter(item =>
+          item.RowKey['_'] === "openedGroomedIssuesByPlatform");
+      const contentTasks = result
+        .entries
+        .filter(item =>
+          item.RowKey['_'] === "contentBacklogThreeTodoCards");
+
       this.setState({
-        issues: JSON.parse(result.entries.filter(item => item.RowKey['_'] === "openedGroomedIssuesByPlatform")[0].value['_']),
+        issues: issues && issues[0] && JSON.parse(issues[0].value['_']),
+        contentTasks: contentTasks && contentTasks[0] && JSON.parse(contentTasks[0].value['_']),
         issuesLoaded: true
       });
     }
     else {
       this.setState({
         issues: [],
+        contentTasks: [],
         issuesLoaded: true
       });
     }
@@ -71,8 +83,11 @@ class GithubIssuesListSection extends Component {
     let issues;
 
     if (this.state.issuesLoaded) {
-      const currentIssues = this.state.issues[this.state.platformSelection] || [];
-      if (currentIssues.length === 0) {
+      const currentIssues =
+        this.props.currentPersona === 'developer' ? this.state.issues[this.state.platformSelection] :
+          this.props.currentPersona === 'blogger' ? this.state.contentTasks : []
+            || [];
+      if (!currentIssues || currentIssues.length === 0) {
         issues = <li>No issues</li>
       }
       else {
@@ -93,20 +108,45 @@ class GithubIssuesListSection extends Component {
     </select>);
 
     const selectedPlatforms = elements.platform_selector_nodes.filter(({ elements }) => elements.codename.value === this.state.platformSelection);
-    const selectedPlatformLink = selectedPlatforms.length > 0 &&
-      selectedPlatforms[0].elements.detail_url.text &&
-      <a className="btn" href={selectedPlatforms[0].elements.detail_url.text} target="_blank" rel="noopener noreferrer">Public backlog</a>;
 
+    const selectedPlatformLink =
+      this.props.currentPersona === 'blogger'
+        ? <a
+          className="btn"
+          href="https://github.com/orgs/Kentico/projects/8"
+          target="_blank"
+          rel="noopener noreferrer">
+          Public backlog
+        </a>
+        : selectedPlatforms.length > 0
+        && selectedPlatforms[0].elements.detail_url.text
+        && <a
+          className="btn"
+          href={selectedPlatforms[0].elements.detail_url.text}
+          target="_blank"
+          rel="noopener noreferrer">
+          Public backlog
+        </a>;
+
+    const issuesTitle = this.props.currentPersona === 'developer'
+      ? <a href={`https://github.com/issues?q=org%3AKentico+is%3Aissue+is%3Aopen+user%3AKentico+label%3Agroomed+language%3A${this.state.platformSelection}`}>
+        {elements.issues_label.value}
+        <SVG src={linkIcon} >
+          <img src={linkIcon} alt="link icon" />
+        </SVG>
+      </a> : elements.issues_label.value;
     const issueWrapper = <div className="box-50 issues">
       <h3>
-        <a href={`https://github.com/issues?q=org%3AKentico+is%3Aissue+is%3Aopen+user%3AKentico+label%3Agroomed+language%3A${this.state.platformSelection}`}>
-          {elements.issues_label.value}
-          <SVG src={linkIcon} >
-            <img src={linkIcon} alt="link icon" />
-          </SVG>
-        </a>
+        {issuesTitle}
       </h3>
-      {this.state.issuesLoaded ? <div><ul>{issues}</ul>{selectedPlatformLink}</div> : issuesLoader}
+      {this.state.issuesLoaded
+        ? (<div>
+          <ul>
+            {issues}
+          </ul>
+          {selectedPlatformLink}
+        </div>)
+        : issuesLoader}
     </div >
 
     return (
@@ -130,7 +170,7 @@ class GithubIssuesListSection extends Component {
             </h3>
             {steps}
           </div>
-          {this.props.currentPersona === 'developer' && issueWrapper}
+          {['developer', 'blogger'].includes(this.props.currentPersona) && issueWrapper}
         </div>
       </section >
     );
