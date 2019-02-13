@@ -128,6 +128,32 @@ class GitHubDataLoader {
     }));
   }
 
+  async getTopThreeKenticoContentBacklogTodoCards() {
+    const project = this.gitHub.getProject(2167772);
+    const cards = await project.listColumnCards(4409236);
+
+    const topThreeCards = cards.data
+      .slice(0, 3);
+
+    const resultIssues = [];
+    for (const card of topThreeCards) {
+      const contentUrlParts = card.content_url.split('/');
+      const owner = contentUrlParts[contentUrlParts.length - 4];
+      const repoName = contentUrlParts[contentUrlParts.length - 3];
+      const issueNumber = contentUrlParts[contentUrlParts.length - 1];
+      const issues = this.gitHub.getIssues(owner, repoName);
+      const issue = await issues.getIssue(issueNumber);
+      resultIssues.push({
+        id: issue.data.id,
+        html_url: issue.data.html_url,
+        user: issue.data.user,
+        title: issue.data.title,
+        repository_url: issue.data.repository_url
+      });
+    }
+    return resultIssues;
+  }
+
   async getKenticoOpenedIssuesByPlatform() {
     const platforms = await axios("https://deliver.kenticocloud.com/1bb2313f-2550-0025-06d9-f3e5065607c0/items?system.type=label&elements.label_group[contains]=platform")
       .then(result => (result.data.items.map(platform => platform.elements.codename.value)));
