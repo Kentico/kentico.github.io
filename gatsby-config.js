@@ -62,7 +62,7 @@ module.exports = {
           },
           {
             urlPattern: /^https:\/\/kentico.github.io/,
-            handler: 'staleWhileRevalidate',
+            handler: 'networkFirst',
             options: {
               cacheableResponse: {
                 statuses: [0, 200]
