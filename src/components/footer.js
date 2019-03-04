@@ -18,7 +18,7 @@ const Footer = (props) => {
       </div>
       <div className="row-flex">
         <div className="box-100 copyright">
-          {props.data.footer_bottom_text.text}
+          &copy; {new Date().getFullYear()} {props.data.footer_bottom_text.text}
         </div>
       </div>
     </section>
