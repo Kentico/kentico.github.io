@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Footer = (props) => {
   return (
     <section
-      className="sixth"
+      className="footer"
       style={{
         background: `#1C263F url(${props.data.backgrounds[0].url}) top center no-repeat`
       }}>

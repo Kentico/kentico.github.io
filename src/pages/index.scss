@@ -260,7 +260,7 @@ $primary-color: white;
   }
 }
 
-section.first {
+section.heading-section {
   min-height: 700px;
   text-align: center;
   .logo {
@@ -301,7 +301,7 @@ section.first {
   }
 }
 
-section.second {
+section.icons-section {
   text-align: center;
   padding: 120px 0 100px 0;
   h2 {
@@ -353,7 +353,7 @@ section.second {
   }
 }
 
-section.third {
+section.task-list {
   padding: 130px 0 110px 0;
   h2 {
     color: $color-grey;
@@ -506,7 +506,7 @@ section.third {
   }
 }
 
-section.fourth {
+section.banner-section {
   padding: 90px 0 40px 0;
   .content {
     width: 670px;
@@ -560,7 +560,7 @@ section.fourth {
   }
 }
 
-section.fifth {
+section.projects-and-contributions {
   padding: 0px 0 280px 0;
   h2 {
     padding: 110px 0 5px 0;
@@ -623,7 +623,7 @@ section.fifth {
   }
 }
 
-section.sixth {
+section.footer {
   padding: 390px 0 230px 0;
   .links {
     text-align: left;
@@ -698,22 +698,22 @@ section.sixth {
     padding: 0;
     min-width: 200px;
   }
-  section.sixth {
+  section.footer {
     padding: 190px 0 230px 0;
   }
-  section.fifth {
+  section.projects-and-contributions {
     .row-flex {
       .box-50 {
         padding-bottom: 55px;
       }
     }
   }
-  section.third {
+  section.task-list {
     .issues {
       padding-top: 55px;
     }
   }
-  section.second {
+  section.icons-section {
     .content {
       .row-flex {
         .box-33 {
@@ -722,7 +722,7 @@ section.sixth {
       }
     }
   }
-  section.fourth {
+  section.banner-section {
     h4 {
       padding-top: 50px;
     }
@@ -731,7 +731,7 @@ section.sixth {
 
 @media screen and (max-width: 749px) {
   .web {}
-  section.fourth {
+  section.banner-section {
     .content {
       width: 80%;
       .shares {
@@ -761,7 +761,7 @@ section.sixth {
 
 @media screen and (max-width: 499px) {
   .web {}
-  section.first {
+  section.heading-section {
     h1 {
       font-size: 40px;
       line-height: 50px;
@@ -772,13 +772,13 @@ section.sixth {
       line-height: 40px;
     }
   }
-  section.third {
+  section.task-list {
     h2 {
       font-size: 40px;
       line-height: 50px;
     }
   }
-  section.fourth {
+  section.banner-section {
     h2 {
       font-size: 40px;
       line-height: 50px;
@@ -788,7 +788,7 @@ section.sixth {
       line-height: 40px;
     }
   }
-  section.fifth {
+  section.projects-and-contributions {
     h2 {
       font-size: 40px;
       line-height: 50px;

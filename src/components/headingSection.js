@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const HeadingSection = (props) => {
   return (
-    <section className="first" style={{
+    <section className="heading-section" style={{
       background: `#1C263F url(${props.backgroundImage.url}) bottom center no-repeat`,
       minHeight: '700px',
       textAlign: 'center'

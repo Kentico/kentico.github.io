@@ -27,7 +27,7 @@ const IconsSection = (props) => {
   )
 
   return (
-    <section className="second" id="value-propositions" style={{
+    <section className="icons-section" id="value-propositions" style={{
       background: `#151B31 url(${props.data.elements.section_info__background_image.assets[0].url}) top center no-repeat`
     }}>
       {headline}

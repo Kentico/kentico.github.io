@@ -64,7 +64,7 @@ class BannerSection extends Component {
     </div>;
 
     return (
-      <section className="fourth" id={_.camelCase(elements.section_info__title.text)} style={this.state.sectionStyles} >
+      <section className="banner-section" id={_.camelCase(elements.section_info__title.text)} style={this.state.sectionStyles} >
         <div className="content">
           <div className="box-100 title">
             <h2 dangerouslySetInnerHTML={{ __html: elements.section_info__title.text.replace("a ", "a&nbsp;") }}></h2>

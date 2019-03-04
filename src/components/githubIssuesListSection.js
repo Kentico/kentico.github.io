@@ -150,7 +150,7 @@ class GithubIssuesListSection extends Component {
     </div >
 
     return (
-      <section className="third" id="task-list" style={{
+      <section className="task-list" id="task-list" style={{
         background: `#1C263F url(${elements.section_info__background_image.assets[0].url}) bottom center no-repeat`
       }}>
         <div className="row-flex">
