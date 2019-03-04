@@ -59,10 +59,10 @@ class GithubIssuesListSection extends Component {
 
   render() {
     const elements = this.props.data.elements;
-    const platforms = elements.platform_selector_nodes.map(platform =>
+    const platforms = elements.platform_selector.map(platform =>
       <option key={platform.elements.codename.value} value={platform.elements.codename.value}>{platform.elements.name.value}</option>);
 
-    const steps = elements.steps_nodes
+    const steps = elements.steps
       .filter(step => step.elements.persona[0].system.codename === this.props.currentPersona)
       .map((step, index) =>
         <div key={index}>
@@ -107,7 +107,7 @@ class GithubIssuesListSection extends Component {
       {platforms}
     </select>);
 
-    const selectedPlatforms = elements.platform_selector_nodes.filter(({ elements }) => elements.codename.value === this.state.platformSelection);
+    const selectedPlatforms = elements.platform_selector.filter(({ elements }) => elements.codename.value === this.state.platformSelection);
 
     const selectedPlatformLink =
       this.props.currentPersona === 'blogger'
@@ -186,7 +186,6 @@ GithubIssuesListSection.propTypes = {
       platform_selector_nodes: PropTypes.array,
       steps_label: PropTypes.object,
       steps: PropTypes.array,
-      steps_nodes: PropTypes.array,
       issues_label: PropTypes.object,
     })
   }),

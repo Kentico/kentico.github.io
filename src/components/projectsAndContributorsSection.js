@@ -172,7 +172,7 @@ class ProjectsAndContributorsSection extends Component {
 
   render() {
     const elements = this.props.data.elements;
-    const icons = elements.icons_nodes.map(({system, elements}, index) => {
+    const icons = elements.icons.map(({system, elements}, index) => {
       const countLabel = this.getCountLabel(system.codename);
       return (
         <div className="box-33" key={index}>

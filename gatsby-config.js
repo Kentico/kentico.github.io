@@ -92,7 +92,9 @@ module.exports = {
       resolve: 'gatsby-source-kentico-cloud',
       options: {
         deliveryClientConfig: {
+          enablePreviewMode: true,
           projectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',
+          previewApiKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJmZDJiMDQwODc4MGQ0NWM2ODAxMjBkNWUyYjUzMDc4ZCIsImlhdCI6IjE1MzgwNTYwMjIiLCJleHAiOiIxODgzNjU2MDIyIiwicHJvamVjdF9pZCI6IjFiYjIzMTNmMjU1MDAwMjUwNmQ5ZjNlNTA2NTYwN2MwIiwidmVyIjoiMS4wLjAiLCJhdWQiOiJwcmV2aWV3LmRlbGl2ZXIua2VudGljb2Nsb3VkLmNvbSJ9.etY2UDgJrRxmzd0J9MdHav3knvT0zaGIWzOh_yycHMk',
         },
         languageCodenames: [
           "default"

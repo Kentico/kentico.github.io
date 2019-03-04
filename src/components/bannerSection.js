@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SVG from 'react-inlinesvg';
+import _ from 'lodash';
 
 class BannerSection extends Component {
 
@@ -112,7 +113,7 @@ class BannerSection extends Component {
 
 
     return (
-      <section className="fourth" id="staticNewYear" style={this.state.sectionStyles} >
+      <section className="fourth" id={_.camelCase(elements.section_info__title.text)} style={this.state.sectionStyles} >
         <div className="content">
           <div className="shares">
             <ul>
