@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const IconsSection = (props) => {
-  const icons = props.data.elements.icons_nodes
+  const icons = props.data.elements.icons
     .filter(icon => icon.elements.persona[0].system.codename === props.currentPersona)
     .map(icon =>
       <div className="box-33" key={icon.system.codename}>
@@ -27,7 +27,7 @@ const IconsSection = (props) => {
   )
 
   return (
-    <section className="second" id="value-propositions" style={{
+    <section className="icons-section" id="value-propositions" style={{
       background: `#151B31 url(${props.data.elements.section_info__background_image.assets[0].url}) top center no-repeat`
     }}>
       {headline}
@@ -47,7 +47,7 @@ IconsSection.propTypes = {
     elements: PropTypes.shape({
       section_info__title: PropTypes.object,
       section_info__background_image: PropTypes.object,
-      icons_nodes: PropTypes.array
+      icons: PropTypes.array
     })
   }),
   currentPersona: PropTypes.string.isRequired,

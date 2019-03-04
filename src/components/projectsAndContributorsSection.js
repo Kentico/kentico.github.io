@@ -172,7 +172,7 @@ class ProjectsAndContributorsSection extends Component {
 
   render() {
     const elements = this.props.data.elements;
-    const icons = elements.icons_nodes.map(({system, elements}, index) => {
+    const icons = elements.icons.map(({system, elements}, index) => {
       const countLabel = this.getCountLabel(system.codename);
       return (
         <div className="box-33" key={index}>
@@ -233,7 +233,7 @@ class ProjectsAndContributorsSection extends Component {
 
     return (
       <section
-        className="fifth" id="our-projects" style={{
+        className="projects-and-contributions" id="our-projects" style={{
           background: `#2C3753 url(${elements.section_info__background_image.assets[0].url}) bottom center no-repeat`
         }}>
         <div className="row-flex">

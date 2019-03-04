@@ -32,7 +32,9 @@ $color-black: #000000;
   line-height: 30px;
   font-size: 20px;
   font-weight: bold;
-  &:hover {}
+  &:hover {
+    color: $color-black;
+  }
 }
 
 @mixin menuButton($color) {
@@ -258,7 +260,7 @@ $primary-color: white;
   }
 }
 
-section.first {
+section.heading-section {
   min-height: 700px;
   text-align: center;
   .logo {
@@ -296,13 +298,10 @@ section.first {
     @include button(#FFFFFF);
     margin: auto;
     margin-bottom: 150px;
-    &:hover {
-      color: $color-black;
-    }
   }
 }
 
-section.second {
+section.icons-section {
   text-align: center;
   padding: 120px 0 100px 0;
   h2 {
@@ -354,7 +353,7 @@ section.second {
   }
 }
 
-section.third {
+section.task-list {
   padding: 130px 0 110px 0;
   h2 {
     color: $color-grey;
@@ -507,39 +506,18 @@ section.third {
   }
 }
 
-section.fourth {
+section.banner-section {
   padding: 90px 0 40px 0;
   .content {
     width: 670px;
     margin: auto;
-    padding-top: 425px;
-    .shares {
-      width: 100%;
-      text-align: center;
-      padding-left: 270px;
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding-right: 50px;
-        li {
-          display: inline;
-          padding: 5px;
-          .share-icon {
-            img,
-            svg {
-              width: 40px;
-              height: 40px;
-            }
-          }
-        }
-      }
-    }
+    padding-top: 20px;
     .title {
       padding-top: 110px;
       margin: 0 20px;
       h2 {
         margin-left: 5px;
-        background-color: #00000066;
+        background-color: #000000BB;
         font-size: 40px;
         line-height: 70px;
         font-weight: bold;
@@ -549,30 +527,19 @@ section.fourth {
         padding: 5px 0 5px 0;
       }
     }
-    .generators {
-      ul {
-        list-style-type: none;
-        margin: 0;
-        width: 100%;
-        li {
-          display: inline;
-          padding: 0px 30px;
-          margin: auto;
-          img,
-          svg {
-            padding: 5px;
-            width: 100px;
-            height: 100px;
-          }
-        }
-      }
-    }
     .text {
       margin: 20px auto;
       padding: 10px;
-      background-color: #00000066;
+      background-color: #000000BB;
       font-size: 25px;
       line-height: 30px;
+    }
+    .cta {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    .btn {
+      @include button(#FFFFFF);
     }
   }
   a {
@@ -593,7 +560,7 @@ section.fourth {
   }
 }
 
-section.fifth {
+section.projects-and-contributions {
   padding: 0px 0 280px 0;
   h2 {
     padding: 110px 0 5px 0;
@@ -656,7 +623,7 @@ section.fifth {
   }
 }
 
-section.sixth {
+section.footer {
   padding: 390px 0 230px 0;
   .links {
     text-align: left;
@@ -731,22 +698,22 @@ section.sixth {
     padding: 0;
     min-width: 200px;
   }
-  section.sixth {
+  section.footer {
     padding: 190px 0 230px 0;
   }
-  section.fifth {
+  section.projects-and-contributions {
     .row-flex {
       .box-50 {
         padding-bottom: 55px;
       }
     }
   }
-  section.third {
+  section.task-list {
     .issues {
       padding-top: 55px;
     }
   }
-  section.second {
+  section.icons-section {
     .content {
       .row-flex {
         .box-33 {
@@ -755,7 +722,7 @@ section.sixth {
       }
     }
   }
-  section.fourth {
+  section.banner-section {
     h4 {
       padding-top: 50px;
     }
@@ -764,7 +731,7 @@ section.sixth {
 
 @media screen and (max-width: 749px) {
   .web {}
-  section.fourth {
+  section.banner-section {
     .content {
       width: 80%;
       .shares {
@@ -784,20 +751,9 @@ section.sixth {
       }
       .row-flex {
         width: 100%;
-        .generators {
-          ul {
-            width: 100%;
-            li {
-              padding: 0px 10px;
-              img,
-              svg {
-                padding: 5px;
-                width: 50px;
-                height: 50px;
-              }
-            }
-          }
-        }
+      }
+      .cta {
+        padding: 20px 0;
       }
     }
   }
@@ -805,7 +761,7 @@ section.sixth {
 
 @media screen and (max-width: 499px) {
   .web {}
-  section.first {
+  section.heading-section {
     h1 {
       font-size: 40px;
       line-height: 50px;
@@ -816,13 +772,13 @@ section.sixth {
       line-height: 40px;
     }
   }
-  section.third {
+  section.task-list {
     h2 {
       font-size: 40px;
       line-height: 50px;
     }
   }
-  section.fourth {
+  section.banner-section {
     h2 {
       font-size: 40px;
       line-height: 50px;
@@ -832,7 +788,7 @@ section.sixth {
       line-height: 40px;
     }
   }
-  section.fifth {
+  section.projects-and-contributions {
     h2 {
       font-size: 40px;
       line-height: 50px;

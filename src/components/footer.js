@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Footer = (props) => {
   return (
     <section
-      className="sixth"
+      className="footer"
       style={{
         background: `#1C263F url(${props.data.backgrounds[0].url}) top center no-repeat`
       }}>
@@ -18,7 +18,7 @@ const Footer = (props) => {
       </div>
       <div className="row-flex">
         <div className="box-100 copyright">
-          {props.data.footer_bottom_text.text}
+          &copy; {new Date().getFullYear()} {props.data.footer_bottom_text.text}
         </div>
       </div>
     </section>
