@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SVG from 'react-inlinesvg';
 import _ from 'lodash';
 
 class BannerSection extends Component {
@@ -10,7 +9,7 @@ class BannerSection extends Component {
     this.state = {
       sectionStyles: {
         background: `
-            #582D40
+            #FCD395
             url(${props.data.elements.section_info__background_image.assets[0].url}) 
             top 
             center 
@@ -24,11 +23,11 @@ class BannerSection extends Component {
   }
 
   setSectionStyles = () => {
-    if (window.innerWidth <= 750) {
+    if (window.innerWidth <= 1024) {
       this.setState({
         sectionStyles: {
           background: `
-              #582D40
+              #FCD395
               url(${this.props.data.elements.section_info__background_image.assets[1].url}) 
               top 
               center 
@@ -39,7 +38,7 @@ class BannerSection extends Component {
       this.setState({
         sectionStyles: {
           background: `
-              #582D40
+              #FCD395
               url(${this.props.data.elements.section_info__background_image.assets[0].url}) 
               top 
               center 
@@ -64,71 +63,16 @@ class BannerSection extends Component {
       </div>
     </div>;
 
-    const shareIcons = elements.icon.assets.slice(0, 3).map((icon, index) => {
-      let url = 'https://kentico.github.io'
-      let link;
-      switch (index) {
-        case 0:
-          link = `https://twitter.com/intent/tweet?text=${elements.additional_label_1.text}`
-          break;
-        case 1:
-          link =  `http://www.facebook.com/sharer/sharer.php?u=${url}#staticNewYear&t=${elements.additional_label_1.text}`
-          break;
-        case 2:
-          link = `https://www.linkedin.com/shareArticle?mini=true&url=${url}#staticNewYear&summary=${elements.additional_label_1.text}`
-          break;
-      }
-
-      return (<li key={icon.name}>
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          <SVG src={icon.url} className="share-icon" >
-            <img src={icon.url} alt={icon.name} />
-          </SVG>
-        </a>
-      </li>);
-    });
-
-    const generatorLinks = elements.icon.assets.slice(3, 6).map((icon, index) => {
-      let link;
-      switch (index) {
-        case 0:
-          link = 'https://github.com/Kentico/gatsby-source-kentico-cloud';
-          break;
-        case 1:
-          link = 'https://github.com/Domitnator/kenticocloud-nuxt-module';
-          break;
-        case 2:
-          link = 'https://github.com/kbortnik/KenticoCloud.Wyam';
-          break;
-      }
-
-      return (<li key={icon.name}>
-        <a href={link}>
-          <SVG src={icon.url}>
-            <img src={icon.ul} alt={icon.name} />
-          </SVG>
-        </a>
-      </li>);
-    });
-
-
     return (
       <section className="fourth" id={_.camelCase(elements.section_info__title.text)} style={this.state.sectionStyles} >
         <div className="content">
-          <div className="shares">
-            <ul>
-              {shareIcons}
-            </ul>
-          </div>
           <div className="box-100 title">
             <h2 dangerouslySetInnerHTML={{ __html: elements.section_info__title.text.replace("a ", "a&nbsp;") }}></h2>
           </div>
           {additionalContent}
           <div className="row-flex">
-            <div className="box-100 generators">
-              <ul>
-                {generatorLinks}
-              </ul>
+            <div className="box-100 cta">
+              <a href={elements.url_link.text} className="btn">{elements.url_text.text}</a>
             </div>
           </div>
         </div>
@@ -144,6 +88,8 @@ BannerSection.propTypes = {
       section_info__subtitle: PropTypes.object,
       section_info__background_image: PropTypes.object,
       icon: PropTypes.object,
+      url_text: PropTypes.object,
+      url_link: PropTypes.object,
       main_text: PropTypes.object,
       side_text: PropTypes.object,
       additional_label_1: PropTypes.object

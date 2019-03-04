@@ -32,7 +32,9 @@ $color-black: #000000;
   line-height: 30px;
   font-size: 20px;
   font-weight: bold;
-  &:hover {}
+  &:hover {
+    color: $color-black;
+  }
 }
 
 @mixin menuButton($color) {
@@ -296,9 +298,6 @@ section.first {
     @include button(#FFFFFF);
     margin: auto;
     margin-bottom: 150px;
-    &:hover {
-      color: $color-black;
-    }
   }
 }
 
@@ -512,34 +511,13 @@ section.fourth {
   .content {
     width: 670px;
     margin: auto;
-    padding-top: 425px;
-    .shares {
-      width: 100%;
-      text-align: center;
-      padding-left: 270px;
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding-right: 50px;
-        li {
-          display: inline;
-          padding: 5px;
-          .share-icon {
-            img,
-            svg {
-              width: 40px;
-              height: 40px;
-            }
-          }
-        }
-      }
-    }
+    padding-top: 20px;
     .title {
       padding-top: 110px;
       margin: 0 20px;
       h2 {
         margin-left: 5px;
-        background-color: #00000066;
+        background-color: #000000BB;
         font-size: 40px;
         line-height: 70px;
         font-weight: bold;
@@ -549,30 +527,19 @@ section.fourth {
         padding: 5px 0 5px 0;
       }
     }
-    .generators {
-      ul {
-        list-style-type: none;
-        margin: 0;
-        width: 100%;
-        li {
-          display: inline;
-          padding: 0px 30px;
-          margin: auto;
-          img,
-          svg {
-            padding: 5px;
-            width: 100px;
-            height: 100px;
-          }
-        }
-      }
-    }
     .text {
       margin: 20px auto;
       padding: 10px;
-      background-color: #00000066;
+      background-color: #000000BB;
       font-size: 25px;
       line-height: 30px;
+    }
+    .cta {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    .btn {
+      @include button(#FFFFFF);
     }
   }
   a {
@@ -784,20 +751,9 @@ section.sixth {
       }
       .row-flex {
         width: 100%;
-        .generators {
-          ul {
-            width: 100%;
-            li {
-              padding: 0px 10px;
-              img,
-              svg {
-                padding: 5px;
-                width: 50px;
-                height: 50px;
-              }
-            }
-          }
-        }
+      }
+      .cta {
+        padding: 20px 0;
       }
     }
   }

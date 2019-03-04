@@ -108,6 +108,12 @@ query GetLanguagePageData {
                       url
                     }
                   }
+                  url_text {
+                    text
+                  }
+                  url_link {
+                    text
+                  }
                   main_text {
                     value
                   }
