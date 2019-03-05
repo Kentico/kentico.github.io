@@ -623,6 +623,104 @@ section.projects-and-contributions {
   }
 }
 
+section.stackoverflow {
+  padding: 130px 0 110px 0;
+  .content {
+    padding-bottom: 90px;
+    h2 {
+      padding-bottom: 30px;
+      color: $color-grey;
+      font-weight: 300;
+      width: 100%;
+      font-size: 46px;
+      line-height: 60px;
+    }
+    h3 {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 0 30px 0;
+      a {
+        color: #FFFFFF;
+        text-decoration: none;
+        &:hover {
+          color: $color-orange;
+          text-decoration: none;
+          svg {
+            fill: $color-orange;
+          }
+        }
+        svg {
+          height: 20px;
+          width: 20px;
+          padding-left: 10px;
+          fill: $primary-color;
+        }
+      }
+    }
+    .cta {
+      padding-top: 20px;
+      .btn {
+        @include button(#fff);
+        position: relative;
+        top: 50%;
+        margin: auto;
+        z-index: 100;
+        width: 150px;
+        text-align: center;
+        span {
+          font-weight: 300;
+        }
+        div {
+          display: none;
+          position: absolute;
+          display: block;
+        }
+        &:hover {
+          @include background();
+          color: $color-black;
+          div {
+            display: block;
+            @include background();
+          }
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .questions {
+      text-align: left;
+      font-size: 22px;
+      line-height: 30px;
+      ul {
+        li {
+          font-weight: bold;
+          padding: 10px 0;
+          min-height: 77px;
+          a {
+            color: #FFFFFF;
+            text-decoration: none;
+            &:hover {
+              color: $color-orange;
+              text-decoration: none;
+            }
+          }
+          img {
+            width: 77px;
+            height: 77px;
+            border-radius: 50%;
+            float: left;
+            border: 3px #fff solid;
+            margin-right: 1em;
+          }
+        }
+      }
+    }
+  }
+}
+
 section.footer {
   padding: 390px 0 230px 0;
   .links {
