@@ -2,7 +2,7 @@
 
 [![Build Status](https://api.travis-ci.org/Kentico/kentico.github.io.svg?branch=source)](https://travis-ci.org/Kentico/kentico.github.io)
 [![Live](https://img.shields.io/badge/live-demo-brightgreen.svg)](https://kentico.github.io)
-[![Stack Overflow](https://img.shields.io/stackexchange/stackoverflow/t/kentico%2dcloud.svg?label=Stack%20Overflow)](https://stackoverflow.com/tags/kentico-cloud)
+[![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
 Official landing page for Developer Community in Kentico. This site is using [GatsbyJS](https://next.gatsbyjs.org) static site generation.
 
