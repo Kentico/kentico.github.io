@@ -274,6 +274,31 @@ query GetLanguagePageData {
                   }
                 }
               }
+              ... on KenticoCloudItemStackoverflowSection {
+                system {
+                  id
+                  type
+                }
+                elements {
+                  section_info__title {
+                    text
+                  }
+                  section_info__subtitle {
+                    text
+                  }
+                  section_info__background_image {
+                    assets {
+                      url
+                    }
+                  }
+                  cta__text {
+                    text
+                  }
+                  cta__url {
+                    text
+                  }
+                }
+              }
             }
           }
           backgrounds {
