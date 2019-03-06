@@ -21,7 +21,9 @@ const StackOverflowSection = (props) => {
         <div className="row-flex">
           <div className="box-50 questions">
             <h3>
-              <a href="https://stackoverflow.com/tags/kentico-cloud">
+              <a href="https://stackoverflow.com/tags/kentico-cloud"
+                rel="noopener noreferrer"
+                target="_blank">
                 Questions
                 <SVG src={linkIcon} >
                   <img src={linkIcon} alt="link icon" />
@@ -30,19 +32,25 @@ const StackOverflowSection = (props) => {
             </h3>
             <ul>
               <li>
-                <a href="https://stackoverflow.com/questions/53661707/prevent-automapper-converting-ienumerable-property-to-list">
+                <a href="https://stackoverflow.com/questions/53661707/prevent-automapper-converting-ienumerable-property-to-list"
+                  rel="noopener noreferrer"
+                  target="_blank">
                   <img src="https://i.stack.imgur.com/GuQcY.jpg" />
                   <span>Prevent Automapper converting IEnumerable Property to List</span>
                 </a>
               </li>
               <li>
-                <a href="https://stackoverflow.com/questions/54870058/graphql-duplicated-documents-error-when-retreiving-multiple-data-types-in-gatsby">
+                <a href="https://stackoverflow.com/questions/54870058/graphql-duplicated-documents-error-when-retreiving-multiple-data-types-in-gatsby"
+                  rel="noopener noreferrer"
+                  target="_blank">
                   <img src="https://i.stack.imgur.com/2ktYp.jpg" />
                   <span>graphql duplicated documents error when retreiving multiple data types in Gatsby-node.js</span>
                 </a>
               </li>
               <li>
-                <a href="https://stackoverflow.com/questions/53705861/vuejs-get-request-with-bearer-token">
+                <a href="https://stackoverflow.com/questions/53705861/vuejs-get-request-with-bearer-token"
+                  rel="noopener noreferrer"
+                  target="_blank">
                   <img src="https://graph.facebook.com/545165412/picture?type=large" />
                   <span>VueJS GET request with Bearer token</span>
                 </a>
