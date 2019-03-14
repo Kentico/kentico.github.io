@@ -1,0 +1,139 @@
+//This file will contain all of the responsive component of this project.
+
+@media screen and (max-width: 1200px) {
+  .mobile-longname {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .row-flex .box-33 {
+    width: 100%;
+    padding: 0;
+    min-width: 200px;
+  }
+  .row-flex .box-50 {
+    width: 100%;
+    padding: 0;
+    min-width: 200px;
+  }
+  section.footer {
+    padding: 190px 0 230px 0;
+  }
+  section.projects-and-contributions {
+    .row-flex {
+      .box-50 {
+        padding-bottom: 55px;
+      }
+    }
+  }
+  section.task-list {
+    .issues {
+      padding-top: 55px;
+    }
+  }
+  section.icons-section {
+    .content {
+      .row-flex {
+        .box-33 {
+          padding-bottom: 50px;
+        }
+      }
+    }
+  }
+  section.banner-section {
+    h4 {
+      padding-top: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .web {}
+  section.banner-section {
+    .content {
+      width: 80%;
+      .shares {
+        padding: initial;
+      }
+      .title {
+        padding-top: 110px;
+        margin: 0 20px;
+        h2 {
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+      .text {
+        font-size: 15px;
+        line-height: 20px;
+      }
+      .row-flex {
+        width: 100%;
+      }
+      .cta {
+        padding: 20px 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 499px) {
+  .web {}
+  section.heading-section {
+    h1 {
+      font-size: 40px;
+      line-height: 50px;
+      padding: 200px 0 0px 0;
+    }
+    p.subtitle {
+      font-size: 26px;
+      line-height: 40px;
+    }
+  }
+  section.task-list {
+    h2 {
+      font-size: 40px;
+      line-height: 50px;
+    }
+  }
+  section.banner-section {
+    h2 {
+      font-size: 40px;
+      line-height: 50px;
+    }
+    h3 {
+      font-size: 26px;
+      line-height: 40px;
+    }
+  }
+  section.projects-and-contributions {
+    h2 {
+      font-size: 40px;
+      line-height: 50px;
+    }
+    h3 {
+      font-size: 26px;
+      line-height: 40px;
+      padding: 0 0 55px 0;
+    }
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 749px) {
+  .web {}
+  .slicknav_menu {
+    position: absolute;
+    z-index: 500;
+    right: 0px;
+    top: 0px;
+    text-align: left;
+  }
+  .slicknav_nav {
+    padding: 10px 60px 50px 60px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .web {}
+}
