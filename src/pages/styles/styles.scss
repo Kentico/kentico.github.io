@@ -1,0 +1,148 @@
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+// Font Variables
+$sourcesans: 'Source Sans Pro',
+sans-serif;
+// color
+$color-text: #fff;
+$color-orange: #F15A23;
+$color-grey: #697D7E;
+$color-black: #000000;
+$primary-color: white;
+// This file will mostly include all of the styling selector.
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: bold;
+  font-weight: normal;
+}
+
+
+q:before,
+q:after {
+  content: '';
+}
+
+abbr,
+acronym {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+a img {
+  border: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $sourcesans;
+  font-weight: normal;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  color: $color-text;
+}
+
+
+
+#nav {
+  visibility: hidden;
+}
+
+
+
+.large-nav #nav {
+  @include navigationSetup();
+  right: 30px;
+  top: 30px;
+  visibility: visible;
+}
+
+.small-nav #nav {
+  @include navigationSetup();
+  color: #fff;
+  font-size: 0.875em;
+  top: 75px;
+  right: 0;
+  visibility: visible;
+  li {
+    background: #1C263F;
+    display: block;
+    padding: .5em .2em;
+    @include menuButton(#1D2943);
+    a:hover {
+      color: $color-black;
+    }
+  }
+}
