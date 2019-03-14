@@ -1,0 +1,76 @@
+@import 'loaders.css/src/animations/ball-scale-ripple-multiple.scss';
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.loader-hidden {
+  display: none;
+}
+
+.row-flex {
+  width: calc(100% - 50px);
+  max-width: 1170px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  .box-100 {
+    width: 100%;
+    min-width: 200px;
+  }
+  .box-50 {
+    width: calc(50% - 50px);
+    padding: 0 25px;
+    min-width: 200px;
+  }
+  .box-33 {
+    width: calc(33.33% - 50px);
+    padding: 0 25px;
+    min-width: 200px;
+  }
+  .box-25 {
+    width: calc(25% - 50px);
+    padding: 0 25px;
+    min-width: 200px;
+  }
+  .box-20 {
+    width: calc(20% - 50px);
+    padding: 0 25px;
+    min-width: 200px;
+  }
+}
+
+.person {
+  text-align: left;
+  font-size: 20px;
+  line-height: 26px;
+  clear: both;
+  padding: 0 0 25px 0;
+  max-width: 450px;
+  margin: auto;
+  strong {
+    display: block;
+  }
+  img {
+    width: 77px;
+    height: 77px;
+    border-radius: 50%;
+    float: left;
+    border: 3px #fff solid;
+  }
+  p {
+    padding: 0px 0 0 95px;
+  }
+  a.icon-widget {
+    color: #FFFFFF;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
