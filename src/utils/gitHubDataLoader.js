@@ -1,6 +1,7 @@
 import { createTableService, TableQuery } from './azure-storage.table.min'
+import { azureTablesConnectionString } from './config.json';
 
-const tableService = createTableService('DefaultEndpointsProtocol=https;AccountName=communitypagegithubdata;AccountKey=+Lj4+s9CtKw9LGhT/EGiwUGGfmRoCgDMjEhsKAiGSkveOzJQQCrlOpbwD+JVvvClTt/19OwMRgfARxo7Lo1Kmw==;EndpointSuffix=core.windows.net');
+const tableService = createTableService(azureTablesConnectionString);
 
 const getAllGithubData = (callback) => {
   const query = new TableQuery()
