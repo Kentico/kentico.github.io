@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import {
+  invitationCallbackUrl,
+  invitationClientId,
+  invitationScope
+} from '../utils/config.json';
+
 import "./invitation.scss";
 
 class Invitation extends Component {
   render() {
+
+    const invitationRequestUrl = 
+      `https://github.com/login/oauth/authorize?client_id=${invitationClientId}&scope=${invitationScope}&redirect_uri=${invitationCallbackUrl}`;
+
     return (
       <div
         className="invitation"
@@ -22,7 +32,7 @@ class Invitation extends Component {
           </a>
         </div>
         <h1>{this.props.invitationText}</h1>
-        <a className="btn" href="https://github.com/login/oauth/authorize?client_id=74317bc4b4ff71a278b6&scope=read:user%20user:email&redirect_uri=https://localhost:8000/invitation/callback">{this.props.confirmationButtonText}</a>
+        <a className="btn" href={invitationRequestUrl}>{this.props.confirmationButtonText}</a>
       </div >
     );
   }
