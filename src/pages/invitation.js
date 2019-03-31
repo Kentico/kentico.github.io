@@ -13,9 +13,6 @@ const InvitationPage = () => (
       invitation_title {
         text
       }
-      user_account_input_label {
-        text
-      }
       confirmation_button_text {
         text
       }
@@ -52,9 +49,6 @@ const InvitationPage = () => (
           invitation_title: {
             text: invitationText
           },
-          user_account_input_label: {
-            text: userInputLabelText
-          },
           confirmation_button_text: {
             text: confirmationButtonText
           },
@@ -83,7 +77,6 @@ const InvitationPage = () => (
           <Invitation
             organization={organization}
             invitationText={invitationText}
-            userInputLabelText={userInputLabelText}
             confirmationButtonText={confirmationButtonText}
             organizationLogoUrl={organizationLogos[0].url}
             organizationUrl={organizationUrl}

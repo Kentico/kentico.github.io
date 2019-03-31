@@ -4,22 +4,6 @@ import PropTypes from 'prop-types';
 import "./invitation.scss";
 
 class Invitation extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ''
-    };
-  }
-
-  handleChange = (event) => {
-    this.setState({ value: event.target.value });
-  }
-
-  handleSubmit = (event) => {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
-
   render() {
     return (
       <div
@@ -30,24 +14,16 @@ class Invitation extends Component {
          bottom 
          no-repeat
          rgb(28, 38, 63)`
-        }}>
+        }
+        }>
         <div className="organization-logo">
           <a href={this.props.organizationUrl}>
             <img alt="Organization logo" src={this.props.organizationLogoUrl} />
           </a>
         </div>
-        <div className="form">
-          <h1>{this.props.invitationText}</h1>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              {this.props.userInputLabelText}
-            </label>
-            <input type="text" name="github-username" />
-            <input type="submit" value={this.props.confirmationButtonText} />
-          </form>
-        </div>
-
-      </div>
+        <h1>{this.props.invitationText}</h1>
+        <a className="btn" href="https://github.com/login/oauth/authorize?client_id=74317bc4b4ff71a278b6&scope=read:user%20user:email&redirect_uri=https://localhost:8000/invitation/callback">{this.props.confirmationButtonText}</a>
+      </div >
     );
   }
 }
@@ -55,7 +31,6 @@ class Invitation extends Component {
 Invitation.propTypes = {
   organization: PropTypes.string,
   invitationText: PropTypes.string,
-  userInputLabelText: PropTypes.string,
   confirmationButtonText: PropTypes.string,
   organizationLogoUrl: PropTypes.string,
   organizationUrl: PropTypes.string,
