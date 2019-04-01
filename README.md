@@ -35,6 +35,15 @@ Source code for the landing page is stored in [source branch](https://github.com
     
     *Note: You'll also see a second link: `http://localhost:8000___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://next.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
 
+### Build
+
+To run the build process which builds the site to the `public` folder run:
+
+```sh
+npm run build
+```
+
+
 ### Other
 * Deployment set up and Azure function development is described in [wiki](https://github.com/Kentico/kentico.github.io/wiki)
 
