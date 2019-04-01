@@ -1,16 +1,6 @@
 // Google Fonts
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 @import "modules/mixins.scss";
-
-// Font Variables
-$sourcesans: 'Source Sans Pro',
-sans-serif;
-// color
-$color-text: #fff;
-$color-orange: #F15A23;
-$color-grey: #697D7E;
-$color-black: #000000;
-$primary-color: white;
 @import 'loaders.css/src/animations/ball-scale-ripple-multiple.scss';
 
 // This will contain all of the section class selectors.
