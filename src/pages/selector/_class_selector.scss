@@ -1,0 +1,507 @@
+// Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+@import "../styles/mixins.scss";
+@import 'loaders.css/src/animations/ball-scale-ripple-multiple.scss';
+
+// This will contain all of the section class selectors.
+section.heading-section {
+  min-height: 700px;
+  text-align: center;
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 70px;
+    z-index: 10;
+    a {
+      display: block;
+      height: 70px;
+      span {
+        display: none;
+      }
+    }
+  }
+  h1 {
+    padding: 285px 0 0px 0;
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+  p.subtitle {
+    width: 100%;
+    font-size: 46px;
+    line-height: 60px;
+    font-weight: 300;
+    margin-bottom: 90px;
+  }
+  .btn {
+    @include button(#FFFFFF);
+    margin: auto;
+    margin-bottom: 150px;
+  }
+}
+
+section.icons-section {
+  text-align: center;
+  padding: 120px 0 100px 0;
+  h2 {
+    color: $color-grey;
+    font-weight: 300;
+    width: 100%;
+    font-size: 46px;
+    line-height: 60px;
+  }
+  h3 {
+    color: $color-orange;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 40px;
+    padding: 10px 0 10px 0;
+  }
+  .type {
+    font-size: 24px;
+    line-height: 32px;
+    padding: 25px 0;
+    font-weight: bold;
+  }
+  input {
+    display: none;
+  }
+  label {
+    @include button(#fff);
+    background: #343E61;
+    font-weight: 300;
+    width: 150px;
+    &:hover {
+      @include button(#fff);
+    }
+  }
+  input:checked+label {
+    @include button(#fff);
+  }
+  .content {
+    padding: 70px 0 0 0;
+    font-size: 18px;
+    line-height: 26px;
+    .box-33>div {
+      max-width: 260px;
+      margin: auto;
+      img {
+        height: 100px;
+      }
+    }
+  }
+}
+
+section.task-list {
+  padding: 130px 0 110px 0;
+  h2 {
+    color: $color-grey;
+    font-weight: 300;
+    width: 100%;
+    font-size: 46px;
+    line-height: 60px;
+  }
+  h3 {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 0 30px 0;
+    a {
+      color: #FFFFFF;
+      text-decoration: none;
+      &:hover {
+        color: $color-orange;
+        text-decoration: none;
+        svg {
+          fill: $color-orange;
+        }
+      }
+      svg {
+        height: 20px;
+        width: 20px;
+        padding-left: 10px;
+        fill: $primary-color;
+      }
+    }
+  }
+  .buttons {
+    padding: 80px 0 50px 0;
+    select {
+      background: #343E61;
+      width: 270px;
+      padding: 10px 25px;
+      line-height: 30px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      display: inline-block;
+      outline: none !important;
+      option {
+        background: $color-orange;
+        padding: 5px 10px;
+      }
+      &:focus {
+        @include background();
+        outline: none !important;
+        outline-color: $color-orange !important;
+        option {}
+      }
+    }
+  }
+  .btn {
+    position: relative;
+    z-index: 100;
+    @include button(#fff);
+    width: 150px;
+    text-align: center;
+    margin-top: 1em;
+    span {
+      font-weight: 300;
+    }
+    div {
+      display: none;
+      position: absolute;
+      display: block;
+    }
+    &:hover {
+      @include background();
+      color: $color-black;
+      div {
+        display: block;
+        @include background();
+      }
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+  .issues {
+    text-align: left;
+    font-size: 22px;
+    line-height: 30px;
+    ul {
+      li {
+        font-weight: bold;
+        padding: 10px 0;
+        min-height: 77px;
+        p {
+          font-weight: initial;
+          font-size: initial;
+        }
+        a {
+          color: #FFFFFF;
+          text-decoration: none;
+          &:hover {
+            color: $color-orange;
+            text-decoration: none;
+          }
+        }
+        img {
+          width: 77px;
+          height: 77px;
+          border-radius: 50%;
+          float: left;
+          border: 3px #fff solid;
+          margin-right: 1em;
+        }
+      }
+    }
+    .loader-active>div {
+      width: 100%;
+      margin: 2em auto;
+    }
+  }
+  .steps {
+    text-align: left;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 300;
+    h3 {
+      text-align: left;
+    }
+    div {
+      padding: 20px 0;
+      span {
+        padding: 12px 0 0 0;
+        color: $color-orange;
+        font-size: 50px;
+        float: left;
+      }
+      p {
+        padding: 0 0 0 80px;
+        a {
+          color: #FFFFFF;
+          text-decoration: none;
+          font-weight: bold;
+          &:hover {
+            color: $color-orange;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+section.banner-section {
+  padding: 90px 0 40px 0;
+  .content {
+    width: 670px;
+    margin: auto;
+    padding-top: 20px;
+    .title {
+      padding-top: 110px;
+      margin: 0 20px;
+      h2 {
+        margin-left: 5px;
+        background-color: #000000BB;
+        font-size: 40px;
+        line-height: 70px;
+        font-weight: bold;
+        text-align: center;
+        display: block;
+        width: 100%;
+        padding: 5px 0 5px 0;
+      }
+    }
+    .text {
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #000000BB;
+      font-size: 25px;
+      line-height: 30px;
+    }
+    .cta {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    .btn {
+      @include button(#FFFFFF);
+    }
+  }
+  a {
+    color: #FFFFFF;
+    text-decoration: none;
+    &:hover {
+      color: $color-orange;
+      text-decoration: none;
+    }
+  }
+  .partners {
+    text-align: center;
+    padding: 100px 0 0px 0;
+    img {
+      height: 34px;
+      padding: 0 15px;
+    }
+  }
+}
+
+section.projects-and-contributions {
+  padding: 0px 0 280px 0;
+  h2 {
+    padding: 110px 0 5px 0;
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+  h3 {
+    color: $color-grey;
+    font-weight: 300;
+    width: 100%;
+    font-size: 46px;
+    line-height: 60px;
+    padding: 0 0 125px 0;
+  }
+  .stats {
+    text-align: center;
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 300;
+    padding: 0 0 90px 0;
+    img,
+    svg {
+      height: 40px;
+      display: inline-block;
+      position: relative;
+      top: 9px;
+      padding: 0 5px 0 0;
+    }
+    .link-icon svg {
+      width: 15px;
+      height: 15px;
+      padding-left: 5px;
+      fill: $primary-color;
+      padding-bottom: 10px;
+    }
+    strong {
+      font-weight: bold;
+    }
+  }
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    &:hover {
+      color: $color-orange;
+      text-decoration: none;
+      .link-icon svg {
+        fill: $color-orange;
+      }
+    }
+  }
+  .loader-active {
+    display: inline-block;
+    div {
+      display: inline-block;
+    }
+  }
+}
+
+section.stackoverflow {
+  padding: 130px 0 110px 0;
+  .content {
+    padding-bottom: 90px;
+    h2 {
+      padding-bottom: 30px;
+      color: $color-grey;
+      font-weight: 300;
+      width: 100%;
+      font-size: 46px;
+      line-height: 60px;
+    }
+    h3 {
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 0 30px 0;
+      a {
+        color: #FFFFFF;
+        text-decoration: none;
+        &:hover {
+          color: $color-orange;
+          text-decoration: none;
+          svg {
+            fill: $color-orange;
+          }
+        }
+        svg {
+          height: 20px;
+          width: 20px;
+          padding-left: 10px;
+          fill: $primary-color;
+        }
+      }
+    }
+    .cta {
+      padding-top: 20px;
+      .btn {
+        @include button(#fff);
+        position: relative;
+        top: 50%;
+        margin: auto;
+        z-index: 100;
+        width: 150px;
+        text-align: center;
+        span {
+          font-weight: 300;
+        }
+        div {
+          display: none;
+          position: absolute;
+          display: block;
+        }
+        &:hover {
+          @include background();
+          color: $color-black;
+          div {
+            display: block;
+            @include background();
+          }
+          span {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .questions {
+      text-align: left;
+      font-size: 22px;
+      line-height: 30px;
+      ul {
+        li {
+          font-weight: bold;
+          padding: 10px 0;
+          min-height: 77px;
+          a {
+            color: #FFFFFF;
+            text-decoration: none;
+            &:hover {
+              color: $color-orange;
+              text-decoration: none;
+            }
+          }
+          img {
+            width: 77px;
+            height: 77px;
+            border-radius: 50%;
+            float: left;
+            border: 3px #fff solid;
+            margin-right: 1em;
+          }
+        }
+      }
+    }
+  }
+}
+
+section.footer {
+  padding: 390px 0 230px 0;
+  .links {
+    text-align: left;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 300;
+    a {
+      display: block;
+      color: $color-text;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        color: $color-orange;
+      }
+    }
+    strong {
+      font-weight: bold;
+    }
+  }
+  .mobile-long-name p {
+    font-size: 16px;
+  }
+  .copyright {
+    padding: 150px 0 0 0;
+    color: $color-grey;
+  }
+}
+
+//This last selector is the selection selector for highllighting words on the project.
+
+::selection {
+  background: rgba(0, 0, 0, .3);
+  /* Safari */
+}
+
+::-moz-selection {
+  background: rgba(0, 0, 0, .3);
+  /* Firefox */
+}
