@@ -1,51 +1,5 @@
-$color-text: #fff;
-$color-orange: #F15A23;
-$color-grey: #697D7E;
-$color-black: #000000;
-
-@mixin background() {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ecab35+0,d03a1f+100 */
-  background: rgb(236, 171, 53);
-  /* Old browsers */
-  background: -moz-linear-gradient(-45deg, rgba(236, 171, 53, 1) 0%, rgba(208, 58, 31, 1) 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, rgba(236, 171, 53, 1) 0%, rgba(208, 58, 31, 1) 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, rgba(236, 171, 53, 1) 0%, rgba(208, 58, 31, 1) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ecab35', endColorstr='#d03a1f', GradientType=1);
-  /* IE6-9 fallback on horizontal gradient */
-}
-
-@mixin button($color) {
-  @include background();
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  padding: 10px 25px;
-  color: $color;
-  line-height: 30px;
-  font-size: 20px;
-  font-weight: bold;
-
-  &:hover {
-    color: $color-black;
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translatey(0px);
-  }
-
-  50% {
-    transform: translatey(-60px);
-  }
-
-  100% {
-    transform: translatey(0px);
-  }
-}
+@import "../pages/styles/colors";
+@import "../pages/styles/mixins";
 
 .invitation {
   align-items: center;
@@ -85,7 +39,7 @@ $color-black: #000000;
   }
 
   a.btn {
-    @include button(#FFFFFF);
+    @include button($color-text);
     display: block;
     margin: auto;
     border: none;

@@ -1,3 +1,6 @@
+@import "../styles/colors";
+@import "../styles/mixins";
+
 .invitation-callback {
   align-items: center;
   display: flex;
@@ -19,17 +22,21 @@
       width: 100%;
     }
 
-    ul {
+    ul.navigation {
+      padding: 1em;
+      margin: auto;
+
       li {
         margin: 1em;
+
         a {
           font-size: 20px;
-          color: #c58309;
+          color: $color-orange;
+
           &:visited {
-            color: #c58309;
+            color: $color-orange;
           }
         }
-        
       }
     }
 
@@ -42,14 +49,45 @@
       text-align: center;
     }
 
+    .success {
+      margin-top: 100px;
+
+      a.btn {
+        @include button($color-text);
+        display: block;
+        margin: auto;
+        border: none;
+        margin-top: 1em;
+        padding: 1em;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
     .error {
       margin-top: 100px;
 
       .message {
         margin-top: 20px;
-        font-size: 20px;
+      }
+
+      .error-trigger {
+        cursor: pointer;
+        color: $color-orange;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      pre {
+        width: 50%;
+        text-align: initial;
+        white-space: pre-wrap;
+        margin: auto;
       }
     }
-
   }
 }

@@ -1,6 +1,7 @@
 // Google Fonts
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 @import "./colors.scss";
+@import "./mixins.scss";
 // Font Variables
 $sourcesans: 'Source Sans Pro',
 sans-serif;
@@ -140,5 +141,19 @@ body {
     a:hover {
       color: $color-black;
     }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+
+  50% {
+    transform: translatey(-60px);
+  }
+
+  100% {
+    transform: translatey(0px);
   }
 }

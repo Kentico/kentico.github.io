@@ -5,6 +5,8 @@ import qs from 'qs';
 import { invitationUrl } from "../../utils/config.json";
 import Axios from 'axios';
 import Loader from 'react-loaders';
+import Collapsible from 'react-collapsible';
+
 
 import './callback.scss';
 
@@ -14,7 +16,8 @@ class InvitationCallback extends Component {
     let initialState = {
       loading: true,
       error: false,
-      message: ''
+      message: '',
+      additionalMessage: ''
     }
 
     const code = qs.parse(props.location.search, { ignoreQueryPrefix: true }).code;
@@ -31,7 +34,8 @@ class InvitationCallback extends Component {
           this.setState({
             error: true,
             loading: false,
-            message: `An error occurred when sending invitation request ${JSON.stringify(err)}`
+            message: `An error occurred when sending invitation request.`,
+            additionalMessage: JSON.stringify(err, undefined, 2)
           })
         })
     }
@@ -51,20 +55,23 @@ class InvitationCallback extends Component {
   render() {
 
     const navigation = (
-      <ul>
+      <ul className="navigation">
         <li>
-          <Link className="btn" to="/invitation">Go to Invitation page</Link>
+          <Link to="/invitation">Go to Invitation page</Link>
         </li>
         <li>
-          <Link className="btn" to="/">Go to Home page</Link>
+          <Link to="/">Go to Home page</Link>
         </li>
       </ul>
     );
 
     let content = (
-      <div>
+      <div className="success">
         <h1>Success</h1>
         <div>{this.state.message}</div>
+        <a className="btn" href="https://github.com/orgs/Kentico/teams/global-collaborators">
+          Explore the Github Team
+        </a>
         {navigation}
       </div>
     );
@@ -89,6 +96,11 @@ class InvitationCallback extends Component {
         <div className="error">
           <h1>Error</h1>
           <div className="message">{this.state.message}</div>
+          {this.state.additionalMessage && (
+            <Collapsible trigger="Details" triggerClassName="error-trigger" triggerOpenedClassName="error-trigger">
+              <pre>{this.state.additionalMessage}</pre>
+            </Collapsible>
+          )}
           {navigation}
         </div>
       );
