@@ -7,7 +7,6 @@ import Axios from 'axios';
 import Loader from 'react-loaders';
 import Collapsible from 'react-collapsible';
 
-
 import './callback.scss';
 
 class InvitationCallback extends Component {
