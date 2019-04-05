@@ -1,0 +1,66 @@
+@import "../pages/styles/colors";
+@import "../pages/styles/mixins";
+
+.invitation {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+
+  .organization-logo {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    transform: translatey(0px);
+    animation: float 6s ease-in-out infinite;
+    margin-top: 150px;
+    border-radius: 50%;
+    padding: 10px;
+
+    & a:focus {
+      outline: none;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  h1 {
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  a.btn {
+    @include button($color-text);
+    display: block;
+    margin: auto;
+    border: none;
+    margin-top: 1em;
+    padding: 1em;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .invitation {
+    .organization-logo {
+      width: 150px;
+      height: 150px;
+    }
+    h1 {
+      font-size: 30px;
+      line-height: 35px;
+    }
+  }
+}

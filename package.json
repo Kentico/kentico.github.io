@@ -1,7 +1,7 @@
 {
   "name": "kentico-github-io",
   "description": "Official landing page for developer community in Kentico",
-  "version": "1.0.18",
+  "version": "1.0.20",
   "author": "Ondřej Chrastina <developerscommunity@kentico.com> (https://github.com/Simply007)",
   "scripts": {
     "build": "gatsby build && cpx -v \".github/**/*\" public/.github && cpx CODE_OF_CONDUCT.md public && cpx CONTRIBUTING.md public && cpx README.md public && cpx LICENSE public",
@@ -11,6 +11,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "ajv": "^6.5.4",
+    "axios": "^0.18.0",
     "gatsby": "^2.0.18",
     "gatsby-plugin-google-analytics": "^2.0.6",
     "gatsby-plugin-manifest": "^2.0.4",
@@ -23,8 +24,10 @@
     "loaders.css": "^0.1.2",
     "lodash": "^4.17.11",
     "node-sass": "^4.9.3",
+    "qs": "^6.7.0",
     "query-string": "^6.2.0",
     "react": "^16.5.1",
+    "react-collapsible": "^2.6.0",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-inlinesvg": "^0.8.2",
