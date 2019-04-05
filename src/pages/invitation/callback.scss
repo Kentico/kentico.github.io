@@ -3,6 +3,13 @@
 @import "../styles/mixins";
 @import 'loaders.css/src/animations/ball-scale-ripple-multiple.scss';
 
+.loader-hidden {
+  display: none;
+}
+.loader-active {
+  display: block;
+}
+
 .invitation-callback {
   align-items: center;
   display: flex;
