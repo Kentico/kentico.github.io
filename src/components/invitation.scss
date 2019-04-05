@@ -19,7 +19,7 @@
     border-radius: 50%;
     padding: 10px;
 
-    & a:focus{
+    & a:focus {
       outline: none;
     }
 
@@ -48,6 +48,19 @@
 
     &:focus {
       outline: none;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .invitation {
+    .organization-logo {
+      width: 150px;
+      height: 150px;
+    }
+    h1 {
+      font-size: 30px;
+      line-height: 35px;
     }
   }
 }

@@ -69,8 +69,8 @@ class InvitationCallback extends Component {
       <div className="success">
         <h1>Success</h1>
         <div>{this.state.message}</div>
-        <a className="btn" href="https://github.com/orgs/Kentico/teams/global-collaborators">
-          Explore the Github Team
+        <a className="btn" href="https://github.com/orgs/Kentico/invitation">
+          Accept the invitation here
         </a>
         {navigation}
       </div>
