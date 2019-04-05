@@ -61,6 +61,7 @@ module.exports = async function (context, req) {
             status: invitationResult.status, // 201
             body: `User  ${user.data.login} successfully invited to Kentico organization!`
         };
+        return;
     } catch (error) {
         context.log(error);
         context.res = {
