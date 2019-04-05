@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Invitation from '../components/invitation';
 
+import './invitation.scss';
 
 const InvitationPage = () => (
   <StaticQuery
