@@ -91,8 +91,7 @@ BannerSection.propTypes = {
       url_text: PropTypes.object,
       url_link: PropTypes.object,
       main_text: PropTypes.object,
-      side_text: PropTypes.object,
-      additional_label_1: PropTypes.object
+      side_text: PropTypes.object
     })
   }),
 };

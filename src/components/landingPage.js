@@ -77,9 +77,6 @@ const landingPage = () => (
                   side_text {
                     value
                   }
-                  additional_label_1 {
-                    text
-                  }
                   icon {
                     assets {
                       url
