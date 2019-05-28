@@ -6,7 +6,6 @@ import IconsSection from './iconsSection';
 import BannerSection from './bannerSection';
 import ProjectsAndContributorsSection from './projectsAndContributorsSection';
 import GithubIssuesListSection from './githubIssuesListSection';
-import StackOverflowSection from './stackoverflowSection';
 
 const Section = (props) => {
   switch (get(props, 'data.system.type')) {
@@ -18,8 +17,6 @@ const Section = (props) => {
       return <ProjectsAndContributorsSection {...props} />;
     case 'task_list_section':
       return <GithubIssuesListSection {...props} />;
-    case 'stackoverflow_section':
-      return <StackOverflowSection {...props} />;
     default:
       return <div>Unknown section!</div>;
   }

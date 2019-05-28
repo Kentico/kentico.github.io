@@ -1,48 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import ResponsiveMenu from 'react-responsive-navbar';
-import queryString from 'query-string';
 
 import HeadingSection from './headingSection';
 import Section from './section';
 import Footer from './footer';
 
-class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPersona: this.getInitialPersona()
-    }
-  }
-
-  getInitialPersona = () => {
-    if (typeof location === `undefined` || !location.search) {
-      return 'developer';
-    }
-    const query = queryString.parse(location.search);
-    switch (query.persona) {
-      case 'developer':
-        return 'developer';
-      case 'company':
-        return 'company';
-      case 'blogger':
-        return 'blogger';
-      default:
-        return 'developer';
-    }
-  }
-
-  changePersona = (newPersona) => {
-    this.setState({
-      currentPersona: newPersona
-    });
-  }
-
-  render() {
-    return (
-      <StaticQuery
-        query={graphql`
-query GetLanguagePageData {
+const landingPage = () => (
+  <StaticQuery
+    query={graphql`
+{
   allKenticoCloudItemSectionsPage {
     edges {
       node {
@@ -77,16 +44,6 @@ query GetLanguagePageData {
           background_image {
             assets {
               url
-            }
-          }
-          personas {
-            system {
-              codename
-            }
-            elements {
-              name {
-                text
-              }
             }
           }
           sections {
@@ -251,11 +208,6 @@ query GetLanguagePageData {
                           codename
                         }
                         elements {
-                          persona {
-                            system {
-                              codename
-                            }
-                          }
                           title {
                             text
                           }
@@ -337,70 +289,65 @@ query GetLanguagePageData {
   }
 }
 `}
-        render={(data) => {
-          const node = data.allKenticoCloudItemSectionsPage.edges[0].node;
-          const currentPersona = this.state.currentPersona;
+    render={(data) => {
+      const node = data.allKenticoCloudItemSectionsPage.edges[0].node;
+      // eslint-disable-next-line no-console
+      console.log(node);
+      const sections = node.elements.sections.map((section, index) => (
+        <Section
+          key={index}
+          data={section}
+          platforms={node.elements.platforms} />
+      ));
 
-          const sections = node.elements.sections.map((section, index) => (
-            <Section
-              key={index}
-              data={section}
-              personas={node.elements.personas}
-              platforms={node.elements.platforms}
-              currentPersona={currentPersona}
-              changePersona={this.changePersona} />
-          ));
+      const hamburgerButton = <div style={{
+        background: `url(${node.elements.backgrounds.assets[1].url}) center center no-repeat`,
+        position: 'absolute',
+        width: '55px',
+        height: '55px',
+        padding: '15px',
+        right: '0',
+        top: '0',
+        zIndex: '500'
+      }}>
+      </div>;
 
-          const hamburgerButton = <div style={{
-            background: `url(${node.elements.backgrounds.assets[1].url}) center center no-repeat`,
-            position: 'absolute',
-            width: '55px',
-            height: '55px',
-            padding: '15px',
-            right: '0',
-            top: '0',
-            zIndex: '500'
-          }}>
-          </div>;
+      const menuItems = node.elements.top_menu.map((menuItem, index) =>
+        <li key={index}><a href={menuItem.elements.url.text}>{menuItem.elements.text.text}</a></li>);
 
-          const menuItems = node.elements.top_menu.map((menuItem, index) =>
-            <li key={index}><a href={menuItem.elements.url.text}>{menuItem.elements.text.text}</a></li>);
+      return (
+        <>
+          <ResponsiveMenu
+            menuOpenButton={hamburgerButton}
+            menuCloseButton={hamburgerButton}
+            largeMenuClassName="large-nav"
+            smallMenuClassName="small-nav"
+            changeMenuOn="750px"
+            menu={
+              <ul id="nav">
+                {menuItems}
+              </ul>
+            }
+          />
+          <HeadingSection
+            title={node.elements.title.text}
+            subtitle={node.elements.subtitle.text}
+            ctaText={node.elements.cta__text.text}
+            ctaUrl={node.elements.cta__url.text}
+            logo={node.elements.logo.assets[0]}
+            backgroundImage={node.elements.background_image.assets[0]} />
+          {sections}
+          <Footer data={{
+            footer_left_column: node.elements.footer_left_column,
+            footer_center_column: node.elements.footer_center_column,
+            footer_right_column: node.elements.footer_right_column,
+            footer_bottom_text: node.elements.footer_bottom_text,
+            backgrounds: node.elements.backgrounds.assets
+          }} />
+        </>
+      )
+    }}
+  />
+);
 
-          return (
-            <>
-              <ResponsiveMenu
-                menuOpenButton={hamburgerButton}
-                menuCloseButton={hamburgerButton}
-                largeMenuClassName="large-nav"
-                smallMenuClassName="small-nav"
-                changeMenuOn="750px"
-                menu={
-                  <ul id="nav">
-                    {menuItems}
-                  </ul>
-                }
-              />
-              <HeadingSection
-                title={node.elements.title.text}
-                subtitle={node.elements.subtitle.text}
-                ctaText={node.elements.cta__text.text}
-                ctaUrl={node.elements.cta__url.text}
-                logo={node.elements.logo.assets[0]}
-                backgroundImage={node.elements.background_image.assets[0]} />
-              {sections}
-              <Footer data={{
-                footer_left_column: node.elements.footer_left_column,
-                footer_center_column: node.elements.footer_center_column,
-                footer_right_column: node.elements.footer_right_column,
-                footer_bottom_text: node.elements.footer_bottom_text,
-                backgrounds: node.elements.backgrounds.assets
-              }} />
-            </>
-          )
-        }}
-      />
-    );
-  }
-}
-
-export default LandingPage
+export default landingPage
