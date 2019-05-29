@@ -87,7 +87,6 @@ BannerSection.propTypes = {
       section_info__title: PropTypes.object,
       section_info__subtitle: PropTypes.object,
       section_info__background_image: PropTypes.object,
-      icon: PropTypes.object,
       url_text: PropTypes.object,
       url_link: PropTypes.object,
       main_text: PropTypes.object,

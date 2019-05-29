@@ -77,12 +77,6 @@ const landingPage = () => (
                   side_text {
                     value
                   }
-                  icon {
-                    assets {
-                      url
-                      name
-                    }
-                  }
                 }
               }
               ... on KenticoCloudItemProjectsAndContributorsSection {
