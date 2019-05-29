@@ -283,8 +283,6 @@ const landingPage = () => (
 `}
     render={(data) => {
       const node = data.allKenticoCloudItemSectionsPage.edges[0].node;
-      // eslint-disable-next-line no-console
-      console.log(node);
       const sections = node.elements.sections.map((section, index) => (
         <Section
           key={index}
