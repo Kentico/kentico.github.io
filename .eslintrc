@@ -5,11 +5,21 @@
   },
   "overrides": [
     {
-      "files": ["**/*.js"],
+      "files": [
+        "**/*.js"
+      ],
       "rules": {
         "no-undef": "off"
       }
     }
   ],
-  "extends": ["eslint:recommended", "plugin:react/recommended"]
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
