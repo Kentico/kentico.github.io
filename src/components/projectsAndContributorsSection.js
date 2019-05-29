@@ -234,7 +234,7 @@ class ProjectsAndContributorsSection extends Component {
     return (
       <section
         className="projects-and-contributions" id="our-projects" style={{
-          background: `#151B31`
+          background: `#151B31 url(${elements.section_info__background_image.assets[0].url}) bottom center no-repeat`
         }}>
         <div className="row-flex">
           <div className="box-100">
