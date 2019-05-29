@@ -144,11 +144,6 @@ const landingPage = () => (
                           id
                         }
                         elements {
-                          persona {
-                            system {
-                              codename
-                            }
-                          }
                           text {
                             value
                           }
