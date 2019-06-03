@@ -93,9 +93,7 @@ module.exports = {
       options: {
         deliveryClientConfig: {
           projectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',
-          previewApiKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxM2I3NjlmYjdlZjE0MDU2YmI2NDUyZmVjMzQzYTdmZiIsImlhdCI6IjE1NTkwNDcwMjMiLCJleHAiOiIxOTA0NjQ3MDIzIiwicHJvamVjdF9pZCI6IjFiYjIzMTNmMjU1MDAwMjUwNmQ5ZjNlNTA2NTYwN2MwIiwidmVyIjoiMS4wLjAiLCJhdWQiOiJwcmV2aWV3LmRlbGl2ZXIua2VudGljb2Nsb3VkLmNvbSJ9.li117gHH4phpT5ksBlnE1plCl1VcOLK1rB_reCktfgg',
-          enablePreviewMode: true,
-          typeReolvers:[]
+          typeResolvers:[]
         },
         languageCodenames: [
           "default"
