@@ -37,7 +37,7 @@ const IndexPage = () => (
                         title={title}
                         meta={[
                             { name: 'description', content: description },
-                            { name: 'keywords', content: 'developer, community, kentico, kenticocloud, headless, cms, open-source' },
+                            { name: 'keywords', content: 'github, developer, community, kentico, kenticocloud, headless, caas, cms, ems, open-source' },
                             { property: 'og:title', content: ogtitle },
                             { property: 'og:type', content: 'website' },
                             { property: 'og:url', content: siteurl },

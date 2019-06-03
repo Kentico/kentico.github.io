@@ -2,9 +2,9 @@ require('@babel/polyfill');
 
 module.exports = {
   siteMetadata: {
-    title: 'Developer Community',
+    title: 'Kentico GitHub Community',
     description: 'A gateway to the world of open-source at Kentico.',
-    ogtitle: 'Kentico Developer Community Home',
+    ogtitle: 'Kentico GitHub Community Home',
     siteurl: 'https://kentico.github.io'
   },
   plugins: [
@@ -13,8 +13,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Developer Community',
-        short_name: 'Developer Community',
+        name: 'GitHub Community',
+        short_name: 'GitHub Community',
         start_url: '/',
         background_color: '#1C263F',
         theme_color: '#1C263F',
@@ -93,6 +93,7 @@ module.exports = {
       options: {
         deliveryClientConfig: {
           projectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',
+          typeResolvers:[]
         },
         languageCodenames: [
           "default"

@@ -11,6 +11,7 @@ class GithubIssuesListSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      elements: props.data.elements,
       platformSelection: 'all',
       issues: [],
       contentTasks: [],
@@ -20,11 +21,6 @@ class GithubIssuesListSection extends Component {
 
   componentDidMount() {
     getAllGithubData(this.dataLoaded);
-  }
-
-  componentWillUnmount() {
-    this.issuesSubscription.forEach(subscription =>
-      subscription.cancelFetch());
   }
 
   dataLoaded = (error, result) => {
@@ -58,12 +54,11 @@ class GithubIssuesListSection extends Component {
   }
 
   render() {
-    const elements = this.props.data.elements;
+    const elements = this.state.elements;
     const platforms = elements.platform_selector.map(platform =>
       <option key={platform.elements.codename.value} value={platform.elements.codename.value}>{platform.elements.name.value}</option>);
 
     const steps = elements.steps
-      .filter(step => step.elements.persona[0].system.codename === this.props.currentPersona)
       .map((step, index) =>
         <div key={index}>
           <span>{("0" + (index + 1)).slice(-2)}/</span>
@@ -83,10 +78,7 @@ class GithubIssuesListSection extends Component {
     let issues;
 
     if (this.state.issuesLoaded) {
-      const currentIssues =
-        this.props.currentPersona === 'developer' ? this.state.issues[this.state.platformSelection] :
-          this.props.currentPersona === 'blogger' ? this.state.contentTasks : []
-            || [];
+      const currentIssues = this.state.issues[this.state.platformSelection];
       if (!currentIssues || currentIssues.length === 0) {
         issues = <li>No issues</li>
       }
@@ -102,39 +94,33 @@ class GithubIssuesListSection extends Component {
       }
     }
 
-    const platformSelector = this.props.currentPersona === 'developer' && (<select value={this.state.platformSelection} onChange={this.platformChanged}>
-      <option value="all" disabled="" hidden="">All</option>
-      {platforms}
-    </select>);
+    const platformSelector = (
+      <select value={this.state.platformSelection} onChange={this.platformChanged}>
+        <option value="all" disabled="" hidden="">All</option>
+        {platforms}
+      </select>
+    );
 
     const selectedPlatforms = elements.platform_selector.filter(({ elements }) => elements.codename.value === this.state.platformSelection);
-
     const selectedPlatformLink =
-      this.props.currentPersona === 'blogger'
-        ? <a
-          className="btn"
-          href="https://github.com/orgs/Kentico/projects/8"
-          target="_blank"
-          rel="noopener noreferrer">
-          Public backlog
-        </a>
-        : selectedPlatforms.length > 0
-        && selectedPlatforms[0].elements.detail_url.text
-        && <a
-          className="btn"
-          href={selectedPlatforms[0].elements.detail_url.text}
-          target="_blank"
-          rel="noopener noreferrer">
-          Public backlog
+      selectedPlatforms.length > 0
+      && selectedPlatforms[0].elements.detail_url.text
+      && <a
+        className="btn"
+        href={selectedPlatforms[0].elements.detail_url.text}
+        target="_blank"
+        rel="noopener noreferrer">
+        Public backlog
         </a>;
 
-    const issuesTitle = this.props.currentPersona === 'developer'
-      ? <a href={`https://github.com/issues?q=org%3AKentico+is%3Aissue+is%3Aopen+user%3AKentico+label%3Agroomed+language%3A${this.state.platformSelection}`}>
+    const issuesTitle = (
+      <a href={`https://github.com/issues?q=org%3AKentico+is%3Aissue+is%3Aopen+user%3AKentico+label%3Agroomed+language%3A${this.state.platformSelection}`}>
         {elements.issues_label.value}
         <SVG src={linkIcon} >
           <img src={linkIcon} alt="link icon" />
         </SVG>
-      </a> : elements.issues_label.value;
+      </a>
+    );
     const issueWrapper = <div className="box-50 issues">
       <h3>
         {issuesTitle}
@@ -170,7 +156,7 @@ class GithubIssuesListSection extends Component {
             </h3>
             {steps}
           </div>
-          {['developer', 'blogger'].includes(this.props.currentPersona) && issueWrapper}
+          {issueWrapper}
         </div>
       </section >
     );
@@ -188,8 +174,7 @@ GithubIssuesListSection.propTypes = {
       steps: PropTypes.array,
       issues_label: PropTypes.object,
     })
-  }),
-  currentPersona: PropTypes.string.isRequired
+  })
 };
 
 export default GithubIssuesListSection;
