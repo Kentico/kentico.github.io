@@ -48,37 +48,6 @@ const landingPage = () => (
           }
           sections {
             ... on Node {
-              ... on KenticoCloudItemBannerSection {
-                system {
-                  id
-                  type
-                }
-                elements {
-                  section_info__title {
-                    text
-                  }
-                  section_info__subtitle {
-                    text
-                  }
-                  section_info__background_image {
-                    assets {
-                      url
-                    }
-                  }
-                  url_text {
-                    text
-                  }
-                  url_link {
-                    text
-                  }
-                  main_text {
-                    value
-                  }
-                  side_text {
-                    value
-                  }
-                }
-              }
               ... on KenticoCloudItemProjectsAndContributorsSection {
                 system {
                   id
