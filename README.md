@@ -1,10 +1,10 @@
-# Kentico Developer Community site
+# Kentico GitHub Community site
 
 [![Build Status](https://api.travis-ci.org/Kentico/kentico.github.io.svg?branch=source)](https://travis-ci.org/Kentico/kentico.github.io)
 [![Live](https://img.shields.io/badge/live-demo-brightgreen.svg)](https://kentico.github.io)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
-Official landing page for Developer Community in Kentico. This site is using [GatsbyJS](https://next.gatsbyjs.org) static site generation.
+Official site for GitHub Community in Kentico. This site is using [GatsbyJS](https://next.gatsbyjs.org) static site generation.
 
 Data is stored in [Kentico Cloud](https://kenticocloud.com) and provided by [Gatsby source plugin](https://github.com/Kentico/gatsby-source-kentico-cloud).
 
