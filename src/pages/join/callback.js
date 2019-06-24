@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql, Link } from 'gatsby'
 import qs from 'qs';
-// import { invitationUrl } from "../../utils/config.json";
-import { invitationUrl } from "../../utils/config.dev.json";
+import { invitationUrl } from "../../utils/config.json";
+// import { invitationUrl } from "../../utils/config.dev.json";
 import Axios from 'axios';
 import Loader from 'react-loaders';
 import Collapsible from 'react-collapsible';
