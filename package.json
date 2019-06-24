@@ -1,10 +1,11 @@
 {
   "name": "kentico-github-io",
   "description": "Official landing page for GitHub community in Kentico",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "author": "Ondřej Chrastina <ondrejch@kentico.com> (https://github.com/Simply007)",
   "scripts": {
     "build": "gatsby build && cpx -v \".github/**/*\" public/.github && cpx CODE_OF_CONDUCT.md public && cpx CONTRIBUTING.md public && cpx README.md public && cpx LICENSE public",
+    "build-prefixed": "gatsby build --prefix-paths && cpx -v \".github/**/*\" public/.github && cpx CODE_OF_CONDUCT.md public && cpx CONTRIBUTING.md public && cpx README.md public && cpx LICENSE public",
     "develop": "gatsby develop",
     "deploy": "gh-pages -d public -b master"
   },

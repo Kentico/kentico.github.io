@@ -50,6 +50,27 @@ module.exports = async function (context, req) {
     });
 
     try {
+        const membershipAccount = await clientWithAdminAuth.orgs.checkMembership({
+            org: "kentico",
+            username: user.data.login
+        });
+
+        if(membershipAccount.status === 204) {
+            context.res = {
+                status: membershipAccount.status, // 204
+                body: `User  ${user.data.login} already a member of Kentico organization!`
+            };
+            return;
+        }
+    } catch(error) {
+        if(error.status === 404){
+            context.log('User is not a member of the Kentico Organization');
+        } else {
+            throw error;
+        }
+    }
+
+    try {
         const invitationResult = await clientWithAdminAuth.orgs.createInvitation({
             org: "kentico",
             invitee_id: user.data.id,
