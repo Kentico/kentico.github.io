@@ -10,11 +10,9 @@ Data is stored in [Kentico Cloud](https://kenticocloud.com) and provided by [Gat
 
 Source code for the landing page is stored in [source branch](https://github.com/Kentico/kentico.github.io/tree/source) beacuse Organization pages bundle [has to be stored in master branch](https://help.github.com/articles/user-organization-and-project-pages/#user-and-organization-pages-sites).
 
-
 ## 🚀 Quick start
 
-
-1.  **Install the dependencies**
+1. **Install the dependencies**
 
     ```sh
     npm install
@@ -22,17 +20,16 @@ Source code for the landing page is stored in [source branch](https://github.com
 
     Including Gatsby CLI installation.
 
-
-3.  **Start developing.**
+3. **Start developing.**
 
     ```sh
     npm run develop  
     ```
 
-4.  **Open the source code and start editing!**
+4. **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
-    
+
     *Note: You'll also see a second link: `http://localhost:8000___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://next.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
 
 ### Build
@@ -43,11 +40,10 @@ To run the build process which builds the site to the `public` folder run:
 npm run build
 ```
 
-
 ### Other
+
 * Deployment set up and Azure function development is described in [wiki](https://github.com/Kentico/kentico.github.io/wiki)
 
-    
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.

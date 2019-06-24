@@ -2,7 +2,7 @@
   "azureTablesConnectionString": "DefaultEndpointsProtocol=https;AccountName=communitypagegithubdata;AccountKey=+Lj4+s9CtKw9LGhT/EGiwUGGfmRoCgDMjEhsKAiGSkveOzJQQCrlOpbwD+JVvvClTt/19OwMRgfARxo7Lo1Kmw==;EndpointSuffix=core.windows.net",
   "developmentAzureTablesConnectionString": "UseDevelopmentStorage=true",
   "invitationUrl": "http://localhost:7071/api/inviteToKenticoGithubRepository",
-  "invitationCallbackUrl": "https://localhost:8000/invitation/callback",
+  "invitationCallbackUrl": "http://localhost:8000/join/callback",
   "invitationClientId": "74317bc4b4ff71a278b6",
   "invitationScope": "read:user%20user:email"
 }

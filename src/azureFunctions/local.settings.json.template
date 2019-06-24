@@ -6,7 +6,7 @@
     "GITHUB_API_KEY": "",
     "GITHUB_INVITATION_API_KEY": "",
     "KC_WEBHOOK_SECRET": "",
-    "TRAVIS_TOKEN": ""
+    "TRAVIS_TOKEN": "",
     "GITHUB_OAUTH_APP_CLIENT_ID": "",
     "GITHUB_OAUTH_APP_CLIENT_SECRET": ""
   },
