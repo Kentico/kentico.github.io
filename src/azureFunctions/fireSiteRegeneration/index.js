@@ -19,7 +19,7 @@ module.exports = async function (context, req) {
     }
 
     request.post({
-        url: "https://api.travis-ci.org/repo/Kentico%2Fkentico.github.io/requests",
+        url: "https://api.travis-ci.com/repo/Kentico%2Fkentico.github.io/requests",
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
