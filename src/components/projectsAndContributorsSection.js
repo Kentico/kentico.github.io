@@ -105,7 +105,7 @@ class ProjectsAndContributorsSection extends Component {
       case 'number_of_opensource_projects':
         return this.state.opensourceProjects.loading ? loader : this.state.opensourceProjects.count;
       case 'merged_pull_requests':
-        return this.state.mergedPullRequests.loading ? loader : this.state.mergedPullRequests.count;
+        return this.state.mergedPullRequests.loading ? loader : this.state.mergedPullRequests.count == 1000 ? "1000+" : this.state.mergedPullRequests.count;
       case 'different_contributors':
         return this.state.differentContributors.loading ? loader : this.state.differentContributors.count;
       default:
@@ -114,15 +114,15 @@ class ProjectsAndContributorsSection extends Component {
   }
 
   getIconUrlForPlatform = (language) => (
-    this.props.platforms
+    this.props.platforms.linked_items
       .filter(platform =>
-        platform.system.codename === language)[0].elements.icon.assets[0].url
+        platform.system.codename === language)[0].elements.icon.value[0].url
   )
 
   getIconNameForPlatform = (language) => (
-    this.props.platforms
+    this.props.platforms.linked_items
       .filter(platform =>
-        platform.system.codename === language)[0].elements.icon.assets[0].name
+        platform.system.codename === language)[0].elements.icon.value[0].name
   )
 
   getPlatformIcon = (language) => {
@@ -172,13 +172,13 @@ class ProjectsAndContributorsSection extends Component {
 
   render() {
     const elements = this.props.data.elements;
-    const icons = elements.icons.map(({system, elements}, index) => {
+    const icons = elements.icons.linked_items.map(({ system, elements }, index) => {
       const countLabel = this.getCountLabel(system.codename);
       return (
         <div className="box-33" key={index}>
           <a href={this.getIconUrl(system.codename)}>
             <SVG
-              src={elements.icon.assets[0].url}
+              src={elements.icon.value[0].url}
               preloader={<Loader
                 type="ball-scale-ripple-multiple"
                 active={true}
@@ -187,9 +187,9 @@ class ProjectsAndContributorsSection extends Component {
                   width: '40px',
                   height: '27px'
                 }} />}>
-              <img src={elements.icon.assets[0].url} alt="" />
+              <img src={elements.icon.value[0].url} alt="" />
             </SVG>
-            <strong>{countLabel}</strong>&nbsp;{elements.title.text}
+            <strong>{countLabel}</strong>&nbsp;{elements.title.value}
             <SVG src={linkIcon} className="link-icon">
               <img src={linkIcon} alt="link icon" />
             </SVG>
@@ -234,12 +234,12 @@ class ProjectsAndContributorsSection extends Component {
     return (
       <section
         className="projects-and-contributions" id="our-projects" style={{
-          background: `#151B31 url(${elements.section_info__background_image.assets[0].url}) bottom center no-repeat`
+          background: `#151B31 url(${elements.section_info__background_image.value[0].url}) bottom center no-repeat`
         }}>
         <div className="row-flex">
           <div className="box-100">
-            <h2>{elements.section_info__title.text}</h2>
-            <h3>{elements.section_info__subtitle.text}</h3>
+            <h2>{elements.section_info__title.value}</h2>
+            <h3>{elements.section_info__subtitle.value}</h3>
           </div>
         </div>
         <div className="row-flex stats">
@@ -266,10 +266,14 @@ ProjectsAndContributorsSection.propTypes = {
       section_info__title: PropTypes.object,
       section_info__subtitle: PropTypes.object,
       section_info__background_image: PropTypes.object,
-      icons: PropTypes.array,
+      icons: PropTypes.shape({
+        linked_items: PropTypes.array
+      }),
     })
   }),
-  platforms: PropTypes.array,
+  platforms: PropTypes.shape({
+    linked_items: PropTypes.array
+  }),
 };
 
 export default ProjectsAndContributorsSection;

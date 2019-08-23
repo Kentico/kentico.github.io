@@ -108,7 +108,7 @@ class InvitationCallback extends Component {
   kenticoCloudItemInvitationPage(system: {codename: {eq: "kentico_invitation_page"}}) {
     elements{
       background {
-        assets {
+        value {
           name
           url
         }
@@ -121,7 +121,7 @@ class InvitationCallback extends Component {
           kenticoCloudItemInvitationPage: {
             elements: {
               background: {
-                assets: backgroundAssets
+                value: backgroundAssets
               }
             }
           }

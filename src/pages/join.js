@@ -12,30 +12,32 @@ const InvitationPage = () => (
   kenticoCloudItemInvitationPage(system: {codename: {eq: "kentico_invitation_page"}}) {
     elements {
       invitation_title {
-        text
+        value
       }
       confirmation_button_text {
-        text
+        value
       }
       organization_logo {
-        ... on Node {
-          ... on KenticoCloudItemImageLink {
-            elements {
-              image {
-                assets {
-                  name
-                  url
+        linked_items {
+          ... on Node {
+            ... on KenticoCloudItemImageLink {
+              elements {
+                image {
+                  value {
+                    name
+                    url
+                  }
                 }
-              }
-              image_url {
-                text
+                image_url {
+                  value
+                }
               }
             }
           }
         }
       }
       background {
-        assets {
+        value {
           name
           url
         }
@@ -44,29 +46,32 @@ const InvitationPage = () => (
   }
 }
 `}
-    render={({
-      kenticoCloudItemInvitationPage: {
-        elements: {
-          invitation_title: {
-            text: invitationText
-          },
-          confirmation_button_text: {
-            text: confirmationButtonText
-          },
-          organization_logo: organization_logos,
-          background: {
-            assets: backgroundAssets
+    render={(data) => {
+      const {
+        kenticoCloudItemInvitationPage: {
+          elements: {
+            invitation_title: {
+              value: invitationText
+            },
+            confirmation_button_text: {
+              value: confirmationButtonText
+            },
+            organization_logo: {
+              linked_items: organization_logos
+            },
+            background: {
+              value: backgroundAssets
+            }
           }
         }
-      }
-    }) => {
+      } = data;
       const {
         elements: {
           image: {
-            assets: organizationLogos
+            value: organizationLogos
           },
           image_url: {
-            text: organizationUrl
+            value: organizationUrl
           }
         }
       } = organization_logos[0];

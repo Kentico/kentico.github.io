@@ -55,10 +55,10 @@ class GithubIssuesListSection extends Component {
 
   render() {
     const elements = this.state.elements;
-    const platforms = elements.platform_selector.map(platform =>
+    const platforms = elements.platform_selector.linked_items.map(platform =>
       <option key={platform.elements.codename.value} value={platform.elements.codename.value}>{platform.elements.name.value}</option>);
 
-    const steps = elements.steps
+    const steps = elements.steps.linked_items
       .map((step, index) =>
         <div key={index}>
           <span>{("0" + (index + 1)).slice(-2)}/</span>
@@ -101,13 +101,14 @@ class GithubIssuesListSection extends Component {
       </select>
     );
 
-    const selectedPlatforms = elements.platform_selector.filter(({ elements }) => elements.codename.value === this.state.platformSelection);
+    const selectedPlatforms = elements.platform_selector.linked_items.filter(({ elements }) =>
+      elements.codename.value === this.state.platformSelection);
     const selectedPlatformLink =
       selectedPlatforms.length > 0
-      && selectedPlatforms[0].elements.detail_url.text
+      && selectedPlatforms[0].elements.detail_url.value
       && <a
         className="btn"
-        href={selectedPlatforms[0].elements.detail_url.text}
+        href={selectedPlatforms[0].elements.detail_url.value}
         target="_blank"
         rel="noopener noreferrer">
         Public backlog
@@ -137,11 +138,11 @@ class GithubIssuesListSection extends Component {
 
     return (
       <section className="task-list" id="task-list" style={{
-        background: `#1C263F url(${elements.section_info__background_image.assets[0].url}) bottom center no-repeat`
+        background: `#1C263F url(${elements.section_info__background_image.value[0].url}) bottom center no-repeat`
       }}>
         <div className="row-flex">
           <h2>
-            {elements.section_info__title.text}
+            {elements.section_info__title.value}
           </h2>
         </div>
         <div className="row-flex">
@@ -169,9 +170,13 @@ GithubIssuesListSection.propTypes = {
       section_info__title: PropTypes.object,
       section_info__subtitle: PropTypes.object,
       section_info__background_image: PropTypes.object,
-      platform_selector_nodes: PropTypes.array,
+      platform_selector: PropTypes.shape({
+        linked_items: PropTypes.array
+      }),
       steps_label: PropTypes.object,
-      steps: PropTypes.array,
+      steps: PropTypes.shape({
+        linked_items: PropTypes.array
+      }),
       issues_label: PropTypes.object,
     })
   })
