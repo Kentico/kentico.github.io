@@ -1,7 +1,7 @@
 {
   "name": "kentico-github-io",
   "description": "Official landing page for GitHub community in Kentico",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "author": "Ondřej Chrastina <ondrejch@kentico.com> (https://github.com/Simply007)",
   "scripts": {
     "build": "gatsby build && cpx -v \".github/**/*\" public/.github && cpx CODE_OF_CONDUCT.md public && cpx CONTRIBUTING.md public && cpx README.md public && cpx LICENSE public",
