@@ -1,7 +1,7 @@
 {
   "name": "kentico-github-io",
   "description": "Official landing page for GitHub community in Kentico",
-  "version": "1.0.21",
+  "version": "1.0.23",
   "author": "Ondřej Chrastina <ondrejch@kentico.com> (https://github.com/Simply007)",
   "scripts": {
     "build": "gatsby build && cpx -v \".github/**/*\" public/.github && cpx CODE_OF_CONDUCT.md public && cpx CONTRIBUTING.md public && cpx README.md public && cpx LICENSE public",
@@ -19,7 +19,7 @@
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.5",
     "gatsby-plugin-sass": "^2.0.1",
-    "gatsby-source-kentico-cloud": "^3.1.0",
+    "gatsby-source-kentico-cloud": "^4.0.0-beta1",
     "github-api": "^3.0.0",
     "html-to-react": "^1.3.3",
     "loaders.css": "^0.1.2",
@@ -34,7 +34,7 @@
     "react-inlinesvg": "^0.8.2",
     "react-loaders": "^3.0.1",
     "react-responsive-navbar": "^1.0.11",
-    "rxjs": "6.2.0"
+    "rxjs": "^6.2.0"
   },
   "keywords": [
     "gatsby",

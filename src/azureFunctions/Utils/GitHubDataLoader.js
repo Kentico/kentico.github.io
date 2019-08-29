@@ -32,6 +32,7 @@ class GitHubDataLoader {
     });
 
     const mergedPullRequests = await search.forIssues(options);
+    const test = await search._requestAllPages('/search/issues', undefined, undefined);
     return mergedPullRequests.data.length;
   }
 
