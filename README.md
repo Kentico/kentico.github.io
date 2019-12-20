@@ -6,7 +6,7 @@
 
 Official site for GitHub Community in Kentico. This site is using [GatsbyJS](https://next.gatsbyjs.org) static site generation.
 
-Data is stored in [Kentico Cloud](https://kenticocloud.com) and provided by [Gatsby source plugin](https://github.com/Kentico/gatsby-source-kentico-cloud).
+Data is stored in [Kentico Kontent](https://kontent.ai) and provided by [Gatsby source plugin](https://github.com/Kentico/gatsby-source-kontent).
 
 Source code for the landing page is stored in [source branch](https://github.com/Kentico/kentico.github.io/tree/source) beacuse Organization pages bundle [has to be stored in master branch](https://help.github.com/articles/user-organization-and-project-pages/#user-and-organization-pages-sites).
 
