@@ -9,7 +9,7 @@ const InvitationPage = () => (
   <StaticQuery
     query={graphql`
 {
-  kenticoCloudItemInvitationPage(system: {codename: {eq: "kentico_invitation_page"}}) {
+  kontentItemInvitationPage(system: {codename: {eq: "kentico_invitation_page"}}) {
     elements {
       invitation_title {
         value
@@ -20,7 +20,7 @@ const InvitationPage = () => (
       organization_logo {
         linked_items {
           ... on Node {
-            ... on KenticoCloudItemImageLink {
+            ... on KontentItemImageLink {
               elements {
                 image {
                   value {
@@ -48,7 +48,7 @@ const InvitationPage = () => (
 `}
     render={(data) => {
       const {
-        kenticoCloudItemInvitationPage: {
+        kontentItemInvitationPage: {
           elements: {
             invitation_title: {
               value: invitationText

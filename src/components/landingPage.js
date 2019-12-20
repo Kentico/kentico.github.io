@@ -10,21 +10,19 @@ const landingPage = () => (
   <StaticQuery
     query={graphql`
 {
-  allKenticoCloudItemSectionsPage {
+  allKontentItemSectionsPage {
     edges {
       node {
         elements {
           top_menu {
             linked_items {
-              ... on Node {
-                ... on KenticoCloudItemTextLink {
-                  elements {
-                    text {
-                      value
-                    }
-                    url {
-                      value
-                    }
+              ... on KontentItemTextLink {
+                elements {
+                  text {
+                    value
+                  }
+                  url {
+                    value
                   }
                 }
               }
@@ -55,40 +53,36 @@ const landingPage = () => (
           }
           sections {
             linked_items {
-              ... on Node {
-                ... on KenticoCloudItemProjectsAndContributorsSection {
-                  system {
-                    id
-                    type
+              ... on KontentItemProjectsAndContributorsSection {
+                system {
+                  id
+                  type
+                }
+                elements {
+                  section_info__title {
+                    value
                   }
-                  elements {
-                    section_info__title {
-                      value
+                  section_info__subtitle {
+                    value
+                  }
+                  section_info__background_image {
+                    value {
+                      url
                     }
-                    section_info__subtitle {
-                      value
-                    }
-                    section_info__background_image {
-                      value {
-                        url
-                      }
-                    }
-                    icons {
-                      linked_items {
-                        ... on Node {
-                          ... on KenticoCloudItemIcon {
-                            system {
-                              codename
-                            }
-                            elements {
-                              title {
-                                value
-                              }
-                              icon {
-                                value {
-                                  url
-                                }
-                              }
+                  }
+                  icons {
+                    linked_items {
+                      ... on KontentItemIcon {
+                        system {
+                          codename
+                        }
+                        elements {
+                          title {
+                            value
+                          }
+                          icon {
+                            value {
+                              url
                             }
                           }
                         }
@@ -96,100 +90,94 @@ const landingPage = () => (
                     }
                   }
                 }
-                ... on KenticoCloudItemTaskListSection {
-                  system {
-                    id
-                    type
+              }
+              ... on KontentItemTaskListSection {
+                system {
+                  id
+                  type
+                }
+                elements {
+                  section_info__title {
+                    value
                   }
-                  elements {
-                    section_info__title {
-                      value
+                  section_info__background_image {
+                    value {
+                      url
                     }
-                    section_info__background_image {
-                      value {
-                        url
-                      }
-                    }
-                    steps {
-                      linked_items {
-                        ... on Node {
-                          ... on KenticoCloudItemStep {
-                            system {
-                              id
-                            }
-                            elements {
-                              text {
-                                value
-                              }
-                            }
+                  }
+                  steps {
+                    linked_items {
+                      ... on KontentItemStep {
+                        system {
+                          id
+                        }
+                        elements {
+                          text {
+                            value
                           }
                         }
                       }
                     }
-                    platform_selector {
-                      linked_items {
-                        ... on Node {
-                          ... on KenticoCloudItemLabel {
-                            elements {
-                              name {
-                                value
-                              }
-                              codename {
-                                value
-                              }
-                              detail_url {
-                                value
-                              }
-                            }
+                  }
+                  platform_selector {
+                    linked_items {
+                      ... on KontentItemLabel {
+                        elements {
+                          name {
+                            value
+                          }
+                          codename {
+                            value
+                          }
+                          detail_url {
+                            value
                           }
                         }
                       }
                     }
-                    issues_label {
-                      value
-                    }
-                    steps_label {
-                      value
-                    }
+                  }
+                  issues_label {
+                    value
+                  }
+                  steps_label {
+                    value
                   }
                 }
-                ... on KenticoCloudItemIconsSection {
-                  system {
-                    id
-                    type
+              }
+              ... on KontentItemIconsSection {
+                system {
+                  id
+                  type
+                }
+                elements {
+                  section_info__title {
+                    value
                   }
-                  elements {
-                    section_info__title {
-                      value
+                  section_info__subtitle {
+                    value
+                  }
+                  section_info__background_image {
+                    value {
+                      url
                     }
-                    section_info__subtitle {
-                      value
-                    }
-                    section_info__background_image {
-                      value {
-                        url
-                      }
-                    }
-                    icons {
-                      linked_items {
-                        ... on Node {
-                          ... on KenticoCloudItemIcon {
-                            system {
-                              codename
-                            }
-                            elements {
-                              title {
-                                value
-                              }
-                              subtitle {
-                                value
-                              }
-                              icon {
-                                value {
-                                  url
-                                  name
-                                }
-                              }
+                  }
+                  icons {
+                    linked_items {
+                      ... on KontentItemIcon {
+                        system {
+                          codename
+                        }
+                        elements {
+                          title {
+                            value
+                          }
+                          subtitle {
+                            value
+                          }
+                          icon {
+                            value {
+                              url
+                              name
                             }
                           }
                         }
@@ -207,17 +195,15 @@ const landingPage = () => (
           }
           platforms {
             linked_items {
-              ... on Node {
-                ... on KenticoCloudItemIcon {
-                  system {
-                    codename
-                  }
-                  elements {
-                    icon {
-                      value {
-                        name
-                        url
-                      }
+              ... on KontentItemIcon {
+                system {
+                  codename
+                }
+                elements {
+                  icon {
+                    value {
+                      name
+                      url
                     }
                   }
                 }
@@ -243,7 +229,7 @@ const landingPage = () => (
 }
 `}
     render={(data) => {
-      const node = data.allKenticoCloudItemSectionsPage.edges[0].node;
+      const node = data.allKontentItemSectionsPage.edges[0].node;
       const sections = node.elements.sections.linked_items.map((section, index) => (
         <Section
           key={index}

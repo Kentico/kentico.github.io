@@ -172,13 +172,13 @@ class ProjectsAndContributorsSection extends Component {
 
   render() {
     const elements = this.props.data.elements;
-    const icons = elements.icons.linked_items.map(({ system, elements }, index) => {
+    const icons = elements.icons.linked_items.map(({ system, elements: iconElements }, index) => {
       const countLabel = this.getCountLabel(system.codename);
       return (
         <div className="box-33" key={index}>
           <a href={this.getIconUrl(system.codename)}>
             <SVG
-              src={elements.icon.value[0].url}
+              src={iconElements.icon.value[0].url}
               preloader={<Loader
                 type="ball-scale-ripple-multiple"
                 active={true}
@@ -187,9 +187,9 @@ class ProjectsAndContributorsSection extends Component {
                   width: '40px',
                   height: '27px'
                 }} />}>
-              <img src={elements.icon.value[0].url} alt="" />
+              <img src={iconElements.icon.value[0].url} alt="" />
             </SVG>
-            <strong>{countLabel}</strong>&nbsp;{elements.title.value}
+            <strong>{countLabel}</strong>&nbsp;{iconElements.title.value}
             <SVG src={linkIcon} className="link-icon">
               <img src={linkIcon} alt="link icon" />
             </SVG>

@@ -105,7 +105,7 @@ class InvitationCallback extends Component {
       <StaticQuery
         query={graphql`
 {
-  kenticoCloudItemInvitationPage(system: {codename: {eq: "kentico_invitation_page"}}) {
+  kontentItemInvitationPage(system: {codename: {eq: "kentico_invitation_page"}}) {
     elements{
       background {
         value {
@@ -118,7 +118,7 @@ class InvitationCallback extends Component {
 }
   `}
         render={({
-          kenticoCloudItemInvitationPage: {
+          kontentItemInvitationPage: {
             elements: {
               background: {
                 value: backgroundAssets

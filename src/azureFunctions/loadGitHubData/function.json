@@ -2,13 +2,10 @@
   "disabled": false,
   "bindings": [
     {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
+      "name": "timeSchedulerTrigger",
+      "type": "timerTrigger",
       "direction": "in",
-      "name": "req",
-      "methods": [
-        "get"
-      ]
+      "schedule": "0 0 */2 * * *"
     }
   ]
 }

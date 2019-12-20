@@ -89,7 +89,7 @@ module.exports = {
     },
     'gatsby-plugin-eslint', // https://www.gatsbyjs.org/packages/gatsby-plugin-eslint/
     {
-      resolve: 'gatsby-source-kentico-cloud',
+      resolve: '@kentico/gatsby-source-kontent',
       options: {
         deliveryClientConfig: {
           projectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',

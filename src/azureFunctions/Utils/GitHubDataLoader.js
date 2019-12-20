@@ -32,7 +32,6 @@ class GitHubDataLoader {
     });
 
     const mergedPullRequests = await search.forIssues(options);
-    const test = await search._requestAllPages('/search/issues', undefined, undefined);
     return mergedPullRequests.data.length;
   }
 
@@ -61,10 +60,10 @@ class GitHubDataLoader {
     return contributorsSet;
   }
 
-  async getKenticoCloudTopThreeStaredRepos() { // maximum is 1000
+  async getKenticoKontentTopThreeStaredRepos() { // maximum is 1000
     let options;
     let search = this.gitHub.search({
-      q: 'org:Kentico is:public topic:kentico-cloud',
+      q: 'org:Kentico is:public topic:kentico-kontent',
       sort: 'stars',
       order: 'desc'
     });
@@ -156,7 +155,7 @@ class GitHubDataLoader {
   }
 
   async getKenticoOpenedIssuesByPlatform() {
-    const platforms = await axios("https://deliver.kenticocloud.com/1bb2313f-2550-0025-06d9-f3e5065607c0/items?system.type=label&elements.label_group[contains]=platform")
+    const platforms = await axios("https://deliver.kontent.ai/1bb2313f-2550-0025-06d9-f3e5065607c0/items?system.type=label&elements.label_group[contains]=platform")
       .then(result => (result.data.items.map(platform => platform.elements.codename.value)));
 
     let data = {

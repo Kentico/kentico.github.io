@@ -31,7 +31,7 @@ module.exports = async (context, myTimer) => {
     await appendRecord(batch, 'contentBacklogThreeTodoCards', dataLoader.getTopThreeKenticoContentBacklogTodoCards.bind(dataLoader));
     await appendRecord(batch, 'mergePullRequestsCount', dataLoader.getKenticoMergedPullRequestCount.bind(dataLoader));
     await appendRecord(batch, 'contributorsCount', dataLoader.getKenticoContributorsCount.bind(dataLoader));
-    await appendRecord(batch, 'topThreeStarredRepos', dataLoader.getKenticoCloudTopThreeStaredRepos.bind(dataLoader));
+    await appendRecord(batch, 'topThreeStarredRepos', dataLoader.getKenticoKontentTopThreeStaredRepos.bind(dataLoader));
     await appendRecord(batch, 'topThreeContributors', dataLoader.getKenticoTopThreeContributors.bind(dataLoader));
 
     const tableSvc = azure.createTableService(process.env.AzureWebJobsStorage);
