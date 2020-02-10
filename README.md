@@ -8,7 +8,7 @@ Official site for GitHub Community in Kentico. This site is using [GatsbyJS](htt
 
 Data is stored in [Kentico Kontent](https://kontent.ai) and provided by [Gatsby source plugin](https://github.com/Kentico/gatsby-source-kontent).
 
-Source code for the landing page is stored in the [source branch](https://github.com/Kentico/kentico.github.io/tree/source) because Organization pages bundle [has to be stored in the master branch](https://help.github.com/articles/user-organization-and-project-pages/#user-and-organization-pages-sites).
+Source code for the landing page is stored in the [source branch](https://github.com/Kentico/kentico.github.io/tree/source) because the Organization pages bundle [has to be stored in the master branch](https://help.github.com/articles/user-organization-and-project-pages/#user-and-organization-pages-sites).
 
 ## 🚀 Quick start
 
@@ -20,86 +20,36 @@ Source code for the landing page is stored in the [source branch](https://github
 
     Including Gatsby CLI installation.
 
-3. **Start developing:**
+1. **Start developing:**
 
     ```sh
     npm run develop  
     ```
 
-4. **Open the source code and start editing!**
+1. **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`.
-
     *Note: You'll also see a second link: `http://localhost:8000___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://next.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
 
-### Build
+1. **Build**
 
-Run the build process which builds the site to the `public` folder:
+    Run the build process which builds the site to the `public` folder:
 
-```sh
-npm run build
-```
+    ```sh
+    npm run build
+    ```
 
-### Other
+The deployment set up and the Azure Function development are described in the [Kentico GitHub wiki](https://github.com/Kentico/kentico.github.io/wiki).
 
-The deployment set up and Azure function development are described in the [Kentico GitHub wiki](https://github.com/Kentico/kentico.github.io/wiki).
+Further information, such as a description of files inside a Gatsby project, can be found in the [Gatsby default starter readme](https://github.com/gatsbyjs/gatsby-starter-default).
 
-## 🧐 What's inside?
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
-
-    .
-    ├── node_modules
-    ├── src
-    ├── .eslintrc
-    ├── .gitignore
-    ├── .travis.yml
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
-
-  1.  **`/node_modules`**: A directory where all of the modules of code your project depends on (npm packages) are automatically installed.  
-  
-  2.  **`/src`**: This directory will contain all of the code related to what you will see on the front end of your site (what you see in your browser), like your site header or a page template. The “src” is a conventional abbreviation for “source code”.
-  
-  3.  **`.gitignore`**: This file tells Git which files it should not track nor maintain a version history for.
-  
-  4.  **`.eslintrc`**: This is a configuration file for a tool called [ESLint](https://eslint.org/) which helps to keep the formatting of your code consistent.
-  
-  5.  **`gatsby-browser.js`**: This is file where Gatsby expects to find any usage of the [Gatsby browser APIs](https://next.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
-  
-  6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. Here you can specify information about your site like its title and description (metadata), Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://next.gatsbyjs.org/docs/gatsby-config/) for more details).
-  
-  7.  **`gatsby-node.js`**: This is file where Gatsby expects to find any usage of the [Gatsby node APIs](https://next.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-  
-  8.  **`gatsby-ssr.js`**: This is file where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://next.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-  
-  9.  **`LICENSE`**: This site is licensed under the MIT license.
-  
-  10.  **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. (You won’t change this file directly).
-  
-  11.  **`package.json`**: A manifest file for Node.js projects which includes, among others, things like metadata (the project’s name, author, etc). This file also lets npm know which packages to install for your project.
-  
-  12.  **`README.md`**: A text file containing useful reference information about your project.
-
-## 🎓 Learning Gatsby
-
-Looking for more guidance on using Gatsby? See the [full documentation for Gatsby](https://next.gatsbyjs.org/). Here are some places to start:
-
--   **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://next.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks you through every step of the process.
-
--   **To dive straight into code samples, head [to our documentation](https://next.gatsbyjs.org/docs/).** In particular, check out the “Guides”, API reference, and “Advanced Tutorials” sections in the sidebar.
 
 ## 💫 Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Kentico/kentico.github.io)
 
-Note: this deploys only the front end of the application data. Data loaded from GitHub will be loaded from the production Azure table storage.
+Note: this deploys only the front end of the application data. Data loaded from GitHub will be loaded from the production Azure Table Storage.
 
 Information about the actual deployment is [described in this wiki](https://github.com/Kentico/kentico.github.io/wiki/How-does-the-automatic-deployment-works).
 
