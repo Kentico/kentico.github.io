@@ -39,7 +39,7 @@ Source code for the landing page is stored in the [source branch](https://github
     npm run build
     ```
 
-The deployment set up and the Azure Function development are described in the [Kentico GitHub wiki](https://github.com/Kentico/kentico.github.io/wiki).
+The deployment setup and the Azure Function development are described in the [Kentico GitHub wiki](https://github.com/Kentico/kentico.github.io/wiki).
 
 Further information, such as a description of files inside a Gatsby project, can be found in the [Gatsby default starter readme](https://github.com/gatsbyjs/gatsby-starter-default).
 
@@ -49,7 +49,7 @@ Further information, such as a description of files inside a Gatsby project, can
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Kentico/kentico.github.io)
 
-Note: this deploys only the front end of the application data. Data loaded from GitHub will be loaded from the production Azure Table Storage.
+This deploys only the front end of the application data. Data loaded from GitHub will be loaded from the production Azure Table Storage.
 
 Information about the actual deployment is [described in this wiki](https://github.com/Kentico/kentico.github.io/wiki/How-does-the-automatic-deployment-works).
 
