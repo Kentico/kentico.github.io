@@ -99,13 +99,14 @@ module.exports = {
           projectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',
           previewApiKey: process.env.KONTENT_PREVIEW_API_KEY,
           globalQueryConfig: {
-            usePreviewMode: process.env.KONTENT_PREVIEW_API_KEY ? true : false,
+            usePreviewMode: process.env.NODE_ENV === "development",
           },
           typeResolvers: []
         },
         languageCodenames: [
           "default"
-        ]
+        ],
+        enableLogging: process.env.NODE_ENV === "development",
       }
     },
     {
