@@ -1,5 +1,9 @@
 require('@babel/polyfill');
 
+require("dotenv").config({
+  KONTENT_PREVIEW_API_KEY: `.env.${process.env.KONTENT_PREVIEW_API_KEY}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: 'Kentico GitHub Community',
@@ -93,11 +97,16 @@ module.exports = {
       options: {
         deliveryClientConfig: {
           projectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',
+          previewApiKey: process.env.KONTENT_PREVIEW_API_KEY,
+          globalQueryConfig: {
+            usePreviewMode: process.env.NODE_ENV === "development",
+          },
           typeResolvers: []
         },
         languageCodenames: [
           "default"
-        ]
+        ],
+        enableLogging: process.env.NODE_ENV === "development",
       }
     },
     {
