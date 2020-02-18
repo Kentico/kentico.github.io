@@ -379,15 +379,18 @@ section.footer {
     font-size: 24px;
     line-height: 32px;
     font-weight: 300;
+    font-style: italic;
 
     a {
       display: block;
       color: $color-text;
-      text-decoration: none;
+      text-decoration: wavy;
+      font-style: normal;
 
       &:hover {
         text-decoration: none;
         color: $color-orange;
+        cursor: pointer;
       }
     }
 

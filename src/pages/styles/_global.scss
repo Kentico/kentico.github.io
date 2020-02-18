@@ -58,6 +58,9 @@ var {
 ol,
 ul {
   list-style: none;
+  ul {
+    margin-left: 1em;
+  }
 }
 
 caption,
