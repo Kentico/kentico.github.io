@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const IconsSection = (props) => {
-  const icons = props.data.elements.icons.linked_items
+  const icons = props.data.elements.icons.value
     .map(icon =>
       <div className="box-33" key={icon.system.codename}>
         <div className="box-33">
@@ -38,7 +38,7 @@ IconsSection.propTypes = {
       section_info__title: PropTypes.object,
       section_info__background_image: PropTypes.object,
       icons: PropTypes.shape({ 
-        linked_items: PropTypes.array
+        value: PropTypes.array
       })
     })
   })

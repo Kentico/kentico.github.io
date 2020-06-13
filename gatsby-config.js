@@ -95,19 +95,16 @@ module.exports = {
     {
       resolve: '@kentico/gatsby-source-kontent',
       options: {
-        deliveryClientConfig: {
-          projectId: '1bb2313f-2550-0025-06d9-f3e5065607c0',
-          previewApiKey: process.env.KONTENT_PREVIEW_API_KEY,
-          globalQueryConfig: {
-            usePreviewMode: process.env.NODE_ENV === "development",
-          },
-          typeResolvers: []
-        },
+        projectId: '1bb2313f-2550-0025-06d9-f3e5065607c0', // Fill in your Project ID
+        // if false used authorization key for secured API
+        usePreviewUrl: Boolean(process.env.KONTENT_PREVIEW_API_KEY),
+        authorizationKey: process.env.KONTENT_PREVIEW_API_KEY
+          ? process.env.KONTENT_PREVIEW_API_KEY
+          : undefined,
         languageCodenames: [
-          "default"
+          'default'
         ],
-        enableLogging: process.env.NODE_ENV === "development",
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-google-analytics',

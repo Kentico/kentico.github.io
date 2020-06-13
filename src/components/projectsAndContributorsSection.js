@@ -114,13 +114,13 @@ class ProjectsAndContributorsSection extends Component {
   }
 
   getIconUrlForPlatform = (language) => (
-    this.props.platforms.linked_items
+    this.props.platforms.value
       .filter(platform =>
         platform.system.codename === language)[0].elements.icon.value[0].url
   )
 
   getIconNameForPlatform = (language) => (
-    this.props.platforms.linked_items
+    this.props.platforms.value
       .filter(platform =>
         platform.system.codename === language)[0].elements.icon.value[0].name
   )
@@ -172,7 +172,7 @@ class ProjectsAndContributorsSection extends Component {
 
   render() {
     const elements = this.props.data.elements;
-    const icons = elements.icons.linked_items.map(({ system, elements: iconElements }, index) => {
+    const icons = elements.icons.value.map(({ system, elements: iconElements }, index) => {
       const countLabel = this.getCountLabel(system.codename);
       return (
         <div className="box-33" key={index}>
@@ -267,12 +267,12 @@ ProjectsAndContributorsSection.propTypes = {
       section_info__subtitle: PropTypes.object,
       section_info__background_image: PropTypes.object,
       icons: PropTypes.shape({
-        linked_items: PropTypes.array
+        value: PropTypes.array
       }),
     })
   }),
   platforms: PropTypes.shape({
-    linked_items: PropTypes.array
+    value: PropTypes.array
   }),
 };
 
