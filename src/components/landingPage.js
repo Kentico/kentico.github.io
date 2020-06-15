@@ -15,8 +15,8 @@ const landingPage = () => (
       node {
         elements {
           top_menu {
-            linked_items {
-              ... on KontentItemTextLink {
+             value{
+              ... on kontent_item_text_link {
                 elements {
                   text {
                     value
@@ -52,8 +52,8 @@ const landingPage = () => (
             }
           }
           sections {
-            linked_items {
-              ... on KontentItemProjectsAndContributorsSection {
+            value {
+              ... on kontent_item_projects_and_contributors_section {
                 system {
                   id
                   type
@@ -71,8 +71,8 @@ const landingPage = () => (
                     }
                   }
                   icons {
-                    linked_items {
-                      ... on KontentItemIcon {
+                    value {
+                      ... on kontent_item_icon {
                         system {
                           codename
                         }
@@ -91,7 +91,7 @@ const landingPage = () => (
                   }
                 }
               }
-              ... on KontentItemTaskListSection {
+              ... on kontent_item_task_list_section {
                 system {
                   id
                   type
@@ -106,8 +106,8 @@ const landingPage = () => (
                     }
                   }
                   steps {
-                    linked_items {
-                      ... on KontentItemStep {
+                    value {
+                      ... on kontent_item_step {
                         system {
                           id
                         }
@@ -120,8 +120,8 @@ const landingPage = () => (
                     }
                   }
                   platform_selector {
-                    linked_items {
-                      ... on KontentItemLabel {
+                    value {
+                      ... on kontent_item_label {
                         elements {
                           name {
                             value
@@ -144,7 +144,7 @@ const landingPage = () => (
                   }
                 }
               }
-              ... on KontentItemIconsSection {
+              ... on kontent_item_icons_section {
                 system {
                   id
                   type
@@ -162,8 +162,8 @@ const landingPage = () => (
                     }
                   }
                   icons {
-                    linked_items {
-                      ... on KontentItemIcon {
+                    value {
+                      ... on kontent_item_icon {
                         system {
                           codename
                         }
@@ -194,8 +194,8 @@ const landingPage = () => (
             }
           }
           platforms {
-            linked_items {
-              ... on KontentItemIcon {
+            value {
+              ... on kontent_item_icon {
                 system {
                   codename
                 }
@@ -230,7 +230,7 @@ const landingPage = () => (
 `}
     render={(data) => {
       const node = data.allKontentItemSectionsPage.edges[0].node;
-      const sections = node.elements.sections.linked_items.map((section, index) => (
+      const sections = node.elements.sections.value.map((section, index) => (
         <Section
           key={index}
           data={section}
@@ -249,7 +249,7 @@ const landingPage = () => (
       }}>
       </div>;
 
-      const menuItems = node.elements.top_menu.linked_items.map((menuItem, index) =>
+      const menuItems = node.elements.top_menu.value.map((menuItem, index) =>
         <li key={index}><a href={menuItem.elements.url.value}>{menuItem.elements.text.value}</a></li>);
 
       return (

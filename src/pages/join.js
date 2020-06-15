@@ -18,19 +18,17 @@ const InvitationPage = () => (
         value
       }
       organization_logo {
-        linked_items {
-          ... on Node {
-            ... on KontentItemImageLink {
-              elements {
-                image {
-                  value {
-                    name
-                    url
-                  }
+        value {
+          ... on kontent_item_image_link {
+            elements {
+              image {
+                value {
+                  name
+                  url
                 }
-                image_url {
-                  value
-                }
+              }
+              image_url {
+                value
               }
             }
           }
@@ -57,7 +55,7 @@ const InvitationPage = () => (
               value: confirmationButtonText
             },
             organization_logo: {
-              linked_items: organization_logos
+              value: organization_logos
             },
             background: {
               value: backgroundAssets
