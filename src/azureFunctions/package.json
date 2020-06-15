@@ -23,7 +23,7 @@
   "homepage": "https://github.com/Kentico/kentico.github.io#readme",
   "dependencies": {
     "@octokit/rest": "^16.22.0",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "azure-storage": "^2.10.2",
     "github-api": "^3.0.0",
     "qs": "^6.7.0",
