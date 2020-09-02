@@ -1,7 +1,7 @@
 // Google Fonts
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
 @import "../styles/mixins.scss";
-@import 'loaders.css/src/animations/ball-scale-ripple-multiple.scss';
+@import "loaders.css/src/animations/ball-scale-ripple-multiple.scss";
 
 // This will contain all of the section class selectors.
 section.heading-section {
@@ -45,7 +45,7 @@ section.heading-section {
   }
 
   .btn {
-    @include button(#FFFFFF);
+    @include button(#ffffff);
     margin: auto;
     margin-bottom: 150px;
   }
@@ -84,7 +84,7 @@ section.icons-section {
 
   label {
     @include button(#fff);
-    background: #343E61;
+    background: #343e61;
     font-weight: 300;
     width: 150px;
 
@@ -93,7 +93,7 @@ section.icons-section {
     }
   }
 
-  input:checked+label {
+  input:checked + label {
     @include button(#fff);
   }
 
@@ -102,7 +102,7 @@ section.icons-section {
     font-size: 18px;
     line-height: 26px;
 
-    .box-33>div {
+    .box-33 > div {
       max-width: 260px;
       margin: auto;
 
@@ -132,7 +132,7 @@ section.task-list {
     padding: 0 0 30px 0;
 
     a {
-      color: #FFFFFF;
+      color: #ffffff;
       text-decoration: none;
 
       &:hover {
@@ -157,7 +157,7 @@ section.task-list {
     padding: 80px 0 50px 0;
 
     select {
-      background: #343E61;
+      background: #343e61;
       width: 270px;
       padding: 10px 25px;
       line-height: 30px;
@@ -178,7 +178,8 @@ section.task-list {
         outline: none !important;
         outline-color: $color-orange !important;
 
-        option {}
+        option {
+        }
       }
     }
   }
@@ -233,7 +234,7 @@ section.task-list {
         }
 
         a {
-          color: #FFFFFF;
+          color: #ffffff;
           text-decoration: none;
 
           &:hover {
@@ -253,7 +254,7 @@ section.task-list {
       }
     }
 
-    .loader-active>div {
+    .loader-active > div {
       width: 100%;
       margin: 2em auto;
     }
@@ -283,7 +284,7 @@ section.task-list {
         padding: 0 0 0 80px;
 
         a {
-          color: #FFFFFF;
+          color: #ffffff;
           text-decoration: none;
           font-weight: bold;
 
@@ -371,6 +372,63 @@ section.projects-and-contributions {
   }
 }
 
+section.banner-section {
+  padding-bottom: 3em;
+  .header {
+    padding: 2em 0 3em 0;
+    margin: 1em 0;
+    h2 {
+      font-size: 60px;
+      line-height: 70px;
+      font-weight: bold;
+      text-align: center;
+      display: block;
+    }
+
+    h3 {
+      color: $color-grey;
+      font-weight: 300;
+      font-size: 46px;
+      line-height: 60px;
+    }
+  }
+
+  .content {
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 300;
+    min-height: 12em;
+    max-width: 720px;
+
+    .main-text,
+    .side-text {
+      font-size: 1.1em;
+      line-height: 1.3em;
+      padding: .5em;
+      margin-bottom: 1em;
+    }
+
+    .side-text {
+      color: $color-grey;
+    }
+
+    .btn {
+      @include button(#ffffff);
+      font-size: 1em;
+      line-height: 1.8em;
+    }
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: dotted;
+    &:hover {
+      color: $color-orange;
+      text-decoration: none;
+    }
+  }
+}
+
 section.footer {
   padding: 390px 0 230px 0;
 
@@ -379,9 +437,8 @@ section.footer {
     font-size: 24px;
     line-height: 32px;
     font-weight: 300;
-    
+
     a {
-      display: block;
       color: $color-text;
       font-style: normal;
 
@@ -410,11 +467,11 @@ section.footer {
 //This last selector is the selection selector for highllighting words on the project.
 
 ::selection {
-  background: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, 0.3);
   /* Safari */
 }
 
 ::-moz-selection {
-  background: rgba(0, 0, 0, .3);
+  background: rgba(0, 0, 0, 0.3);
   /* Firefox */
 }
