@@ -65,16 +65,6 @@ module.exports = {
             }
           },
           {
-            urlPattern: /^https:\/\/kentico.github.io/,
-            handler: 'networkFirst',
-            options: {
-              cacheableResponse: {
-                statuses: [0, 200]
-              },
-              cacheName: 'local-assets'
-            }
-          },
-          {
             urlPattern: /^https:\/\/avatars[0-9]+.githubusercontent.com\//,
             handler: 'staleWhileRevalidate',
             options: {
