@@ -7,6 +7,7 @@
     "build": "gatsby build && cpx -v \".github/**/*\" public/.github && cpx CODE_OF_CONDUCT.md public && cpx CONTRIBUTING.md public && cpx README.md public && cpx LICENSE public",
     "build-prefixed": "gatsby build --prefix-paths && cpx -v \".github/**/*\" public/.github && cpx CODE_OF_CONDUCT.md public && cpx CONTRIBUTING.md public && cpx README.md public && cpx LICENSE public",
     "develop": "gatsby develop",
+    "develop:preview": "cross-env ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop",
     "deploy": "gh-pages -d public -b master"
   },
   "dependencies": {
@@ -23,7 +24,7 @@
     "github-api": "^3.3.0",
     "html-to-react": "^1.3.3",
     "loaders.css": "^0.1.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "qs": "^6.7.0",
     "query-string": "^6.2.0",

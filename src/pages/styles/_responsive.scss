@@ -43,11 +43,13 @@
 }
 
 @media screen and (max-width: 749px) {
-  .web {}
+  .web {
+  }
 }
 
 @media screen and (max-width: 499px) {
-  .web {}
+  .web {
+  }
   section.heading-section {
     h1 {
       font-size: 40px;
@@ -65,6 +67,24 @@
       line-height: 50px;
     }
   }
+  section.banner-section {
+    .header {
+      h2 {
+        font-size: 40px;
+        line-height: 50px;
+      }
+      h3 {
+        font-size: 26px;
+        line-height: 40px;
+      }
+    }
+    .content {
+      .btn {
+        font-size: .8em;
+        line-height: 1.3em;
+      }
+    }
+  }
   section.projects-and-contributions {
     h2 {
       font-size: 40px;
@@ -79,7 +99,8 @@
 }
 
 @media screen and (min-width: 400px) and (max-width: 749px) {
-  .web {}
+  .web {
+  }
   .slicknav_menu {
     position: absolute;
     z-index: 500;
@@ -93,5 +114,6 @@
 }
 
 @media screen and (min-width: 750px) {
-  .web {}
+  .web {
+  }
 }

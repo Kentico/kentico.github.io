@@ -15,7 +15,7 @@ const landingPage = () => (
       node {
         elements {
           top_menu {
-             value{
+            value {
               ... on kontent_item_text_link {
                 elements {
                   text {
@@ -183,6 +183,41 @@ const landingPage = () => (
                         }
                       }
                     }
+                  }
+                }
+              }
+              ... on kontent_item_banner_section {
+                system {
+                  id
+                  codename
+                  type
+                }
+                elements {
+                  section_info__title {
+                    value
+                  }
+                  section_info__subtitle {
+                    value
+                  }
+                  section_info__background_image {
+                    value {
+                      url
+                    }
+                  }
+                  section_info__background_color {
+                    value
+                  }
+                  url_text {
+                    value
+                  }
+                  url_link {
+                    value
+                  }
+                  main_text {
+                    value
+                  }
+                  side_text {
+                    value
                   }
                 }
               }
