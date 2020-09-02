@@ -26,20 +26,20 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-974c5b4b1dac0b2f0c9a.js"
+    "url": "webpack-runtime-2381de5c135f3622c3e7.js"
   },
   {
     "url": "framework-2e8f5ba53823da537b7e.js"
   },
   {
-    "url": "app-492c65a5a3a3b57111d4.js"
+    "url": "app-4d421e1b9fc89ce1e26c.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-649876e06a6fefb4ceca.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "c50bce9addc74ad332ded5b2f5e97f72"
+    "revision": "a36bd150ca41ca7af857b0f281ecaed4"
   },
   {
     "url": "manifest.webmanifest",
@@ -52,7 +52,6 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 workbox.routing.registerRoute(/^https:\/\/assets-us-01.kc-usercontent.com\//, workbox.strategies.staleWhileRevalidate({ "cacheName":"kc-assets-data", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
 workbox.routing.registerRoute(/^https:\/\/fonts\.googleapis\.com/, workbox.strategies.staleWhileRevalidate({ "cacheName":"google-fonts-stylesheets", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
 workbox.routing.registerRoute(/^https:\/\/fonts\.gstatic\.com/, workbox.strategies.cacheFirst({ "cacheName":"google-fonts-webfonts", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]}), new workbox.expiration.Plugin({"maxAgeSeconds":3600,"maxEntries":30,"purgeOnQuotaError":false})] }), 'GET');
-workbox.routing.registerRoute(/^https:\/\/kentico.github.io/, workbox.strategies.networkFirst({ "cacheName":"local-assets", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]})] }), 'GET');
 workbox.routing.registerRoute(/^https:\/\/avatars[0-9]+.githubusercontent.com\//, workbox.strategies.staleWhileRevalidate({ "cacheName":"github-assets-webfonts", plugins: [new workbox.cacheableResponse.Plugin({"statuses":[0,200]}), new workbox.expiration.Plugin({"maxAgeSeconds":3600,"maxEntries":30,"purgeOnQuotaError":false})] }), 'GET');
 
 /* global importScripts, workbox, idbKeyval */
@@ -68,7 +67,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/app-492c65a5a3a3b57111d4.js`))) {
+  if (!resources || !(await caches.match(`/app-4d421e1b9fc89ce1e26c.js`))) {
     return await fetch(event.request)
   }
 
