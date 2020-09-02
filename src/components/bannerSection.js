@@ -8,7 +8,7 @@ const BannerSection = (props) => {
         ${props.data.elements.section_info__background_color.value}
         url(${props.data.elements.section_info__background_image.value[0].url})
         bottom 
-        left
+        center
         no-repeat`,
   };
 
