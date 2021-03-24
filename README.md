@@ -1,6 +1,6 @@
 # Kentico GitHub Community site
 
-[![Build Status](https://api.travis-ci.com/Kentico/kentico.github.io.svg?branch=source)](https://travis-ci.com/Kentico/kentico.github.io)
+[![Node.js CI](https://github.com/Kentico/kentico.github.io/actions/workflows/node.js.yml/badge.svg)](https://github.com/Kentico/kentico.github.io/actions/workflows/node.js.yml)
 [![Live](https://img.shields.io/badge/live-demo-brightgreen.svg)](https://kentico.github.io)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
@@ -103,4 +103,3 @@ Looking for more guidance using Gatsby? Full documentation for Gatsby lives [on 
 
 Information about the actual deployment is [decribed in wiki](https://github.com/Kentico/kentico.github.io/wiki/How-does-the-automatic-deployment-works).
 
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kentico.github.io?pixel)
