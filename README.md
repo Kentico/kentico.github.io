@@ -103,4 +103,3 @@ Looking for more guidance using Gatsby? Full documentation for Gatsby lives [on 
 
 Information about the actual deployment is [decribed in wiki](https://github.com/Kentico/kentico.github.io/wiki/How-does-the-automatic-deployment-works).
 
-![Analytics](https://kentico-ga-beacon.azurewebsites.net/api/UA-69014260-4/Kentico/kentico.github.io?pixel)
