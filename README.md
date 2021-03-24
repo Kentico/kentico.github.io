@@ -1,6 +1,6 @@
 # Kentico GitHub Community site
 
-[![Build Status](https://api.travis-ci.com/Kentico/kentico.github.io.svg?branch=source)](https://travis-ci.com/Kentico/kentico.github.io)
+[![Node.js CI](https://github.com/Kentico/kentico.github.io/actions/workflows/node.js.yml/badge.svg)](https://github.com/Kentico/kentico.github.io/actions/workflows/node.js.yml)
 [![Live](https://img.shields.io/badge/live-demo-brightgreen.svg)](https://kentico.github.io)
 [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kentico-cloud)
 
