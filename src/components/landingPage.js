@@ -10,261 +10,257 @@ const landingPage = () => (
   <StaticQuery
     query={graphql`
 {
-  allKontentItemSectionsPage {
-    edges {
-      node {
-        elements {
-          top_menu {
-            value {
-              ... on kontent_item_text_link {
-                elements {
-                  text {
-                    value
-                  }
-                  url {
-                    value
-                  }
-                }
+  kontentItemSectionsPage(system: {codename: {eq: "landing_page"}}) {
+    elements {
+      top_menu {
+        value {
+          ... on kontent_item_text_link {
+            elements {
+              text {
+                value
               }
+              url {
+                value
+              }
+            }
+          }
+          id
+        }
+      }
+      title {
+        value
+      }
+      subtitle {
+        value
+      }
+      cta__text {
+        value
+      }
+      cta__url {
+        value
+      }
+      logo {
+        value {
+          url
+        }
+      }
+      background_image {
+        value {
+          url
+        }
+      }
+      sections {
+        value {
+          ... on kontent_item_projects_and_contributors_section {
+            system {
               id
+              type
             }
-          }
-          title {
-            value
-          }
-          subtitle {
-            value
-          }
-          cta__text {
-            value
-          }
-          cta__url {
-            value
-          }
-          logo {
-            value {
-              url
-            }
-          }
-          background_image {
-            value {
-              url
-            }
-          }
-          sections {
-            value {
-              ... on kontent_item_projects_and_contributors_section {
-                system {
-                  id
-                  type
+            elements {
+              section_info__title {
+                value
+              }
+              section_info__subtitle {
+                value
+              }
+              section_info__background_image {
+                value {
+                  url
                 }
-                elements {
-                  section_info__title {
-                    value
-                  }
-                  section_info__subtitle {
-                    value
-                  }
-                  section_info__background_image {
-                    value {
-                      url
+              }
+              icons {
+                value {
+                  ... on kontent_item_icon {
+                    system {
+                      codename
                     }
-                  }
-                  icons {
-                    value {
-                      ... on kontent_item_icon {
-                        system {
-                          codename
-                        }
-                        elements {
-                          title {
-                            value
-                          }
-                          icon {
-                            value {
-                              url
-                            }
-                          }
+                    elements {
+                      title {
+                        value
+                      }
+                      icon {
+                        value {
+                          url
                         }
                       }
                     }
                   }
                 }
               }
-              ... on kontent_item_task_list_section {
-                system {
-                  id
-                  type
-                }
-                elements {
-                  section_info__title {
-                    value
-                  }
-                  section_info__background_image {
-                    value {
-                      url
-                    }
-                  }
-                  steps {
-                    value {
-                      ... on kontent_item_step {
-                        system {
-                          id
-                        }
-                        elements {
-                          text {
-                            value
-                          }
-                        }
-                      }
-                    }
-                  }
-                  platform_selector {
-                    value {
-                      ... on kontent_item_label {
-                        elements {
-                          name {
-                            value
-                          }
-                          codename {
-                            value
-                          }
-                          detail_url {
-                            value
-                          }
-                        }
-                      }
-                    }
-                  }
-                  issues_label {
-                    value
-                  }
-                  steps_label {
-                    value
-                  }
+            }
+          }
+          ... on kontent_item_task_list_section {
+            system {
+              id
+              type
+            }
+            elements {
+              section_info__title {
+                value
+              }
+              section_info__background_image {
+                value {
+                  url
                 }
               }
-              ... on kontent_item_icons_section {
-                system {
-                  id
-                  type
-                }
-                elements {
-                  section_info__title {
-                    value
-                  }
-                  section_info__subtitle {
-                    value
-                  }
-                  section_info__background_image {
-                    value {
-                      url
+              steps {
+                value {
+                  ... on kontent_item_step {
+                    system {
+                      id
                     }
-                  }
-                  icons {
-                    value {
-                      ... on kontent_item_icon {
-                        system {
-                          codename
-                        }
-                        elements {
-                          title {
-                            value
-                          }
-                          subtitle {
-                            value
-                          }
-                          icon {
-                            value {
-                              url
-                              name
-                            }
-                          }
-                        }
+                    elements {
+                      text {
+                        value
                       }
                     }
                   }
                 }
               }
-              ... on kontent_item_banner_section {
-                system {
-                  id
-                  codename
-                  type
-                }
-                elements {
-                  section_info__title {
-                    value
-                  }
-                  section_info__subtitle {
-                    value
-                  }
-                  section_info__background_image {
-                    value {
-                      url
+              platform_selector {
+                value {
+                  ... on kontent_item_label {
+                    elements {
+                      name {
+                        value
+                      }
+                      codename {
+                        value
+                      }
+                      detail_url {
+                        value
+                      }
                     }
                   }
-                  section_info__background_color {
-                    value
-                  }
-                  url_text {
-                    value
-                  }
-                  url_link {
-                    value
-                  }
-                  main_text {
-                    value
-                  }
-                  side_text {
-                    value
-                  }
                 }
+              }
+              issues_label {
+                value
+              }
+              steps_label {
+                value
               }
             }
           }
-          backgrounds {
-            value {
-              url
+          ... on kontent_item_icons_section {
+            system {
+              id
+              type
             }
-          }
-          platforms {
-            value {
-              ... on kontent_item_icon {
-                system {
-                  codename
+            elements {
+              section_info__title {
+                value
+              }
+              section_info__subtitle {
+                value
+              }
+              section_info__background_image {
+                value {
+                  url
                 }
-                elements {
-                  icon {
-                    value {
-                      name
-                      url
+              }
+              icons {
+                value {
+                  ... on kontent_item_icon {
+                    system {
+                      codename
+                    }
+                    elements {
+                      title {
+                        value
+                      }
+                      subtitle {
+                        value
+                      }
+                      icon {
+                        value {
+                          url
+                          name
+                        }
+                      }
                     }
                   }
                 }
               }
             }
           }
-          footer_left_column {
-            value
-          }
-          footer_center_column {
-            value
-          }
-          footer_right_column {
-            value
-          }
-          footer_bottom_text {
-            value
+          ... on kontent_item_banner_section {
+            system {
+              id
+              codename
+              type
+            }
+            elements {
+              section_info__title {
+                value
+              }
+              section_info__subtitle {
+                value
+              }
+              section_info__background_image {
+                value {
+                  url
+                }
+              }
+              section_info__background_color {
+                value
+              }
+              url_text {
+                value
+              }
+              url_link {
+                value
+              }
+              main_text {
+                value
+              }
+              side_text {
+                value
+              }
+            }
           }
         }
+      }
+      backgrounds {
+        value {
+          url
+        }
+      }
+      platforms {
+        value {
+          ... on kontent_item_icon {
+            system {
+              codename
+            }
+            elements {
+              icon {
+                value {
+                  name
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+      footer_left_column {
+        value
+      }
+      footer_center_column {
+        value
+      }
+      footer_right_column {
+        value
+      }
+      footer_bottom_text {
+        value
       }
     }
   }
 }
 `}
     render={(data) => {
-      const node = data.allKontentItemSectionsPage.edges[0].node;
+      const node = data.kontentItemSectionsPage;
       const sections = node.elements.sections.value.map((section, index) => (
         <Section
           key={index}
