@@ -113,7 +113,7 @@ class GitHubDataLoader {
   async getKenticoOpenedGroomedIssues(platform) {
     let options;
     let search = this.gitHub.search({
-      q: `org:Kentico type:issue is:public label:groomed state:open no:assignee language:${platform}`,
+      q: `org:Kentico type:issue is:public state:open no:assignee language:${platform}`,
       sort: 'updated',
       order: 'desc'
     });
